@@ -671,3 +671,54 @@ ul[data-testid="stSidebarNavItems"] {
   box-shadow: 0 0 10px var(--primary-glow);
   border: 1px solid var(--border-strong);
 }
+
+/* ==============================================================================
+   Exact Stitch Header Theme Switcher Pill
+   ============================================================================== */
+.sahara-header-theme-switcher {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px;
+  background: var(--bg-surface-low);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  gap: 2px;
+}
+
+.sahara-header-theme-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  text-decoration: none !important;
+  color: var(--text-dim) !important;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.sahara-header-theme-btn:hover {
+  color: var(--text-main) !important;
+  background: var(--bg-surface-elevated);
+}
+
+.sahara-header-theme-btn.active {
+  background: var(--bg-surface-high);
+  color: var(--primary) !important;
+  font-weight: 700;
+  box-shadow: 0 0 12px var(--primary-glow);
+  border: 1px solid var(--primary);
+}
+
+.sahara-theme-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 8px var(--primary);
+  display: inline-block;
+  margin-left: 2px;
+}

@@ -26,6 +26,12 @@ REQUEST_TIMEOUT = 12.0
 
 def apply_custom_css():
     """Injects custom CSS from style.css into the Streamlit session with theme awareness."""
+    # Check if user clicked query param theme switcher (?theme=light or ?theme=dark)
+    if "theme" in st.query_params:
+        param_theme = st.query_params["theme"]
+        if param_theme in ["light", "dark"] and param_theme != st.session_state.get("theme"):
+            st.session_state["theme"] = param_theme
+
     theme = st.session_state.get("theme", "dark")
     css_path = os.path.join(FRONTEND_DIR, "style.css")
     if os.path.exists(css_path):
@@ -240,42 +246,40 @@ def render_sahara_top_header(
     status_label = "ONLINE (200 OK)" if is_online else "LOCAL FAST-ENGINE"
     dot_color = "#10B981" if is_online else "#F59E0B"
 
-    header_html = f"""<div class="sahara-top-chrome">
-        <div class="sahara-brand-group">
-            <div class="sahara-brand-emblem">
-                <span class="material-symbols-outlined" style="font-size: 20px;">hub</span>
-            </div>
-            <div class="sahara-brand-title">
-                NEXUS <span class="sahara-version-pill">v4.8</span>
-                <span style="font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">/ {crumb}</span>
-            </div>
-        </div>
-        <div class="sahara-meta-strip">
-            <div class="sahara-status-capsule">
-                <span class="sahara-dot-pulse" style="background-color: {dot_color}; box-shadow: 0 0 8px {dot_color};"></span>
-                <span>SYSTEM: NOMINAL 99.98%</span>
-            </div>
-            <div class="sahara-status-capsule">
-                <span style="color: var(--text-dim);">FASTAPI:</span>
-                <span style="color: {dot_color}; font-weight: 700;">{status_label}</span>
-            </div>
-            <div class="sahara-status-capsule">
-                <span>USD $ / UTC-5</span>
-            </div>
-            <div class="sahara-user-avatar" title="E. Vance (VP Merchandising)">
-                EV
-            </div>
-        </div>
-    </div>
-    <div style="margin-top: 14px; margin-bottom: 22px;">
-        <div class="sahara-eyebrow">
-            <span class="material-symbols-outlined" style="font-size: 14px;">circle</span>
-            {eyebrow}
-        </div>
-        <h1 class="sahara-hero-title">{page_title}</h1>
-        {f'<div class="sahara-hero-subtitle">{subtitle}</div>' if subtitle else ''}
-    </div>"""
+    current_theme = st.session_state.get("theme", "dark")
+    is_dark = (current_theme == "dark")
 
+    # Stitch Exact Theme Switcher Buttons (Light / Dark)
+    light_active = "active" if not is_dark else ""
+    dark_active = "active" if is_dark else ""
+    dot_html = '<span class="sahara-theme-dot"></span>' if is_dark else ''
+
+    # Clean HTML with zero leading indentation to prevent markdown 4-space code block interpretation
+    raw_html_lines = [
+        '<div class="sahara-top-chrome">',
+        '<div class="sahara-brand-group">',
+        '<div class="sahara-brand-emblem"><span class="material-symbols-outlined" style="font-size: 20px;">hub</span></div>',
+        f'<div class="sahara-brand-title">NEXUS <span class="sahara-version-pill">v4.8</span><span style="font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">/ {crumb}</span></div>',
+        '</div>',
+        '<div class="sahara-meta-strip">',
+        f'<div class="sahara-status-capsule"><span class="sahara-dot-pulse" style="background-color: {dot_color}; box-shadow: 0 0 8px {dot_color};"></span><span>SYSTEM: NOMINAL 99.98%</span></div>',
+        f'<div class="sahara-status-capsule"><span style="color: var(--text-dim);">FASTAPI:</span><span style="color: {dot_color}; font-weight: 700;">{status_label}</span></div>',
+        '<div class="sahara-status-capsule"><span>USD $ / UTC-5</span></div>',
+        '<div aria-label="Theme Switcher" class="sahara-header-theme-switcher">',
+        f'<a href="?theme=light" target="_self" class="sahara-header-theme-btn {light_active}" title="Switch to Sahara Light mode"><span class="material-symbols-outlined" style="font-size: 15px;">light_mode</span><span>Sahara Light</span></a>',
+        f'<a href="?theme=dark" target="_self" class="sahara-header-theme-btn {dark_active}" title="Sahara Dark mode active"><span class="material-symbols-outlined" style="font-size: 15px;">dark_mode</span><span>Sahara Dark</span>{dot_html}</a>',
+        '</div>',
+        '<div class="sahara-user-avatar" title="E. Vance (VP Merchandising)">EV</div>',
+        '</div>',
+        '</div>',
+        '<div style="margin-top: 14px; margin-bottom: 22px;">',
+        f'<div class="sahara-eyebrow"><span class="material-symbols-outlined" style="font-size: 14px;">circle</span>{eyebrow}</div>',
+        f'<h1 class="sahara-hero-title">{page_title}</h1>',
+        f'<div class="sahara-hero-subtitle">{subtitle}</div>' if subtitle else '',
+        '</div>',
+    ]
+
+    header_html = "".join(raw_html_lines)
     st.markdown(header_html, unsafe_allow_html=True)
 
 
@@ -310,24 +314,7 @@ def render_sahara_sidebar(active_module: str = "overview"):
 
         st.markdown("<br>", unsafe_allow_html=True)
 
-        # 2. Theme Toggle Pill
-        current_theme = st.session_state.get("theme", "dark")
-        theme_options = ["Sahara Nocturne (Dark)", "Sahara Light (Warm)"]
-        current_idx = 0 if current_theme == "dark" else 1
-
-        chosen_theme = st.radio(
-            "Aesthetic Theme",
-            theme_options,
-            index=current_idx,
-            label_visibility="collapsed",
-            key="sahara_theme_selector",
-        )
-        new_theme = "dark" if "Dark" in chosen_theme else "light"
-        if new_theme != current_theme:
-            st.session_state["theme"] = new_theme
-            st.rerun()
-
-        st.markdown("<br>", unsafe_allow_html=True)
+        # Theme switcher has been cleanly moved to the top header matching Stitch designs!
 
         # 3. Stitch Operational Modules Navigation Menu
         active_exec = "active" if active_module == "overview" else ""
@@ -457,7 +444,7 @@ def get_sahara_plotly_theme() -> Dict[str, Any]:
         "paper_bgcolor": "rgba(0,0,0,0)",
         "plot_bgcolor": "rgba(0,0,0,0)",
         "font": {"family": "Manrope, sans-serif", "color": text_color, "size": 12},
-        "title": {"text": None, "font": {"family": "EB Garamond, serif", "color": "#EDE6DD" if is_dark else "#1F1B18", "size": 16}},
+        # No title object so Plotly.js never renders literal "undefined"
         "xaxis": {
             "gridcolor": grid_color,
             "zerolinecolor": grid_color,

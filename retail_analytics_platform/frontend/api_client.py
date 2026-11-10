@@ -254,25 +254,25 @@ def render_sahara_top_header(
     dark_active = "active" if is_dark else ""
     dot_html = '<span class="sahara-theme-dot"></span>' if is_dark else ''
 
-    # Clean HTML with zero leading indentation to prevent markdown 4-space code block interpretation
+    # Clean HTML with responsive classes and mobile optimizations
     raw_html_lines = [
         '<div class="sahara-top-chrome">',
         '<div class="sahara-brand-group">',
         '<div class="sahara-brand-emblem"><span class="material-symbols-outlined" style="font-size: 20px;">hub</span></div>',
-        f'<div class="sahara-brand-title">NEXUS <span class="sahara-version-pill">v4.8</span><span style="font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">/ {crumb}</span></div>',
+        f'<div class="sahara-brand-title">NEXUS <span class="sahara-version-pill">v4.8</span><span class="sahara-crumb-label" style="font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">/ {crumb}</span></div>',
         '</div>',
         '<div class="sahara-meta-strip">',
-        f'<div class="sahara-status-capsule"><span class="sahara-dot-pulse" style="background-color: {dot_color}; box-shadow: 0 0 8px {dot_color};"></span><span>SYSTEM: NOMINAL 99.98%</span></div>',
-        f'<div class="sahara-status-capsule"><span style="color: var(--text-dim);">FASTAPI:</span><span style="color: {dot_color}; font-weight: 700;">{status_label}</span></div>',
-        '<div class="sahara-status-capsule"><span>USD $ / UTC-5</span></div>',
+        f'<div class="sahara-status-capsule sahara-hide-mobile"><span class="sahara-dot-pulse" style="background-color: {dot_color}; box-shadow: 0 0 8px {dot_color};"></span><span>SYSTEM: NOMINAL</span></div>',
+        f'<div class="sahara-status-capsule"><span class="sahara-hide-mobile" style="color: var(--text-dim);">FASTAPI: </span><span style="color: {dot_color}; font-weight: 700;">{status_label}</span></div>',
+        '<div class="sahara-status-capsule sahara-hide-tablet"><span>USD $ / UTC-5</span></div>',
         '<div aria-label="Theme Switcher" class="sahara-header-theme-switcher">',
-        f'<a href="?theme=light" target="_self" class="sahara-header-theme-btn {light_active}" title="Switch to Sahara Light mode"><span class="material-symbols-outlined" style="font-size: 15px;">light_mode</span><span>Sahara Light</span></a>',
-        f'<a href="?theme=dark" target="_self" class="sahara-header-theme-btn {dark_active}" title="Sahara Dark mode active"><span class="material-symbols-outlined" style="font-size: 15px;">dark_mode</span><span>Sahara Dark</span>{dot_html}</a>',
+        f'<a href="?theme=light" target="_self" class="sahara-header-theme-btn {light_active}" title="Switch to Sahara Light mode"><span class="material-symbols-outlined" style="font-size: 15px;">light_mode</span><span class="sahara-hide-mobile">Light</span></a>',
+        f'<a href="?theme=dark" target="_self" class="sahara-header-theme-btn {dark_active}" title="Sahara Dark mode active"><span class="material-symbols-outlined" style="font-size: 15px;">dark_mode</span><span class="sahara-hide-mobile">Dark</span>{dot_html}</a>',
         '</div>',
-        '<div class="sahara-user-avatar" title="E. Vance (VP Merchandising)">EV</div>',
+        '<div class="sahara-user-avatar sahara-hide-mobile" title="E. Vance (VP Merchandising)">EV</div>',
         '</div>',
         '</div>',
-        '<div style="margin-top: 14px; margin-bottom: 22px;">',
+        '<div class="sahara-hero-header-block" style="margin-top: 14px; margin-bottom: 22px;">',
         f'<div class="sahara-eyebrow"><span class="material-symbols-outlined" style="font-size: 14px;">circle</span>{eyebrow}</div>',
         f'<h1 class="sahara-hero-title">{page_title}</h1>',
         f'<div class="sahara-hero-subtitle">{subtitle}</div>' if subtitle else '',

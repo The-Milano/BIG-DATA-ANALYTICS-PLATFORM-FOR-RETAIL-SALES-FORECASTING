@@ -722,3 +722,139 @@ ul[data-testid="stSidebarNavItems"] {
   display: inline-block;
   margin-left: 2px;
 }
+
+/* ==============================================================================
+   Responsive & Mobile-First Screen Adaptations
+   ============================================================================== */
+
+/* Base Viewport & Touch Optimization */
+@media (max-width: 992px) {
+  .sahara-hide-tablet {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Prevent horizontal overflow on mobile */
+  html, body, [data-testid="stAppViewContainer"], .main, .block-container {
+    overflow-x: hidden !important;
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+    padding-top: 2rem !important;
+  }
+
+  /* Utility display classes */
+  .sahara-hide-mobile {
+    display: none !important;
+  }
+
+  /* Header Bar responsiveness */
+  .sahara-top-chrome {
+    padding: 10px 12px !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    margin-bottom: 14px !important;
+    border-radius: 10px !important;
+  }
+
+  .sahara-brand-group {
+    gap: 8px !important;
+  }
+
+  .sahara-brand-emblem {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .sahara-brand-title {
+    font-size: 0.95rem !important;
+    gap: 6px !important;
+  }
+
+  .sahara-crumb-label {
+    max-width: 110px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .sahara-meta-strip {
+    gap: 8px !important;
+    width: 100%;
+    justify-content: space-between !important;
+  }
+
+  .sahara-status-capsule {
+    font-size: 10px !important;
+    padding: 3px 8px !important;
+  }
+
+  .sahara-header-theme-switcher {
+    margin-left: auto;
+  }
+
+  .sahara-header-theme-btn {
+    padding: 4px 8px !important;
+    font-size: 10px !important;
+  }
+
+  /* Typography on Mobile */
+  .sahara-hero-title {
+    font-size: 1.6rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .sahara-hero-subtitle {
+    font-size: 0.85rem !important;
+    margin-bottom: 14px !important;
+  }
+
+  .sahara-eyebrow {
+    font-size: 0.65rem !important;
+  }
+
+  /* Cards & KPIs */
+  .sahara-card {
+    padding: 14px 16px !important;
+    border-radius: 10px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .sahara-kpi-value {
+    font-size: 1.55rem !important;
+    margin-bottom: 6px !important;
+  }
+
+  .sahara-kpi-header {
+    margin-bottom: 6px !important;
+  }
+
+  /* Banner block */
+  .sahara-banner {
+    padding: 16px !important;
+    border-radius: 10px !important;
+  }
+
+  /* Navigation Sidebar adjustments */
+  [data-testid="stSidebar"] {
+    width: 280px !important;
+  }
+
+  .sahara-nav-item {
+    padding: 10px 12px !important;
+    font-size: 0.85rem !important;
+    border-radius: 8px !important;
+  }
+
+  /* Plotly chart container touch sizing */
+  .js-plotly-plot, .plotly {
+    max-width: 100% !important;
+  }
+
+  /* DataTables & DataFrames horizontal scroll */
+  [data-testid="stDataFrame"], [data-testid="stTable"] {
+    max-width: 100% !important;
+    overflow-x: auto !important;
+  }
+}
+

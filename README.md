@@ -19,6 +19,7 @@ cd retail_analytics_platform/frontend
 streamlit run app.py --server.port 8501
 ```
 - Web Application: `http://localhost:8501`
+- Live Application: 'https://the-milano-big-data-retail-analytics-platformfrontendapp-e8qvzx.streamlit.app/'
 
 ---
 

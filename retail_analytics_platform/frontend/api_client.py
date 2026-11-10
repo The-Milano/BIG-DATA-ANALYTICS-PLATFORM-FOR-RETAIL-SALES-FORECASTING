@@ -395,40 +395,30 @@ def render_kpi_card_sahara(
     badge_class = "sahara-badge-positive" if badge_type == "positive" else ("sahara-badge-negative" if badge_type == "negative" else "sahara-badge-neutral")
     trend_icon = "trending_up" if badge_type == "positive" else ("trending_down" if badge_type == "negative" else "show_chart")
 
-    target_html = f'''<div class="sahara-kpi-target-label">
-        Target: <span class="sahara-kpi-target-val">{target_text}</span>
-    </div>''' if target_text else ""
+    target_html = f'<div class="sahara-kpi-target-label">Target: <span class="sahara-kpi-target-val">{target_text}</span></div>' if target_text else ""
 
-    vel_html = f'''<div style="display: flex; flex-direction: column;">
-        <span style="font-family: 'JetBrains Mono'; font-size: 9px; color: var(--text-dim); text-transform: uppercase;">{velocity_label}</span>
-        <span style="font-family: 'JetBrains Mono'; font-size: 11px; color: var(--text-muted); font-weight: 600;">{subtext}</span>
-    </div>''' if velocity_label else f'<span class="sahara-subtext">{subtext}</span>'
+    vel_html = f'<div style="display:flex;flex-direction:column;"><span style="font-family:\'JetBrains Mono\';font-size:9px;color:var(--text-dim);text-transform:uppercase;">{velocity_label}</span><span style="font-family:\'JetBrains Mono\';font-size:11px;color:var(--text-muted);font-weight:600;">{subtext}</span></div>' if velocity_label else f'<span class="sahara-subtext">{subtext}</span>'
 
     # SVG sparkline vector based on badge_type
     stroke_color = "#FFB68D" if badge_type == "positive" else ("#EF4444" if badge_type == "negative" else "#FFB955")
     pulse_color = "#E07A38" if badge_type == "positive" else ("#EF4444" if badge_type == "negative" else "#D9822B")
-    svg_html = f'''<svg width="80" height="28" viewBox="0 0 80 28" fill="none" style="overflow: visible;">
-        <path d="M0 22 Q 14 26 28 16 T 56 12 T 80 4" fill="none" stroke="{stroke_color}" stroke-linecap="round" stroke-width="2"/>
-        <circle cx="80" cy="4" r="2.5" fill="{pulse_color}"/>
-    </svg>'''
+    svg_html = f'<svg width="80" height="28" viewBox="0 0 80 28" fill="none" style="overflow:visible;"><path d="M0 22 Q 14 26 28 16 T 56 12 T 80 4" fill="none" stroke="{stroke_color}" stroke-linecap="round" stroke-width="2"/><circle cx="80" cy="4" r="2.5" fill="{pulse_color}"/></svg>'
 
-    return f"""
-    <div class="sahara-card">
-        <div class="sahara-kpi-header">
-            <span class="sahara-kpi-title">{title}</span>
-            <span class="{badge_class}">
-                <span class="material-symbols-outlined" style="font-size: 13px;">{trend_icon}</span>
-                {badge_text}
-            </span>
-        </div>
-        <div class="sahara-kpi-value">{value}</div>
-        {target_html}
-        <div class="sahara-kpi-footer" style="padding-top: 4px; border-top: 1px solid var(--border-subtle); margin-top: 6px;">
-            {vel_html}
-            {svg_html}
-        </div>
-    </div>
-    """
+    card_lines = [
+        '<div class="sahara-card">',
+        '<div class="sahara-kpi-header">',
+        f'<span class="sahara-kpi-title">{title}</span>',
+        f'<span class="{badge_class}"><span class="material-symbols-outlined" style="font-size: 13px;">{trend_icon}</span>{badge_text}</span>',
+        '</div>',
+        f'<div class="sahara-kpi-value">{value}</div>',
+        target_html,
+        '<div class="sahara-kpi-footer" style="padding-top: 4px; border-top: 1px solid var(--border-subtle); margin-top: 6px;">',
+        vel_html,
+        svg_html,
+        '</div>',
+        '</div>'
+    ]
+    return "".join(card_lines)
 
 
 def get_sahara_plotly_theme() -> Dict[str, Any]:

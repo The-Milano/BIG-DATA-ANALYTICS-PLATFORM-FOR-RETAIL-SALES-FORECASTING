@@ -1,0 +1,684 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="web_dashboard" name="shell-type">
+<title>Nexus Retail AI - Executive Overview</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          primary: {
+            DEFAULT: "#c2652a",
+            hover: "#ad561f",
+            light: "#fbe8d8",
+            dim: "#f0a878",
+            dark: "#8a4518",
+          },
+          sand: {
+            50: "#fdfbf7",
+            100: "#f7f2ea",
+            200: "#eee6d8",
+            300: "#e2d7c3",
+            400: "#c7b79d",
+          },
+          espresso: {
+            DEFAULT: "#1f1b18",
+            subtle: "#3a302a",
+            muted: "#605850",
+            border: "#e6e0d6",
+          },
+          ochre: "#d97736",
+          amber: "#e69535",
+          olive: "#5e7053",
+          crimson: "#b9382c"
+        },
+        fontFamily: {
+          body: ["Manrope", "sans-serif"],
+          headline: ["EB Garamond", "serif"],
+          mono: ["JetBrains Mono", "monospace"],
+        }
+      }
+    }
+  }
+</script>
+<style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #FAF6F0;
+        color: #1F1B18;
+        font-family: 'Manrope', sans-serif;
+      }
+      body {
+        overscroll-behavior: none;
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    .font-mono-num {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .font-headline {
+      font-family: 'EB Garamond', serif;
+    }
+    .font-display {
+      font-family: 'Manrope', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-[#FAF6F0] text-espresso antialiased selection:bg-primary/20 selection:text-primary-dark">
+<!-- Left Sidebar Navigation Chrome (Warm Sahara Theme) -->
+<aside class="fixed left-0 top-0 h-screen w-72 bg-[#F5EFE6] border-r border-[#E5DDD0] backdrop-blur-2xl z-50 flex flex-col justify-between shadow-[4px_0_24px_rgba(70,45,25,0.04)]">
+<div class="flex flex-col">
+<!-- Brand & Systems Header -->
+<div class="px-5 pt-5 pb-4 border-b border-[#E5DDD0]">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-primary to-[#D97736] flex items-center justify-center p-0.5 shadow-[0_2px_10px_rgba(194,101,42,0.3)]">
+<span class="material-symbols-outlined text-white text-xl">hub</span>
+</div>
+<div class="flex flex-col">
+<span class="font-bold tracking-tight text-espresso leading-tight flex items-center gap-1.5 text-base">
+              NEXUS <span class="text-primary font-mono-num font-semibold text-[11px] uppercase px-1.5 py-0.5 bg-[#FAF5EE] border border-primary/30 rounded">v4.8</span>
+</span>
+<span class="text-[10px] font-bold tracking-widest text-espresso-muted uppercase">RETAIL AI FOUNDRY</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="inline-flex items-center justify-between px-2.5 py-1.5 rounded-md bg-white border border-[#E8E2D6] shadow-sm">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
+<span class="font-mono-num text-[11px] text-espresso-subtle font-semibold tracking-wide uppercase">SYSTEM: NOMINAL</span>
+</div>
+<span class="text-[10px] text-espresso-muted font-mono-num font-medium">99.98%</span>
+</div>
+<div class="inline-flex items-center justify-between px-2.5 py-1.5 rounded-md bg-[#FAF5EE] border border-[#E8E2D6]">
+<span class="font-mono-num text-[11px] text-espresso-muted">FASTAPI ENDPOINT:</span>
+<span class="font-mono-num text-[11px] text-emerald-700 font-semibold flex items-center gap-1">
+<span class="w-1 h-1 rounded-full bg-emerald-600"></span>ONLINE (200 OK)
+            </span>
+</div>
+</div>
+</div>
+<!-- Modules Nav -->
+<div class="px-3 py-4">
+<div class="px-3 pb-2">
+<span class="text-[10px] font-bold text-espresso-muted uppercase tracking-wider font-mono-num">Operational Modules</span>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all bg-white border border-[#E2D7C5] text-primary font-bold shadow-sm" href="#">
+<span class="material-symbols-outlined text-primary text-lg">analytics</span>
+<span class="text-sm">Executive Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-espresso-subtle hover:text-espresso hover:bg-white/70 transition-all group" href="#">
+<span class="material-symbols-outlined text-espresso-muted group-hover:text-primary text-lg transition-colors">trending_up</span>
+<span class="text-sm font-medium">AI Sales Forecasting</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-espresso-subtle hover:text-espresso hover:bg-white/70 transition-all group" href="#">
+<span class="material-symbols-outlined text-espresso-muted group-hover:text-primary text-lg transition-colors">group</span>
+<span class="text-sm font-medium">Customer 360 &amp; RFM</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-espresso-subtle hover:text-espresso hover:bg-white/70 transition-all group" href="#">
+<span class="material-symbols-outlined text-espresso-muted group-hover:text-primary text-lg transition-colors">inventory_2</span>
+<span class="text-sm font-medium">Inventory &amp; Supply Chain</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-espresso-subtle hover:text-espresso hover:bg-white/70 transition-all group" href="#">
+<span class="material-symbols-outlined text-espresso-muted group-hover:text-primary text-lg transition-colors">tune</span>
+<span class="text-sm font-medium">Model Management &amp; MLOps</span>
+</a>
+</nav>
+</div>
+</div>
+<!-- Sidebar Bottom Telemetry -->
+<div class="p-3 m-3 rounded-xl bg-white border border-[#E5DDD0] flex flex-col gap-2.5 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-bold text-espresso-muted font-mono-num uppercase tracking-wider">MLOps Telemetry</span>
+<span class="inline-flex items-center gap-1 font-mono-num text-[11px] text-emerald-700 font-semibold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>HEALTHY
+        </span>
+</div>
+<div class="grid grid-cols-2 gap-1.5">
+<div class="flex flex-col bg-[#FAF6F0] p-2 rounded border border-[#EBE3D7]">
+<span class="text-[10px] text-espresso-muted font-mono-num">Inference Latency</span>
+<span class="font-mono-num text-xs font-semibold text-espresso">18ms</span>
+</div>
+<div class="flex flex-col bg-[#FAF6F0] p-2 rounded border border-[#EBE3D7]">
+<span class="text-[10px] text-espresso-muted font-mono-num">Ingested SKUs</span>
+<span class="font-mono-num text-xs font-semibold text-espresso">120,492</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1 border-t border-[#EFE8DD]">
+<div class="flex flex-col">
+<span class="text-[9px] text-espresso-muted uppercase font-mono-num">Active Cluster</span>
+<span class="font-mono-num text-[11px] text-primary font-semibold">Prod / us-east-1a</span>
+</div>
+<span class="material-symbols-outlined text-espresso-muted text-base cursor-pointer hover:text-primary transition-colors">tune</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Space -->
+<div class="pl-72 flex flex-col min-h-screen bg-[#FAF6F0]">
+<!-- Top Persistent Header -->
+<header class="fixed top-0 left-72 right-0 h-16 bg-[#FAF6F0]/90 backdrop-blur-xl z-40 border-b border-[#E5DDD0] flex items-center justify-between px-6 shadow-sm">
+<!-- Breadcrumbs & Sync Info -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 font-mono-num text-xs text-espresso-muted">
+<span class="text-primary font-bold">NEXUS</span>
+<span class="text-sand-400">/</span>
+<span class="">Retail Analytics</span>
+<span class="text-sand-400">/</span>
+<span class="text-espresso font-semibold">Executive Overview</span>
+</div>
+<div class="h-4 w-px bg-[#E5DDD0]"></div>
+<div class="flex items-center gap-2 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-mono-num text-[11px] font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="">LIVE SYNC (3s)</span>
+</div>
+</div>
+<!-- Quick Actions, Search & User -->
+<div class="flex items-center gap-3">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2.5 text-espresso-muted text-sm pointer-events-none">search</span>
+<input class="w-80 h-8 pl-8 pr-3 bg-white border border-[#DDD3C2] text-espresso placeholder:text-espresso-muted text-xs rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-mono-num shadow-sm" placeholder="Search SKUs, cohorts, stores (⌘K)..." type="text">
+</div>
+<div class="flex items-center gap-1.5 px-2.5 h-8 rounded-lg bg-white border border-[#DDD3C2] text-espresso font-mono-num text-xs hover:border-primary/50 transition-colors cursor-pointer shadow-sm">
+<span class="material-symbols-outlined text-sm text-primary">currency_exchange</span>
+<span class="font-medium">USD $ / UTC-5</span>
+</div>
+<div class="flex items-center bg-stone-200/80 p-0.5 rounded-lg border border-stone-300 text-[11px] font-medium tracking-tight">
+  <button class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white text-stone-900 shadow-sm font-semibold transition-all">
+    <span class="material-symbols-outlined text-[14px] text-amber-600">light_mode</span>
+    <span class="">Sahara Light</span>
+  </button>
+  <button class="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-stone-600 hover:text-stone-900 transition-all">
+    <span class="material-symbols-outlined text-[14px]">dark_mode</span>
+    <span class="">Sahara Dark</span>
+  </button>
+</div><button class="h-8 px-3 rounded-lg bg-primary hover:bg-primary-hover text-white font-medium text-xs flex items-center gap-1.5 transition-all shadow-[0_2px_8px_rgba(194,101,42,0.25)] active:scale-95">
+<span class="material-symbols-outlined text-sm">rocket_launch</span>
+<span class="">Deploy</span>
+</button>
+<button class="relative w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-[#DDD3C2] text-espresso-subtle hover:text-espresso transition-colors shadow-sm">
+<span class="material-symbols-outlined text-base">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-crimson ring-2 ring-white"></span>
+</button>
+<div class="flex items-center gap-2.5 pl-2 border-l border-[#E5DDD0]">
+<div class="w-8 h-8 rounded-full bg-gradient-to-tr from-primary to-amber p-0.5 shadow-sm">
+<div class="w-full h-full rounded-full bg-[#FAF5EE] flex items-center justify-center font-bold text-xs text-primary">EV</div>
+</div>
+<div class="hidden xl:flex flex-col">
+<span class="text-xs text-espresso font-bold leading-tight">E. Vance</span>
+<span class="text-[9px] font-mono-num text-espresso-muted uppercase tracking-wider font-semibold">VP Merchandising</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Workspace -->
+<main class="w-full pt-16 flex-1 bg-[#FAF6F0]"><div class="flex flex-col w-full">
+<!-- Contextual Sub-Bar / Fast MLOps Banner -->
+<div class="px-8 py-5 bg-surface-container-low flex flex-col xl:flex-row xl:items-center justify-between gap-4">
+<div class="flex flex-wrap items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-headline text-2xl font-bold tracking-tight text-on-surface">Model Management &amp; MLOps</span>
+</div>
+<span class="text-outline text-xs hidden sm:inline">|</span>
+<div class="flex flex-wrap items-center gap-2 font-mono text-xs">
+<span class="px-2.5 py-1 rounded bg-surface-container-highest text-on-surface-variant font-medium">FASTAPI: ONLINE (HTTP 200)</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-highest text-on-surface-variant font-medium">RECORDS: 120,000</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-highest text-on-surface-variant font-medium">SKUS: 33</span>
+<span class="px-2.5 py-1 rounded bg-primary-fixed text-on-primary-fixed-variant font-semibold">CLUSTER: 99.98% NOMINAL</span>
+</div>
+</div>
+<!-- MLOps Quick Trigger Actions -->
+<div class="flex items-center gap-2.5 self-start xl:self-auto">
+<button class="px-3 py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm">
+<span class="material-symbols-outlined text-sm text-primary">terminal</span>
+<span class="">K8s Pod Logs</span>
+</button>
+<button class="px-3 py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm">
+<span class="material-symbols-outlined text-sm text-primary">download</span>
+<span class="">Export Registry (.onnx)</span>
+</button>
+<button class="px-4 py-2 rounded-lg bg-primary hover:bg-on-primary-fixed-variant text-on-primary text-xs font-bold flex items-center gap-2 transition-all shadow-md active:scale-95" id="retrain-btn">
+<span class="material-symbols-outlined text-sm animate-spin hidden" id="retrain-spinner">sync</span>
+<span class="material-symbols-outlined text-sm" id="retrain-icon">bolt</span>
+<span id="retrain-label" class="">Retrain Models Now</span>
+</button>
+</div>
+</div>
+<div class="p-8 flex flex-col gap-8 max-w-7xl mx-auto w-full">
+<!-- Redesign Reference / Telemetry Insight Callout -->
+<div class="bg-surface-container rounded-2xl p-6 shadow-sm flex flex-col lg:flex-row items-center justify-between gap-6">
+<div class="flex flex-col gap-2 max-w-2xl">
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-mono tracking-widest text-primary uppercase font-bold px-2 py-0.5 rounded bg-surface-container-highest">Live Registry Ingestion</span>
+<span class="text-xs text-on-surface-variant font-mono">Run ID: #exp-2026-10-31-0941</span>
+</div>
+<h2 class="font-headline text-3xl font-semibold text-on-surface leading-snug">Autonomous LightGBM &amp; Prophet Ensemble v2.4</h2>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">
+          Production inference pipeline is operational across all 33 SKUs with zero drift anomalies detected over the last 14 observation windows. Residual variance is strictly mesokurtic with a normalized 13.63% MAPE baseline.
+        </p>
+</div>
+<!-- Quick Comparison Drawer Trigger with Screenshot Thumbnail -->
+<div class="relative group cursor-pointer rounded-xl overflow-hidden shadow-md bg-surface-container-highest shrink-0 w-64 h-28">
+<img alt="Streamlit MLOps Prototype Reference" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcRJ0szr2mYa3pW-kd1UvqJQ9EB0JsjFjr6pDqGX42NWg9fdgD3DRir4EuBXZSb0vIA3pIALi5HtzQwFsKNNVdqoUb0TxanyzbebljyEYBBpSF6eyLSz9uEes-oCvjzux1mJoO5YpVNG-ypwlc7N3VKP3zuFgzEWyRbuTGBErkbmZPYkfaH9PFgjmAMTSPOYLFJfkC2YEuEUIFrLqx8neq130Kcz07FJrDXbf1xC2AE1_ppnNn2Q_R">
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-inverse-surface/30 to-transparent flex items-end p-3">
+<div class="flex items-center justify-between w-full">
+<span class="text-[11px] font-mono text-surface-bright font-medium">Source Baseline (Streamlit)</span>
+<span class="material-symbols-outlined text-surface-bright text-sm group-hover:translate-x-1 transition-transform">open_in_new</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 4 Core MLOps KPIs (Redesigned from Streamlit cards) -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+<!-- Card 1: R2 Score -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="text-xs font-mono text-on-surface-variant uppercase tracking-wider font-semibold">Model Accuracy (R²)</span>
+<span class="text-[11px] text-on-surface-variant">Validation holdout (80/20)</span>
+</div>
+<div class="w-9 h-9 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">stacked_line_chart</span>
+</div>
+</div>
+<div class="my-4 flex items-baseline gap-3">
+<span class="font-headline text-5xl font-bold text-on-surface tracking-tight">85.0%</span>
+<span class="text-xs font-mono font-bold text-primary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">arrow_upward</span>
+            +3.0% vs target
+          </span>
+</div>
+<div class="pt-3 bg-surface-container-low rounded-xl p-3 flex flex-col gap-1.5">
+<div class="flex justify-between text-[11px] font-mono">
+<span class="text-on-surface-variant">Ensemble Fit</span>
+<span class="font-semibold text-on-surface">Target &gt; 82.0%</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 85%;"></div>
+</div>
+</div>
+</div>
+<!-- Card 2: MAPE / RMSE -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="text-xs font-mono text-on-surface-variant uppercase tracking-wider font-semibold">Prediction Error (MAPE)</span>
+<span class="text-[11px] text-on-surface-variant">Mean Absolute % Error</span>
+</div>
+<div class="w-9 h-9 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">percent</span>
+</div>
+</div>
+<div class="my-4 flex items-baseline gap-3">
+<span class="font-headline text-5xl font-bold text-on-surface tracking-tight">13.63%</span>
+<span class="text-xs font-mono font-bold text-olive flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">check_circle</span>
+            Best-in-class
+          </span>
+</div>
+<div class="pt-3 bg-surface-container-low rounded-xl p-3 flex items-center justify-between text-[11px] font-mono">
+<span class="text-on-surface-variant">Root Mean Sq Error (RMSE)</span>
+<span class="font-bold text-on-surface">$7,624</span>
+</div>
+</div>
+<!-- Card 3: Training & Inference Latency -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="text-xs font-mono text-on-surface-variant uppercase tracking-wider font-semibold">Training &amp; Inference</span>
+<span class="text-[11px] text-on-surface-variant">End-to-end fit latency</span>
+</div>
+<div class="w-9 h-9 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">speed</span>
+</div>
+</div>
+<div class="my-4 flex items-baseline gap-3">
+<span class="font-headline text-5xl font-bold text-on-surface tracking-tight">1,150<span class="text-2xl font-normal text-on-surface-variant ml-1 font-mono">ms</span></span>
+<span class="text-xs font-mono font-bold text-primary">Sub-2s SLA</span>
+</div>
+<div class="pt-3 bg-surface-container-low rounded-xl p-3 flex items-center justify-between text-[11px] font-mono">
+<span class="text-on-surface-variant">Batch Inference (33 SKUs)</span>
+<span class="font-bold text-on-surface">18ms / req</span>
+</div>
+</div>
+<!-- Card 4: Data Drift Alert -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="text-xs font-mono text-on-surface-variant uppercase tracking-wider font-semibold">Covariate Shift</span>
+<span class="text-[11px] text-on-surface-variant">Kolmogorov-Smirnov test</span>
+</div>
+<div class="w-9 h-9 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">shield</span>
+</div>
+</div>
+<div class="my-4 flex items-baseline gap-3">
+<span class="font-headline text-4xl font-bold text-on-surface tracking-tight">NORMAL</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-primary-fixed text-on-primary-fixed-variant">STABLE</span>
+</div>
+<div class="pt-3 bg-surface-container-low rounded-xl p-3 flex items-center justify-between text-[11px] font-mono">
+<span class="text-on-surface-variant">KS: 0.1556</span>
+<span class="font-bold text-on-surface">p-value: 0.6235</span>
+</div>
+</div>
+</div>
+<!-- Main Visualizations Grid: Feature Importance & Residual Distribution -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Feature Importance: LightGBM / Prophet Feature Attributions (7 Cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-2xl p-7 shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between mb-6">
+<div class="flex flex-col">
+<span class="text-[10px] font-mono uppercase tracking-widest text-primary font-bold">Feature Explainability</span>
+<h3 class="font-headline text-2xl font-bold text-on-surface">Feature Importance Rankings</h3>
+<p class="font-body text-xs text-on-surface-variant mt-1">Gini split contributions computed over 5-fold cross validation runs.</p>
+</div>
+<span class="px-2.5 py-1 rounded bg-surface-container text-xs font-mono text-on-surface-variant">LightGBM v4.8</span>
+</div>
+<!-- Horizontal Bar List (Direct data extraction from Streamlit screenshot) -->
+<div class="flex flex-col gap-3 font-mono text-xs">
+<!-- 1 -->
+<div class="flex items-center gap-4">
+<span class="w-36 text-right truncate text-on-surface-variant font-medium">rolling_mean_7</span>
+<div class="flex-1 bg-surface-container-high rounded-full h-3 overflow-hidden">
+<div class="bg-primary h-full rounded-full transition-all duration-700" style="width: 100%;"></div>
+</div>
+<span class="w-12 text-right font-bold text-on-surface">12.8%</span>
+</div>
+<!-- 2 -->
+<div class="flex items-center gap-4">
+<span class="w-36 text-right truncate text-on-surface-variant font-medium">day_of_week</span>
+<div class="flex-1 bg-surface-container-high rounded-full h-3 overflow-hidden">
+<div class="bg-primary/90 h-full rounded-full transition-all duration-700" style="width: 89%;"></div>
+</div>
+<span class="w-12 text-right font-bold text-on-surface">11.4%</span>
+</div>
+<!-- 3 -->
+<div class="flex items-center gap-4">
+<span class="w-36 text-right truncate text-on-surface-variant font-medium">rolling_mean_28</span>
+<div class="flex-1 bg-surface-container-high rounded-full h-3 overflow-hidden">
+<div class="bg-primary/85 h-full rounded-full transition-all duration-700" style="width: 80%;"></div>
+</div>
+<span class="w-12 text-right font-bold text-on-surface">10.2%</span>
+</div>
+<!-- 4 -->
+<div class="flex items-center gap-4">
+<span class="w-36 text-right truncate text-on-surface-variant font-medium">rolling_std_7</span>
+<div class="flex-1 bg-surface-container-high rounded-full h-3 overflow-hidden">
+<div class="bg-primary/80 h-full rounded-full transition-all duration-700" style="width: 76%;"></div>
+</div>
+<span class="w-12 text-right font-bold text-on-surface">9.7%</span>
+</div>
+<!-- 5 -->
+<div class="flex items-center gap-4">
+<span class="w-36 text-right truncate text-on-surface-variant font-medium">lag_1</span>
+<div class="flex-1 bg-surface-container-high rounded-full h-3 overflow-hidden">
+<div class="bg-primary/75 h-full rounded-full transition-all duration-700" style="width: 74%;"></div>
+</div>
+<span class="w-12 text-right font-bold text-on-surface">9.5%</span>
+</div>
+<!-- 6 -->
+<div class="flex items-center gap-4">
+<span class="w-36 text-right truncate text-on-surface-variant font-medium">month</span>
+<div class="flex-1 bg-surface-container-high rounded-full h-3 overflow-hidden">
+<div class="bg-primary/70 h-full rounded-full transition-all duration-700" style="width: 68%;"></div>
+</div>
+<span class="w-12 text-right font-bold text-on-surface">8.7%</span>
+</div>
+<!-- 7 -->
+<div class="flex items-center gap-4">
+<span class="w-36 text-right truncate text-on-surface-variant font-medium">lag_14</span>
+<div class="flex-1 bg-surface-container-high rounded-full h-3 overflow-hidden">
+<div class="bg-primary/65 h-full rounded-full transition-all duration-700" style="width: 62%;"></div>
+</div>
+<span class="w-12 text-right font-bold text-on-surface">8.0%</span>
+</div>
+<!-- 8 -->
+<div class="flex items-center gap-4">
+<span class="w-36 text-right truncate text-on-surface-variant font-medium">lag_7</span>
+<div class="flex-1 bg-surface-container-high rounded-full h-3 overflow-hidden">
+<div class="bg-primary/60 h-full rounded-full transition-all duration-700" style="width: 61%;"></div>
+</div>
+<span class="w-12 text-right font-bold text-on-surface">7.9%</span>
+</div>
+<!-- 9 -->
+<div class="flex items-center gap-4">
+<span class="w-36 text-right truncate text-on-surface-variant font-medium">day_of_month</span>
+<div class="flex-1 bg-surface-container-high rounded-full h-3 overflow-hidden">
+<div class="bg-primary/50 h-full rounded-full transition-all duration-700" style="width: 53%;"></div>
+</div>
+<span class="w-12 text-right font-bold text-on-surface">6.8%</span>
+</div>
+<!-- 10 -->
+<div class="flex items-center gap-4">
+<span class="w-36 text-right truncate text-on-surface-variant font-medium">promo_lift_index</span>
+<div class="flex-1 bg-surface-container-high rounded-full h-3 overflow-hidden">
+<div class="bg-primary/45 h-full rounded-full transition-all duration-700" style="width: 48%;"></div>
+</div>
+<span class="w-12 text-right font-bold text-on-surface">6.2%</span>
+</div>
+<!-- 11 -->
+<div class="flex items-center gap-4">
+<span class="w-36 text-right truncate text-on-surface-variant font-medium">price_elasticity</span>
+<div class="flex-1 bg-surface-container-high rounded-full h-3 overflow-hidden">
+<div class="bg-primary/40 h-full rounded-full transition-all duration-700" style="width: 37%;"></div>
+</div>
+<span class="w-12 text-right font-bold text-on-surface">4.8%</span>
+</div>
+<!-- 12 -->
+<div class="flex items-center gap-4">
+<span class="w-36 text-right truncate text-on-surface-variant font-medium">temperature_anomaly</span>
+<div class="flex-1 bg-surface-container-high rounded-full h-3 overflow-hidden">
+<div class="bg-primary/30 h-full rounded-full transition-all duration-700" style="width: 31%;"></div>
+</div>
+<span class="w-12 text-right font-bold text-on-surface">4.0%</span>
+</div>
+</div>
+<div class="mt-6 pt-4 bg-surface-container-low rounded-xl p-3 flex items-center justify-between text-xs">
+<span class="text-on-surface-variant">Top 3 predictors account for <strong class="text-on-surface font-semibold">34.4%</strong> of total model gain.</span>
+<span class="text-primary font-mono font-semibold">SHAP Trees Enforced</span>
+</div>
+</div>
+<!-- Residual Error Distribution: Bell Curve & Bias Check (5 Cols) -->
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-2xl p-7 shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between mb-4">
+<div class="flex flex-col">
+<span class="text-[10px] font-mono uppercase tracking-widest text-primary font-bold">Unbiased Estimator</span>
+<h3 class="font-headline text-2xl font-bold text-on-surface">Residual Distribution</h3>
+</div>
+<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-surface-container text-on-surface-variant">N = 24,000</span>
+</div>
+<p class="font-body text-xs text-on-surface-variant mb-6">
+            Error frequency on holdout validation. Centered at μ = $0 demonstrates unbiased sales projections across volume spikes.
+          </p>
+<!-- SVG Gaussian Histogram & Curve -->
+<div class="w-full bg-surface-container-low rounded-xl p-4 flex flex-col items-center">
+<svg class="w-full h-44 overflow-visible" fill="none" viewBox="0 0 320 140" xmlns="http://www.w3.org/2000/svg">
+<!-- Grid marks -->
+<line class="text-surface-container-highest" stroke="currentColor" stroke-width="1.5" x1="20" x2="300" y1="120" y2="120"></line>
+<line class="text-primary/30" stroke="currentColor" stroke-dasharray="3 3" stroke-width="1.5" x1="160" x2="160" y1="10" y2="120"></line>
+<!-- Histogram bars -->
+<rect class="fill-surface-container-highest" height="8" rx="1" width="14" x="50" y="112"></rect>
+<rect class="fill-surface-container-highest" height="20" rx="1" width="14" x="70" y="100"></rect>
+<rect class="fill-surface-container-highest" height="40" rx="1" width="14" x="90" y="80"></rect>
+<rect class="fill-primary-fixed" height="70" rx="1" width="14" x="110" y="50"></rect>
+<rect class="fill-primary-fixed-dim" height="96" rx="1" width="14" x="130" y="24"></rect>
+<rect class="fill-primary" height="106" rx="1" width="14" x="150" y="14"></rect>
+<rect class="fill-primary-fixed-dim" height="92" rx="1" width="14" x="170" y="28"></rect>
+<rect class="fill-primary-fixed" height="65" rx="1" width="14" x="190" y="55"></rect>
+<rect class="fill-surface-container-highest" height="38" rx="1" width="14" x="210" y="82"></rect>
+<rect class="fill-surface-container-highest" height="18" rx="1" width="14" x="230" y="102"></rect>
+<rect class="fill-surface-container-highest" height="6" rx="1" width="14" x="250" y="114"></rect>
+<!-- Smooth Gaussian Overlay -->
+<path class="text-on-primary-fixed-variant" d="M 30 118 C 80 118, 110 90, 135 35 C 148 10, 160 8, 175 35 C 200 90, 230 118, 290 118" fill="none" stroke="currentColor" stroke-width="2.5"></path>
+<!-- Zero point label -->
+<text class="text-[9px] font-mono fill-on-surface-variant font-bold" text-anchor="middle" x="160" y="134">0 (Zero Bias)</text>
+<text class="text-[9px] font-mono fill-outline font-medium" text-anchor="middle" x="50" y="134">-$15k</text>
+<text class="text-[9px] font-mono fill-outline font-medium" text-anchor="middle" x="270" y="134">+$15k</text>
+</svg>
+</div>
+</div>
+<!-- Residual Metrics Footer -->
+<div class="grid grid-cols-3 gap-2 mt-6 pt-4 bg-surface-container-low rounded-xl p-3 text-center">
+<div class="flex flex-col">
+<span class="text-[10px] font-mono text-on-surface-variant uppercase">Skewness</span>
+<span class="font-mono text-sm font-bold text-on-surface">-0.04</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-mono text-on-surface-variant uppercase">Kurtosis</span>
+<span class="font-mono text-sm font-bold text-on-surface">2.98</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-mono text-on-surface-variant uppercase">Outliers</span>
+<span class="font-mono text-sm font-bold text-primary">12 (0.01%)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Active Model Registry & Production Deployment Ledger -->
+<div class="bg-surface-container-lowest rounded-2xl p-7 shadow-sm flex flex-col gap-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="flex flex-col">
+<span class="text-[10px] font-mono uppercase tracking-widest text-primary font-bold">Model Versioning &amp; Lineage</span>
+<h3 class="font-headline text-2xl font-bold text-on-surface">Active Production Deployment Ledger</h3>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-mono text-on-surface-variant">Active Target:</span>
+<span class="px-2.5 py-1 rounded bg-surface-container font-mono text-xs font-bold text-primary">ensemble_v2.4.1</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body text-xs">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-mono uppercase tracking-wider text-[10px]">
+<th class="py-3 px-4 rounded-l-lg">Model Version</th>
+<th class="py-3 px-4">Architecture</th>
+<th class="py-3 px-4">Deployed Timestamp</th>
+<th class="py-3 px-4">Environment</th>
+<th class="py-3 px-4">Artifact Size</th>
+<th class="py-3 px-4">MAPE</th>
+<th class="py-3 px-4 rounded-r-lg text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high">
+<!-- Row 1: Active Production -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-4 font-mono font-bold text-on-surface flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                v2.4.1-ensemble
+              </td>
+<td class="py-4 px-4 text-on-surface-variant">LightGBM (80%) + Prophet (20%)</td>
+<td class="py-4 px-4 font-mono text-on-surface-variant">Today, 06:14 UTC</td>
+<td class="py-4 px-4">
+<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-primary text-on-primary">PRODUCTION</span>
+</td>
+<td class="py-4 px-4 font-mono text-on-surface-variant">142.8 MB</td>
+<td class="py-4 px-4 font-mono font-bold text-on-surface">13.63%</td>
+<td class="py-4 px-4 text-right">
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-mono text-[11px] font-semibold transition-all">Telemetry</button>
+</td>
+</tr>
+<!-- Row 2: Staging Canary -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-4 font-mono font-bold text-on-surface flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+                v2.5.0-rc1
+              </td>
+<td class="py-4 px-4 text-on-surface-variant">LightGBM + DeepAR Cross-Attn</td>
+<td class="py-4 px-4 font-mono text-on-surface-variant">Yesterday, 18:22 UTC</td>
+<td class="py-4 px-4">
+<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-surface-container-highest text-on-surface">CANARY (10%)</span>
+</td>
+<td class="py-4 px-4 font-mono text-on-surface-variant">318.4 MB</td>
+<td class="py-4 px-4 font-mono font-bold text-primary">12.91%</td>
+<td class="py-4 px-4 text-right">
+<button class="px-2.5 py-1 rounded bg-primary-fixed hover:bg-primary-fixed-dim text-on-primary-fixed-variant font-mono text-[11px] font-bold transition-all">Promote</button>
+</td>
+</tr>
+<!-- Row 3: Previous Baseline -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-4 font-mono font-bold text-on-surface flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-surface-dim"></span>
+                v2.3.8-lightgbm
+              </td>
+<td class="py-4 px-4 text-on-surface-variant">Standalone Gradient Boosting</td>
+<td class="py-4 px-4 font-mono text-on-surface-variant">Oct 24, 2026</td>
+<td class="py-4 px-4">
+<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-surface-container text-on-surface-variant">STANDBY</span>
+</td>
+<td class="py-4 px-4 font-mono text-on-surface-variant">88.2 MB</td>
+<td class="py-4 px-4 font-mono font-bold text-on-surface-variant">14.42%</td>
+<td class="py-4 px-4 text-right">
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-mono text-[11px] transition-all">Rollback</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Training Hyperparameters & Pod Configuration Snippet -->
+<div class="bg-surface-container-low rounded-xl p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 font-mono text-xs">
+<div class="flex flex-col gap-1">
+<span class="text-[10px] uppercase text-on-surface-variant tracking-wider font-semibold">Active Run Hyperparameters</span>
+<span class="text-on-surface font-semibold">
+            learning_rate: <span class="text-primary">0.03</span> | num_leaves: <span class="text-primary">31</span> | max_depth: <span class="text-primary">6</span> | objective: <span class="text-primary">regression_l1</span>
+</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-on-surface-variant text-[11px]">Hardware: AWS c6i.2xlarge</span>
+<span class="px-2 py-1 rounded bg-surface-container font-mono text-[10px] text-on-surface font-bold">Auto-Tuning ON</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    const retrainBtn = document.getElementById('retrain-btn');
+    const spinner = document.getElementById('retrain-spinner');
+    const icon = document.getElementById('retrain-icon');
+    const label = document.getElementById('retrain-label');
+
+    if (retrainBtn) {
+      retrainBtn.addEventListener('click', function() {
+        spinner.classList.remove('hidden');
+        icon.classList.add('hidden');
+        label.textContent = 'Fitting Ensemble...';
+        retrainBtn.disabled = true;
+
+        setTimeout(function() {
+          spinner.classList.add('hidden');
+          icon.classList.remove('hidden');
+          icon.textContent = 'check';
+          label.textContent = 'Retrained (1150ms)';
+          retrainBtn.classList.remove('bg-primary');
+          retrainBtn.classList.add('bg-olive');
+
+          setTimeout(function() {
+            icon.textContent = 'bolt';
+            label.textContent = 'Retrain Models Now';
+            retrainBtn.classList.remove('bg-olive');
+            retrainBtn.classList.add('bg-primary');
+            retrainBtn.disabled = false;
+          }, 3000);
+        }, 1500);
+      });
+    }
+  })();
+</script></main>
+</div>
+
+
+</body></html>

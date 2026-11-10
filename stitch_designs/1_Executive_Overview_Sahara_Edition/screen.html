@@ -1,0 +1,987 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="web_dashboard" name="shell-type">
+<title>Nexus Retail AI - Executive Overview</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          primary: {
+            DEFAULT: "#c2652a",
+            hover: "#ad561f",
+            light: "#fbe8d8",
+            dim: "#f0a878",
+            dark: "#8a4518",
+          },
+          sand: {
+            50: "#fdfbf7",
+            100: "#f7f2ea",
+            200: "#eee6d8",
+            300: "#e2d7c3",
+            400: "#c7b79d",
+          },
+          espresso: {
+            DEFAULT: "#1f1b18",
+            subtle: "#3a302a",
+            muted: "#605850",
+            border: "#e6e0d6",
+          },
+          ochre: "#d97736",
+          amber: "#e69535",
+          olive: "#5e7053",
+          crimson: "#b9382c"
+        },
+        fontFamily: {
+          body: ["Manrope", "sans-serif"],
+          headline: ["EB Garamond", "serif"],
+          mono: ["JetBrains Mono", "monospace"],
+        }
+      }
+    }
+  }
+</script>
+<style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #FAF6F0;
+        color: #1F1B18;
+        font-family: 'Manrope', sans-serif;
+      }
+      body {
+        overscroll-behavior: none;
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    .font-mono-num {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .font-headline {
+      font-family: 'EB Garamond', serif;
+    }
+    .font-display {
+      font-family: 'Manrope', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-[#FAF6F0] text-espresso antialiased selection:bg-primary/20 selection:text-primary-dark">
+<!-- Left Sidebar Navigation Chrome (Warm Sahara Theme) -->
+<aside class="fixed left-0 top-0 h-screen w-72 bg-[#F5EFE6] border-r border-[#E5DDD0] backdrop-blur-2xl z-50 flex flex-col justify-between shadow-[4px_0_24px_rgba(70,45,25,0.04)]">
+<div class="flex flex-col">
+<!-- Brand & Systems Header -->
+<div class="px-5 pt-5 pb-4 border-b border-[#E5DDD0]">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-primary to-[#D97736] flex items-center justify-center p-0.5 shadow-[0_2px_10px_rgba(194,101,42,0.3)]">
+<span class="material-symbols-outlined text-white text-xl">hub</span>
+</div>
+<div class="flex flex-col">
+<span class="font-bold tracking-tight text-espresso leading-tight flex items-center gap-1.5 text-base">
+              NEXUS <span class="text-primary font-mono-num font-semibold text-[11px] uppercase px-1.5 py-0.5 bg-[#FAF5EE] border border-primary/30 rounded">v4.8</span>
+</span>
+<span class="text-[10px] font-bold tracking-widest text-espresso-muted uppercase">RETAIL AI FOUNDRY</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="inline-flex items-center justify-between px-2.5 py-1.5 rounded-md bg-white border border-[#E8E2D6] shadow-sm">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
+<span class="font-mono-num text-[11px] text-espresso-subtle font-semibold tracking-wide uppercase">SYSTEM: NOMINAL</span>
+</div>
+<span class="text-[10px] text-espresso-muted font-mono-num font-medium">99.98%</span>
+</div>
+<div class="inline-flex items-center justify-between px-2.5 py-1.5 rounded-md bg-[#FAF5EE] border border-[#E8E2D6]">
+<span class="font-mono-num text-[11px] text-espresso-muted">FASTAPI ENDPOINT:</span>
+<span class="font-mono-num text-[11px] text-emerald-700 font-semibold flex items-center gap-1">
+<span class="w-1 h-1 rounded-full bg-emerald-600"></span>ONLINE (200 OK)
+            </span>
+</div>
+</div>
+</div>
+<!-- Modules Nav -->
+<div class="px-3 py-4">
+<div class="px-3 pb-2">
+<span class="text-[10px] font-bold text-espresso-muted uppercase tracking-wider font-mono-num">Operational Modules</span>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all bg-white border border-[#E2D7C5] text-primary font-bold shadow-sm" href="#">
+<span class="material-symbols-outlined text-primary text-lg">analytics</span>
+<span class="text-sm">Executive Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-espresso-subtle hover:text-espresso hover:bg-white/70 transition-all group" href="#">
+<span class="material-symbols-outlined text-espresso-muted group-hover:text-primary text-lg transition-colors">trending_up</span>
+<span class="text-sm font-medium">AI Sales Forecasting</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-espresso-subtle hover:text-espresso hover:bg-white/70 transition-all group" href="#">
+<span class="material-symbols-outlined text-espresso-muted group-hover:text-primary text-lg transition-colors">group</span>
+<span class="text-sm font-medium">Customer 360 &amp; RFM</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-espresso-subtle hover:text-espresso hover:bg-white/70 transition-all group" href="#">
+<span class="material-symbols-outlined text-espresso-muted group-hover:text-primary text-lg transition-colors">inventory_2</span>
+<span class="text-sm font-medium">Inventory &amp; Supply Chain</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-espresso-subtle hover:text-espresso hover:bg-white/70 transition-all group" href="#">
+<span class="material-symbols-outlined text-espresso-muted group-hover:text-primary text-lg transition-colors">tune</span>
+<span class="text-sm font-medium">Model Management &amp; MLOps</span>
+</a>
+</nav>
+</div>
+</div>
+<!-- Sidebar Bottom Telemetry -->
+<div class="p-3 m-3 rounded-xl bg-white border border-[#E5DDD0] flex flex-col gap-2.5 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-bold text-espresso-muted font-mono-num uppercase tracking-wider">MLOps Telemetry</span>
+<span class="inline-flex items-center gap-1 font-mono-num text-[11px] text-emerald-700 font-semibold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>HEALTHY
+        </span>
+</div>
+<div class="grid grid-cols-2 gap-1.5">
+<div class="flex flex-col bg-[#FAF6F0] p-2 rounded border border-[#EBE3D7]">
+<span class="text-[10px] text-espresso-muted font-mono-num">Inference Latency</span>
+<span class="font-mono-num text-xs font-semibold text-espresso">18ms</span>
+</div>
+<div class="flex flex-col bg-[#FAF6F0] p-2 rounded border border-[#EBE3D7]">
+<span class="text-[10px] text-espresso-muted font-mono-num">Ingested SKUs</span>
+<span class="font-mono-num text-xs font-semibold text-espresso">120,492</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1 border-t border-[#EFE8DD]">
+<div class="flex flex-col">
+<span class="text-[9px] text-espresso-muted uppercase font-mono-num">Active Cluster</span>
+<span class="font-mono-num text-[11px] text-primary font-semibold">Prod / us-east-1a</span>
+</div>
+<span class="material-symbols-outlined text-espresso-muted text-base cursor-pointer hover:text-primary transition-colors">tune</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Space -->
+<div class="pl-72 flex flex-col min-h-screen bg-[#FAF6F0]">
+<!-- Top Persistent Header -->
+<header class="fixed top-0 left-72 right-0 h-16 bg-[#FAF6F0]/90 backdrop-blur-xl z-40 border-b border-[#E5DDD0] flex items-center justify-between px-6 shadow-sm">
+<!-- Breadcrumbs & Sync Info -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 font-mono-num text-xs text-espresso-muted">
+<span class="text-primary font-bold">NEXUS</span>
+<span class="text-sand-400">/</span>
+<span class="">Retail Analytics</span>
+<span class="text-sand-400">/</span>
+<span class="text-espresso font-semibold">Executive Overview</span>
+</div>
+<div class="h-4 w-px bg-[#E5DDD0]"></div>
+<div class="flex items-center gap-2 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-mono-num text-[11px] font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="">LIVE SYNC (3s)</span>
+</div>
+</div>
+<!-- Quick Actions, Search & User -->
+<div class="flex items-center gap-3">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2.5 text-espresso-muted text-sm pointer-events-none">search</span>
+<input class="w-80 h-8 pl-8 pr-3 bg-white border border-[#DDD3C2] text-espresso placeholder:text-espresso-muted text-xs rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-mono-num shadow-sm" placeholder="Search SKUs, cohorts, stores (⌘K)..." type="text">
+</div>
+<div class="flex items-center gap-1.5 px-2.5 h-8 rounded-lg bg-white border border-[#DDD3C2] text-espresso font-mono-num text-xs hover:border-primary/50 transition-colors cursor-pointer shadow-sm">
+<span class="material-symbols-outlined text-sm text-primary">currency_exchange</span>
+<span class="font-medium">USD $ / UTC-5</span>
+</div>
+<div class="flex items-center p-0.5 rounded-lg bg-[#FAF6F0] border border-[#DDD3C2] shadow-sm font-mono-num text-[11px]"><button class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white border border-[#DDD3C2] text-espresso font-semibold shadow-sm transition-all"><span class="material-symbols-outlined text-xs text-amber">light_mode</span><span class="">Sahara Light</span></button><button class="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-espresso-muted hover:text-espresso transition-all hover:bg-white/70"><span class="material-symbols-outlined text-xs text-espresso-muted">dark_mode</span><span class="">Sahara Dark</span></button></div><button class="h-8 px-3 rounded-lg bg-primary hover:bg-primary-hover text-white font-medium text-xs flex items-center gap-1.5 transition-all shadow-[0_2px_8px_rgba(194,101,42,0.25)] active:scale-95">
+<span class="material-symbols-outlined text-sm">rocket_launch</span>
+<span class="">Deploy</span>
+</button>
+<button class="relative w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-[#DDD3C2] text-espresso-subtle hover:text-espresso transition-colors shadow-sm">
+<span class="material-symbols-outlined text-base">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-crimson ring-2 ring-white"></span>
+</button>
+<div class="flex items-center gap-2.5 pl-2 border-l border-[#E5DDD0]">
+<div class="w-8 h-8 rounded-full bg-gradient-to-tr from-primary to-amber p-0.5 shadow-sm">
+<div class="w-full h-full rounded-full bg-[#FAF5EE] flex items-center justify-center font-bold text-xs text-primary">EV</div>
+</div>
+<div class="hidden xl:flex flex-col">
+<span class="text-xs text-espresso font-bold leading-tight">E. Vance</span>
+<span class="text-[9px] font-mono-num text-espresso-muted uppercase tracking-wider font-semibold">VP Merchandising</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Workspace -->
+<main class="w-full pt-16 flex-1 bg-[#FAF6F0]">
+<div class="p-6 max-w-[1780px] mx-auto w-full flex flex-col gap-6">
+<!-- 1. Executive Sub-Header & Live Parameter Cockpit -->
+<div class="flex flex-col gap-4">
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-primary/10 border border-primary/25 text-primary font-mono-num text-[11px] font-bold tracking-wider uppercase">Foundry v4.8.2</span>
+<span class="text-sand-400 text-xs">/</span>
+<span class="text-espresso-muted font-mono-num text-[11px] tracking-wider uppercase font-semibold">Multi-Tenant Ingestion Active</span>
+</div>
+<h1 class="font-headline text-3xl lg:text-4xl font-normal tracking-tight text-espresso">Executive Overview</h1>
+<p class="text-xs lg:text-sm text-espresso-muted font-normal">Real-Time Revenue Operations, Multi-Store Velocity &amp; Core Algorithmic KPIs</p>
+</div>
+<!-- Header Action Buttons -->
+<div class="flex items-center flex-wrap gap-2.5">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white border border-[#E5DDD0] text-xs font-mono-num shadow-sm">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="text-primary font-semibold">LIVE SYNC (Refreshed 2m ago)</span>
+</div>
+<button class="h-8 px-3 rounded-lg bg-white border border-[#DDD3C2] hover:bg-[#F5EFE6] text-espresso text-xs font-medium flex items-center gap-1.5 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-sm text-primary">download</span>
+<span class="">Export CSV / Parquet</span>
+</button>
+<button class="h-8 px-3 rounded-lg bg-primary hover:bg-primary-hover text-white text-xs font-semibold flex items-center gap-1.5 transition-all shadow-[0_2px_8px_rgba(194,101,42,0.25)]">
+<span class="material-symbols-outlined text-sm">refresh</span>
+<span class="">Trigger Pipeline Recompute</span>
+</button>
+</div>
+</div>
+<!-- Parameter Filter Ribbon -->
+<div class="p-2.5 rounded-xl bg-white border border-[#E5DDD0] flex flex-wrap items-center justify-between gap-3 shadow-sm">
+<!-- Date Presets -->
+<div class="flex items-center bg-[#FAF6F0] p-1 rounded-lg border border-[#EBE3D7]">
+<button class="px-3 py-1 rounded text-xs text-espresso-muted hover:text-espresso transition-colors font-medium">Today</button>
+<button class="px-3 py-1 rounded text-xs text-espresso-muted hover:text-espresso transition-colors font-medium">7D</button>
+<button class="px-3 py-1 rounded text-xs text-espresso-muted hover:text-espresso transition-colors font-medium">30D</button>
+<button class="px-3 py-1 rounded text-xs text-espresso-muted hover:text-espresso transition-colors font-medium">QTD</button>
+<button class="px-3 py-1 rounded bg-white text-primary font-bold text-xs border border-[#DDD3C2] shadow-sm">YTD</button>
+<button class="px-3 py-1 rounded text-xs text-espresso-muted hover:text-espresso transition-colors flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-xs">calendar_month</span>
+<span class="">Custom</span>
+</button>
+</div>
+<!-- Filter Selectors -->
+<div class="flex items-center flex-wrap gap-2">
+<div class="flex items-center gap-1.5 px-3 h-8 rounded-lg bg-[#FAF6F0] border border-[#EBE3D7] text-espresso text-xs cursor-pointer hover:border-primary/40 transition-colors">
+<span class="material-symbols-outlined text-sm text-primary">public</span>
+<span class="text-espresso-muted uppercase text-[10px] font-mono-num font-semibold">Region:</span>
+<span class="font-semibold text-espresso">North America (All 4)</span>
+<span class="material-symbols-outlined text-sm text-espresso-muted ml-1">expand_more</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 h-8 rounded-lg bg-[#FAF6F0] border border-[#EBE3D7] text-espresso text-xs cursor-pointer hover:border-primary/40 transition-colors">
+<span class="material-symbols-outlined text-sm text-ochre">storefront</span>
+<span class="text-espresso-muted uppercase text-[10px] font-mono-num font-semibold">Stores:</span>
+<span class="font-semibold text-espresso">Flagship &amp; Express (42 Units)</span>
+<span class="material-symbols-outlined text-sm text-espresso-muted ml-1">expand_more</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 h-8 rounded-lg bg-[#FAF6F0] border border-[#EBE3D7] text-espresso text-xs cursor-pointer hover:border-primary/40 transition-colors">
+<span class="material-symbols-outlined text-sm text-primary">category</span>
+<span class="text-espresso-muted uppercase text-[10px] font-mono-num font-semibold">Dept:</span>
+<span class="font-semibold text-espresso">Omnichannel All</span>
+<span class="material-symbols-outlined text-sm text-espresso-muted ml-1">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 2. Warm Sahara KPI Cards (4-Column) -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+<!-- KPI 1: Gross Invoiced GMV -->
+<div class="p-5 rounded-xl bg-white border border-[#E5DDD0] relative overflow-hidden flex flex-col justify-between group hover:border-primary/50 transition-all shadow-sm">
+<div class="absolute -top-12 -right-12 w-28 h-28 bg-primary/5 rounded-full blur-2xl pointer-events-none"></div>
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="text-[11px] font-bold text-espresso-muted uppercase tracking-wider font-mono-num">Gross Invoiced GMV</span>
+<span class="flex items-center gap-0.5 text-xs font-mono-num font-semibold text-emerald-800 px-1.5 py-0.5 rounded bg-emerald-50 border border-emerald-200">
+<span class="material-symbols-outlined text-xs">arrow_upward</span>+18.4% YoY
+                </span>
+</div>
+<div class="font-extrabold text-2xl lg:text-3xl text-espresso tracking-tight font-mono-num">
+                $14,892,450.00
+              </div>
+</div>
+<div class="mt-4 pt-3 border-t border-[#EFE8DD] flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-xs font-mono-num">
+<span class="text-espresso-muted">Target: $14.20M</span>
+<span class="text-primary font-bold">104.8% to Plan</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-[#EFE8DD] overflow-hidden">
+<div class="h-full bg-primary rounded-full shadow-[0_0_6px_rgba(194,101,42,0.4)]" style="width: 100%;"></div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="text-[10px] font-mono-num text-espresso-muted">QTD Run-rate Velocity</span>
+<svg class="w-24 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 100 20">
+<path d="M0 16 Q 20 18, 35 12 T 65 8 T 85 4 T 100 2" stroke-linecap="round"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- KPI 2: Total Orders -->
+<div class="p-5 rounded-xl bg-white border border-[#E5DDD0] relative overflow-hidden flex flex-col justify-between group hover:border-ochre/50 transition-all shadow-sm">
+<div class="absolute -top-12 -right-12 w-28 h-28 bg-ochre/5 rounded-full blur-2xl pointer-events-none"></div>
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="text-[11px] font-bold text-espresso-muted uppercase tracking-wider font-mono-num">Processed Orders</span>
+<span class="flex items-center gap-0.5 text-xs font-mono-num font-semibold text-ochre px-1.5 py-0.5 rounded bg-orange-50 border border-orange-200">
+<span class="material-symbols-outlined text-xs">trending_up</span>+12.6% vs LQ
+                </span>
+</div>
+<div class="font-extrabold text-2xl lg:text-3xl text-espresso tracking-tight font-mono-num">
+                184,920
+              </div>
+</div>
+<div class="mt-4 pt-3 border-t border-[#EFE8DD] flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-xs font-mono-num">
+<span class="text-espresso-muted">Daily Throughput</span>
+<span class="text-ochre font-bold">2,054 tx/day</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-[#EFE8DD] overflow-hidden">
+<div class="h-full bg-ochre rounded-full shadow-[0_0_6px_rgba(217,119,54,0.4)]" style="width: 82%;"></div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="text-[10px] font-mono-num text-espresso-muted">Conversion: 3.42%</span>
+<svg class="w-24 h-5 text-ochre" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 100 20">
+<path d="M0 14 Q 25 15, 40 10 T 70 12 T 90 6 T 100 4" stroke-linecap="round"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- KPI 3: AOV Basket -->
+<div class="p-5 rounded-xl bg-white border border-[#E5DDD0] relative overflow-hidden flex flex-col justify-between group hover:border-olive/50 transition-all shadow-sm">
+<div class="absolute -top-12 -right-12 w-28 h-28 bg-olive/5 rounded-full blur-2xl pointer-events-none"></div>
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="text-[11px] font-bold text-espresso-muted uppercase tracking-wider font-mono-num">Average Basket Size (AOV)</span>
+<span class="flex items-center gap-0.5 text-xs font-mono-num font-semibold text-emerald-800 px-1.5 py-0.5 rounded bg-emerald-50 border border-emerald-200">
+<span class="material-symbols-outlined text-xs">arrow_upward</span>+5.2% YoY
+                </span>
+</div>
+<div class="font-extrabold text-2xl lg:text-3xl text-espresso tracking-tight font-mono-num">
+                $80.53
+              </div>
+</div>
+<div class="mt-4 pt-3 border-t border-[#EFE8DD] flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-xs font-mono-num">
+<span class="text-espresso-muted">Median: $68.20</span>
+<span class="text-olive font-bold">Multi-Item: 64.2%</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-[#EFE8DD] overflow-hidden">
+<div class="h-full bg-olive rounded-full shadow-[0_0_6px_rgba(94,112,83,0.4)]" style="width: 64.2%;"></div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="text-[10px] font-mono-num text-espresso-muted">Units/Tx: 2.8</span>
+<svg class="w-24 h-5 text-olive" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 100 20">
+<path d="M0 18 Q 30 10, 50 14 T 75 8 T 100 5" stroke-linecap="round"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- KPI 4: CSAT & Retention -->
+<div class="p-5 rounded-xl bg-white border border-[#E5DDD0] relative overflow-hidden flex flex-col justify-between group hover:border-amber/50 transition-all shadow-sm">
+<div class="absolute -top-12 -right-12 w-28 h-28 bg-amber/5 rounded-full blur-2xl pointer-events-none"></div>
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="text-[11px] font-bold text-espresso-muted uppercase tracking-wider font-mono-num">Customer CSAT</span>
+<span class="flex items-center gap-0.5 text-xs font-mono-num font-semibold text-amber-900 px-1.5 py-0.5 rounded bg-amber-50 border border-amber-200">
+<span class="material-symbols-outlined text-xs">verified</span>+2.1% MoM
+                </span>
+</div>
+<div class="font-extrabold text-2xl lg:text-3xl text-espresso tracking-tight font-mono-num">
+                94.8%
+              </div>
+</div>
+<div class="mt-4 pt-3 border-t border-[#EFE8DD] flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-xs font-mono-num">
+<span class="text-espresso-muted">NPS Index: +68</span>
+<span class="text-amber-800 font-bold">Retention: 84.6%</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-[#EFE8DD] overflow-hidden">
+<div class="h-full bg-amber rounded-full shadow-[0_0_6px_rgba(230,149,53,0.4)]" style="width: 94.8%;"></div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="text-[10px] font-mono-num text-espresso-muted">FastAPI Model: Nominal</span>
+<span class="material-symbols-outlined text-xs text-primary">offline_bolt</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. Mid Section - Two Visual Analytics Cards (60% / 40%) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-4">
+<!-- 60% Width Chart: Historical Daily Sales Velocity -->
+<div class="xl:col-span-7 p-5 rounded-xl bg-white border border-[#E5DDD0] shadow-sm flex flex-col justify-between">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[#EFE8DD]">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_6px_rgba(194,101,42,0.6)]"></span>
+<h2 class="text-base font-bold text-espresso">Historical Daily Sales Velocity &amp; 7D MA</h2>
+</div>
+<span class="text-xs text-espresso-muted">Stochastic Actuals vs. Continuous Algorithmic Moving Average Smoothing</span>
+</div>
+<!-- Metric Selectors -->
+<div class="flex items-center bg-[#FAF6F0] p-1 rounded-lg border border-[#EBE3D7]">
+<button class="px-2.5 py-1 rounded bg-white text-primary font-bold text-xs border border-[#DDD3C2] shadow-sm">Gross Sales</button>
+<button class="px-2.5 py-1 rounded text-xs text-espresso-muted hover:text-espresso transition-colors font-medium">Net Margin</button>
+<button class="px-2.5 py-1 rounded text-xs text-espresso-muted hover:text-espresso transition-colors font-medium">Units Sold</button>
+</div>
+</div>
+<!-- Legend Bar -->
+<div class="flex items-center flex-wrap gap-4 py-3">
+<div class="flex items-center gap-2 text-xs font-mono-num text-espresso-subtle">
+<span class="w-3 h-3 rounded-sm bg-primary/20 border border-primary"></span>
+<span class="">Actual Daily GMV</span>
+</div>
+<div class="flex items-center gap-2 text-xs font-mono-num text-espresso-subtle">
+<span class="w-3 h-0.5 bg-ochre"></span>
+<span class="">7-Day Rolling Mean</span>
+</div>
+<div class="flex items-center gap-2 text-xs font-mono-num text-espresso-muted">
+<span class="w-3 h-0.5 border-t border-dashed border-sand-400"></span>
+<span class="">Budget Plan ($48.5K/d)</span>
+</div>
+</div>
+<!-- Precision SVG Area Chart (Warm Terracotta / Sandstone) -->
+<div class="relative w-full h-80 bg-[#FAF6F0] rounded-lg border border-[#EBE3D7] p-3 overflow-hidden flex flex-col justify-between">
+<!-- Horizontal Grid Lines -->
+<div class="absolute inset-x-0 inset-y-8 flex flex-col justify-between px-10 pointer-events-none">
+<div class="w-full h-px bg-[#E8E0D2]"></div>
+<div class="w-full h-px bg-[#E8E0D2]"></div>
+<div class="w-full h-px bg-[#E8E0D2]"></div>
+<div class="w-full h-px bg-[#E8E0D2]"></div>
+</div>
+<!-- Y-Axis Labels -->
+<div class="absolute left-3 top-6 bottom-8 flex flex-col justify-between font-mono-num text-[10px] text-espresso-muted pointer-events-none font-medium">
+<span class="">$75k</span>
+<span class="">$50k</span>
+<span class="">$25k</span>
+<span class="">$0k</span>
+</div>
+<!-- SVG Area Canvas -->
+<svg class="w-full h-64 pl-8 pr-2" preserveAspectRatio="none" viewBox="0 0 700 200">
+<defs>
+<linearGradient id="saharaGradient" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#C2652A" stop-opacity="0.30"></stop>
+<stop offset="85%" stop-color="#E8A86B" stop-opacity="0.08"></stop>
+<stop offset="100%" stop-color="#FAF6F0" stop-opacity="0.0"></stop>
+</linearGradient>
+<filter height="140%" id="saharaGlow" width="140%" x="-20%" y="-20%">
+<feDropShadow dx="0" dy="1" flood-color="#C2652A" flood-opacity="0.35" stdDeviation="2"></feDropShadow>
+</filter>
+</defs>
+<!-- Budget dashed line ($48.5k level) -->
+<line stroke="#C7B79D" stroke-dasharray="4 4" stroke-width="1.2" x1="0" x2="700" y1="95" y2="95"></line>
+<!-- Area Fill under curve -->
+<polygon fill="url(#saharaGradient)" points="0,165 35,145 70,158 110,128 150,138 190,105 230,120 275,90 315,102 360,78 400,90 440,68 480,72 525,48 565,60 605,38 645,42 680,24 700,28 700,200 0,200"></polygon>
+<!-- Actuals Primary Stroke -->
+<polyline fill="none" filter="url(#saharaGlow)" points="0,165 35,145 70,158 110,128 150,138 190,105 230,120 275,90 315,102 360,78 400,90 440,68 480,72 525,48 565,60 605,38 645,42 680,24 700,28" stroke="#C2652A" stroke-width="2.5"></polyline>
+<!-- 7D Rolling MA Curve -->
+<polyline fill="none" points="0,162 45,150 115,135 185,120 255,106 325,92 395,80 475,65 555,50 635,36 700,30" stroke="#D97736" stroke-width="2.5"></polyline>
+<!-- Cursor line on Oct 28 peak (x=605) -->
+<line opacity="0.8" stroke="#C2652A" stroke-dasharray="3 3" stroke-width="1.5" x1="605" x2="605" y1="0" y2="200"></line>
+<circle cx="605" cy="38" fill="#C2652A" r="5" stroke="#FAF6F0" stroke-width="2"></circle>
+<circle cx="605" cy="48" fill="#D97736" r="4" stroke="#FAF6F0" stroke-width="1.5"></circle>
+</svg>
+<!-- Interactive Floating Tooltip Badge -->
+<div class="absolute right-24 top-4 p-2.5 rounded-lg bg-white/95 border border-primary/30 backdrop-blur-md shadow-md flex flex-col gap-1 pointer-events-none">
+<div class="flex items-center justify-between gap-3">
+<span class="text-[10px] font-mono-num uppercase tracking-wider text-espresso-muted font-bold">OCTOBER 28 (LIVE)</span>
+<span class="text-[10px] font-mono-num font-bold text-primary px-1.5 py-0.5 rounded bg-primary/10 border border-primary/20">PEAK VELOCITY</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-mono-num text-lg font-bold text-espresso">$54,230.00</span>
+<span class="text-[10px] font-mono-num text-espresso-muted">GMV</span>
+</div>
+<div class="flex items-center gap-2 text-[11px] font-mono-num text-ochre font-medium">
+<span class="text-espresso-muted">7D Rolling MA:</span>
+<span class="font-bold text-espresso">$51,190.00</span>
+</div>
+</div>
+<!-- X-Axis Timeline Indicators -->
+<div class="flex justify-between pl-8 pr-2 pt-1 border-t border-[#EBE3D7] font-mono-num text-[11px] text-espresso-muted font-medium">
+<span class="">Oct 01</span>
+<span class="">Oct 07</span>
+<span class="">Oct 14</span>
+<span class="">Oct 21</span>
+<span class="text-primary font-bold">Oct 28 (Peak)</span>
+<span class="">Nov 04</span>
+</div>
+</div>
+</div>
+<!-- 40% Width Breakdown: Omnichannel Revenue Split by Category -->
+<div class="xl:col-span-5 p-5 rounded-xl bg-white border border-[#E5DDD0] shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between pb-3 border-b border-[#EFE8DD]">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-ochre shadow-[0_0_6px_rgba(217,119,54,0.6)]"></span>
+<h2 class="text-base font-bold text-espresso">Revenue Split by Category</h2>
+</div>
+<span class="text-xs text-espresso-muted">Omnichannel Merchandising Cluster Allocation</span>
+</div>
+<span class="material-symbols-outlined text-espresso-muted text-lg cursor-pointer hover:text-primary transition-colors">tune</span>
+</div>
+<!-- Centered Donut & Breakdown Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center py-4">
+<!-- Perfectly Centered Donut Chart (Warm Sahara Palette) -->
+<div class="relative flex items-center justify-center">
+<svg class="w-48 h-48 -rotate-90" viewBox="0 0 140 140">
+<!-- Background Track -->
+<circle cx="70" cy="70" fill="none" r="54" stroke="#EFE8DD" stroke-width="16"></circle>
+<!-- Apparel: 38% -> Terracotta -->
+<circle class="hover:opacity-90 transition-opacity" cx="70" cy="70" fill="none" r="54" stroke="#C2652A" stroke-dasharray="129 340" stroke-dashoffset="0" stroke-width="16"></circle>
+<!-- Electronics: 29% -> Ochre -->
+<circle cx="70" cy="70" fill="none" r="54" stroke="#D97736" stroke-dasharray="98 340" stroke-dashoffset="-129" stroke-width="16"></circle>
+<!-- Home: 18% -> Sand Gold / Amber -->
+<circle cx="70" cy="70" fill="none" r="54" stroke="#E69535" stroke-dasharray="61 340" stroke-dashoffset="-227" stroke-width="16"></circle>
+<!-- Health: 15% -> Warm Sage Olive -->
+<circle cx="70" cy="70" fill="none" r="54" stroke="#5E7053" stroke-dasharray="52 340" stroke-dashoffset="-288" stroke-width="16"></circle>
+</svg>
+<!-- Central Donut Metric -->
+<div class="absolute flex flex-col items-center justify-center text-center">
+<span class="text-[10px] font-mono-num uppercase tracking-wider text-espresso-muted font-bold">AGGREGATE</span>
+<span class="text-xl font-extrabold text-espresso leading-tight font-mono-num">$14.89M</span>
+<span class="text-[11px] font-mono-num text-primary font-bold">100% Split</span>
+</div>
+</div>
+<!-- Category Details List -->
+<div class="flex flex-col gap-2">
+<!-- Apparel -->
+<div class="p-2 rounded-lg bg-[#FAF6F0] border border-[#EBE3D7] flex flex-col gap-1">
+<div class="flex items-center justify-between text-xs font-mono-num">
+<span class="flex items-center gap-2 text-espresso font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary shadow-[0_0_6px_rgba(194,101,42,0.5)]"></span>Apparel &amp; Footwear
+                    </span>
+<span class="font-bold text-primary">38% ($5.66M)</span>
+</div>
+<div class="w-full h-1 bg-[#E8E0D2] rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 38%;"></div>
+</div>
+</div>
+<!-- Electronics -->
+<div class="p-2 rounded-lg bg-[#FAF6F0] border border-[#EBE3D7] flex flex-col gap-1">
+<div class="flex items-center justify-between text-xs font-mono-num">
+<span class="flex items-center gap-2 text-espresso font-semibold">
+<span class="w-2 h-2 rounded-full bg-ochre shadow-[0_0_6px_rgba(217,119,54,0.5)]"></span>Electronics &amp; Smart
+                    </span>
+<span class="font-bold text-ochre">29% ($4.32M)</span>
+</div>
+<div class="w-full h-1 bg-[#E8E0D2] rounded-full overflow-hidden">
+<div class="h-full bg-ochre rounded-full" style="width: 29%;"></div>
+</div>
+</div>
+<!-- Home -->
+<div class="p-2 rounded-lg bg-[#FAF6F0] border border-[#EBE3D7] flex flex-col gap-1">
+<div class="flex items-center justify-between text-xs font-mono-num">
+<span class="flex items-center gap-2 text-espresso font-semibold">
+<span class="w-2 h-2 rounded-full bg-amber shadow-[0_0_6px_rgba(230,149,53,0.5)]"></span>Home &amp; Living
+                    </span>
+<span class="font-bold text-amber-800">18% ($2.68M)</span>
+</div>
+<div class="w-full h-1 bg-[#E8E0D2] rounded-full overflow-hidden">
+<div class="h-full bg-amber rounded-full" style="width: 18%;"></div>
+</div>
+</div>
+<!-- Health -->
+<div class="p-2 rounded-lg bg-[#FAF6F0] border border-[#EBE3D7] flex flex-col gap-1">
+<div class="flex items-center justify-between text-xs font-mono-num">
+<span class="flex items-center gap-2 text-espresso font-semibold">
+<span class="w-2 h-2 rounded-full bg-olive shadow-[0_0_6px_rgba(94,112,83,0.5)]"></span>Health &amp; Beauty
+                    </span>
+<span class="font-bold text-olive">15% ($2.23M)</span>
+</div>
+<div class="w-full h-1 bg-[#E8E0D2] rounded-full overflow-hidden">
+<div class="h-full bg-olive rounded-full" style="width: 15%;"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Analysis Link -->
+<div class="pt-3 border-t border-[#EFE8DD] flex items-center justify-between text-xs font-mono-num text-espresso-muted">
+<span class="">Cross-elasticity index: <strong class="text-espresso">0.81 (Stable)</strong></span>
+<a class="text-primary hover:text-primary-hover flex items-center gap-1 font-bold" href="#">
+<span class="">Deep-Dive Clustering</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- 4. Bottom Section - Heatmap Matrix & SKU Velocity Table (55% / 45%) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-4">
+<!-- 55% Width: Hourly Sales Velocity Heatmap Matrix (Sahara Sand-to-Terracotta Palette) -->
+<div class="xl:col-span-7 p-5 rounded-xl bg-white border border-[#E5DDD0] shadow-sm flex flex-col justify-between">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-[#EFE8DD]">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">grid_view</span>
+<h2 class="text-base font-bold text-espresso">Hourly Sales Velocity Heatmap</h2>
+</div>
+<span class="text-xs text-espresso-muted">Temporal Traffic Load (Day of Week vs 24-Hour Cycle)</span>
+</div>
+<!-- Scale Legend -->
+<div class="flex items-center gap-2 text-[11px] font-mono-num text-espresso-muted font-medium">
+<span class="">0-200</span>
+<div class="w-24 h-2 rounded-full bg-gradient-to-r from-[#EDE4D5] via-[#E8B282] via-[#D97736] to-[#C2652A] border border-[#DDD3C2]"></div>
+<span class="text-primary font-bold">&gt;1,800/hr</span>
+</div>
+</div>
+<!-- Heatmap Visual Matrix Component -->
+<div class="w-full overflow-x-auto my-3">
+<div class="min-w-[620px] flex flex-col gap-1.5 p-2 rounded-lg bg-[#FAF6F0] border border-[#EBE3D7]">
+<!-- Header Hour Columns (24 columns) -->
+<div class="flex items-center gap-1">
+<span class="w-10 text-[10px] font-mono-num font-bold text-espresso-muted text-right pr-2">HR</span>
+<div class="flex-1 grid grid-cols-24 gap-1 text-center font-mono-num text-[10px] text-espresso-muted font-semibold">
+<div class="">00</div><div class="">01</div><div class="">02</div><div class="">03</div><div class="">04</div><div class="">05</div>
+<div class="">06</div><div class="">07</div><div class="">08</div><div class="">09</div><div class="">10</div><div class="">11</div>
+<div class="">12</div><div class="">13</div><div class="">14</div><div class="">15</div><div class="">16</div><div class="">17</div>
+<div class="">18</div><div class="">19</div><div class="">20</div><div class="">21</div><div class="">22</div><div class="">23</div>
+</div>
+</div>
+<!-- MON -->
+<div class="flex items-center gap-1">
+<span class="w-10 text-[11px] font-mono-num text-espresso-muted font-bold text-right pr-2">MON</span>
+<div class="flex-1 grid grid-cols-24 gap-1 h-5">
+<div class="bg-[#F0E8DC] rounded-sm" title="00:00 - 45 tx"></div>
+<div class="bg-[#F0E8DC] rounded-sm" title="01:00 - 32 tx"></div>
+<div class="bg-[#F0E8DC] rounded-sm" title="02:00 - 20 tx"></div>
+<div class="bg-[#F0E8DC] rounded-sm" title="03:00 - 18 tx"></div>
+<div class="bg-[#EADDCB] rounded-sm" title="04:00 - 65 tx"></div>
+<div class="bg-[#E5D2B8] rounded-sm" title="05:00 - 140 tx"></div>
+<div class="bg-[#DFC4A3] rounded-sm" title="06:00 - 280 tx"></div>
+<div class="bg-[#D9B58E] rounded-sm" title="07:00 - 410 tx"></div>
+<div class="bg-[#D3A77C] rounded-sm" title="08:00 - 620 tx"></div>
+<div class="bg-[#D09664] rounded-sm" title="09:00 - 890 tx"></div>
+<div class="bg-[#D2834E] rounded-sm" title="10:00 - 1,120 tx"></div>
+<div class="bg-[#D97736] rounded-sm" title="11:00 - 1,290 tx"></div>
+<div class="bg-[#C2652A] rounded-sm shadow-[0_0_4px_rgba(194,101,42,0.3)]" title="12:00 - 1,410 tx"></div>
+<div class="bg-[#D97736] rounded-sm" title="13:00 - 1,280 tx"></div>
+<div class="bg-[#D2834E] rounded-sm" title="14:00 - 1,100 tx"></div>
+<div class="bg-[#D09664] rounded-sm" title="15:00 - 950 tx"></div>
+<div class="bg-[#D3A77C] rounded-sm" title="16:00 - 740 tx"></div>
+<div class="bg-[#D9B58E] rounded-sm" title="17:00 - 580 tx"></div>
+<div class="bg-[#DFC4A3] rounded-sm" title="18:00 - 410 tx"></div>
+<div class="bg-[#E5D2B8] rounded-sm" title="19:00 - 290 tx"></div>
+<div class="bg-[#EADDCB] rounded-sm" title="20:00 - 180 tx"></div>
+<div class="bg-[#F0E8DC] rounded-sm" title="21:00 - 110 tx"></div>
+<div class="bg-[#F0E8DC] rounded-sm" title="22:00 - 75 tx"></div>
+<div class="bg-[#F0E8DC] rounded-sm" title="23:00 - 50 tx"></div>
+</div>
+</div>
+<!-- TUE -->
+<div class="flex items-center gap-1">
+<span class="w-10 text-[11px] font-mono-num text-espresso-muted font-bold text-right pr-2">TUE</span>
+<div class="flex-1 grid grid-cols-24 gap-1 h-5">
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#EADDCB] rounded-sm"></div>
+<div class="bg-[#E5D2B8] rounded-sm"></div>
+<div class="bg-[#DFC4A3] rounded-sm"></div>
+<div class="bg-[#D3A77C] rounded-sm"></div>
+<div class="bg-[#D09664] rounded-sm"></div>
+<div class="bg-[#D2834E] rounded-sm"></div>
+<div class="bg-[#D97736] rounded-sm"></div>
+<div class="bg-[#C2652A] rounded-sm"></div>
+<div class="bg-[#C2652A] rounded-sm"></div>
+<div class="bg-[#D97736] rounded-sm"></div>
+<div class="bg-[#D2834E] rounded-sm"></div>
+<div class="bg-[#D09664] rounded-sm"></div>
+<div class="bg-[#D3A77C] rounded-sm"></div>
+<div class="bg-[#D9B58E] rounded-sm"></div>
+<div class="bg-[#DFC4A3] rounded-sm"></div>
+<div class="bg-[#E5D2B8] rounded-sm"></div>
+<div class="bg-[#EADDCB] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+</div>
+</div>
+<!-- WED -->
+<div class="flex items-center gap-1">
+<span class="w-10 text-[11px] font-mono-num text-espresso-muted font-bold text-right pr-2">WED</span>
+<div class="flex-1 grid grid-cols-24 gap-1 h-5">
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#EADDCB] rounded-sm"></div>
+<div class="bg-[#E5D2B8] rounded-sm"></div>
+<div class="bg-[#DFC4A3] rounded-sm"></div>
+<div class="bg-[#D9B58E] rounded-sm"></div>
+<div class="bg-[#D3A77C] rounded-sm"></div>
+<div class="bg-[#D09664] rounded-sm"></div>
+<div class="bg-[#D2834E] rounded-sm"></div>
+<div class="bg-[#D97736] rounded-sm"></div>
+<div class="bg-[#C2652A] rounded-sm"></div>
+<div class="bg-[#D97736] rounded-sm"></div>
+<div class="bg-[#D2834E] rounded-sm"></div>
+<div class="bg-[#D09664] rounded-sm"></div>
+<div class="bg-[#D3A77C] rounded-sm"></div>
+<div class="bg-[#D9B58E] rounded-sm"></div>
+<div class="bg-[#DFC4A3] rounded-sm"></div>
+<div class="bg-[#E5D2B8] rounded-sm"></div>
+<div class="bg-[#EADDCB] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+</div>
+</div>
+<!-- THU -->
+<div class="flex items-center gap-1">
+<span class="w-10 text-[11px] font-mono-num text-espresso-muted font-bold text-right pr-2">THU</span>
+<div class="flex-1 grid grid-cols-24 gap-1 h-5">
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#EADDCB] rounded-sm"></div>
+<div class="bg-[#E5D2B8] rounded-sm"></div>
+<div class="bg-[#DFC4A3] rounded-sm"></div>
+<div class="bg-[#D3A77C] rounded-sm"></div>
+<div class="bg-[#D09664] rounded-sm"></div>
+<div class="bg-[#D2834E] rounded-sm"></div>
+<div class="bg-[#D97736] rounded-sm"></div>
+<div class="bg-[#C2652A] rounded-sm"></div>
+<div class="bg-[#B3561D] rounded-sm shadow-[0_0_4px_rgba(179,86,29,0.4)]"></div>
+<div class="bg-[#C2652A] rounded-sm"></div>
+<div class="bg-[#D97736] rounded-sm"></div>
+<div class="bg-[#D09664] rounded-sm"></div>
+<div class="bg-[#D3A77C] rounded-sm"></div>
+<div class="bg-[#D9B58E] rounded-sm"></div>
+<div class="bg-[#DFC4A3] rounded-sm"></div>
+<div class="bg-[#E5D2B8] rounded-sm"></div>
+<div class="bg-[#EADDCB] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+</div>
+</div>
+<!-- FRI -->
+<div class="flex items-center gap-1">
+<span class="w-10 text-[11px] font-mono-num text-espresso-muted font-bold text-right pr-2">FRI</span>
+<div class="flex-1 grid grid-cols-24 gap-1 h-5">
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#EADDCB] rounded-sm"></div>
+<div class="bg-[#E5D2B8] rounded-sm"></div>
+<div class="bg-[#D9B58E] rounded-sm"></div>
+<div class="bg-[#D3A77C] rounded-sm"></div>
+<div class="bg-[#D09664] rounded-sm"></div>
+<div class="bg-[#D2834E] rounded-sm"></div>
+<div class="bg-[#C2652A] rounded-sm"></div>
+<div class="bg-[#B3561D] rounded-sm shadow-[0_0_4px_rgba(179,86,29,0.4)]"></div>
+<div class="bg-[#B3561D] rounded-sm shadow-[0_0_4px_rgba(179,86,29,0.4)]"></div>
+<div class="bg-[#C2652A] rounded-sm"></div>
+<div class="bg-[#D97736] rounded-sm"></div>
+<div class="bg-[#C2652A] rounded-sm"></div>
+<div class="bg-[#B3561D] rounded-sm shadow-[0_0_4px_rgba(179,86,29,0.4)]"></div>
+<div class="bg-[#C2652A] rounded-sm"></div>
+<div class="bg-[#D2834E] rounded-sm"></div>
+<div class="bg-[#D09664] rounded-sm"></div>
+<div class="bg-[#D9B58E] rounded-sm"></div>
+<div class="bg-[#E5D2B8] rounded-sm"></div>
+<div class="bg-[#EADDCB] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+</div>
+</div>
+<!-- SAT (Peak) -->
+<div class="flex items-center gap-1">
+<span class="w-10 text-[11px] font-mono-num font-bold text-primary text-right pr-2">SAT</span>
+<div class="flex-1 grid grid-cols-24 gap-1 h-5">
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#EADDCB] rounded-sm"></div>
+<div class="bg-[#E5D2B8] rounded-sm"></div>
+<div class="bg-[#D9B58E] rounded-sm"></div>
+<div class="bg-[#D09664] rounded-sm"></div>
+<div class="bg-[#D2834E] rounded-sm"></div>
+<div class="bg-[#C2652A] rounded-sm"></div>
+<div class="bg-[#B3561D] rounded-sm shadow-[0_0_4px_rgba(179,86,29,0.4)]"></div>
+<div class="bg-[#B3561D] rounded-sm shadow-[0_0_4px_rgba(179,86,29,0.4)]"></div>
+<div class="bg-[#A64B17] rounded-sm shadow-[0_0_6px_rgba(166,75,23,0.5)]"></div>
+<div class="bg-[#A64B17] rounded-sm shadow-[0_0_6px_rgba(166,75,23,0.5)]"></div>
+<div class="bg-[#A64B17] rounded-sm shadow-[0_0_6px_rgba(166,75,23,0.5)]"></div>
+<div class="bg-[#A64B17] rounded-sm shadow-[0_0_6px_rgba(166,75,23,0.5)]"></div>
+<div class="bg-[#8E3A0B] rounded-sm shadow-[0_0_8px_rgba(142,58,11,0.7)] ring-1.5 ring-primary" title="SAT 16:00 PEAK: 1,840 tx/hr"></div>
+<div class="bg-[#A64B17] rounded-sm shadow-[0_0_6px_rgba(166,75,23,0.5)]"></div>
+<div class="bg-[#B3561D] rounded-sm shadow-[0_0_4px_rgba(179,86,29,0.4)]"></div>
+<div class="bg-[#C2652A] rounded-sm"></div>
+<div class="bg-[#D2834E] rounded-sm"></div>
+<div class="bg-[#D09664] rounded-sm"></div>
+<div class="bg-[#E5D2B8] rounded-sm"></div>
+<div class="bg-[#EADDCB] rounded-sm"></div>
+</div>
+</div>
+<!-- SUN -->
+<div class="flex items-center gap-1">
+<span class="w-10 text-[11px] font-mono-num font-bold text-primary text-right pr-2">SUN</span>
+<div class="flex-1 grid grid-cols-24 gap-1 h-5">
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#EADDCB] rounded-sm"></div>
+<div class="bg-[#E5D2B8] rounded-sm"></div>
+<div class="bg-[#DFC4A3] rounded-sm"></div>
+<div class="bg-[#D3A77C] rounded-sm"></div>
+<div class="bg-[#D2834E] rounded-sm"></div>
+<div class="bg-[#C2652A] rounded-sm"></div>
+<div class="bg-[#B3561D] rounded-sm shadow-[0_0_4px_rgba(179,86,29,0.4)]"></div>
+<div class="bg-[#A64B17] rounded-sm shadow-[0_0_6px_rgba(166,75,23,0.5)]"></div>
+<div class="bg-[#A64B17] rounded-sm shadow-[0_0_6px_rgba(166,75,23,0.5)]"></div>
+<div class="bg-[#B3561D] rounded-sm shadow-[0_0_4px_rgba(179,86,29,0.4)]"></div>
+<div class="bg-[#B3561D] rounded-sm shadow-[0_0_4px_rgba(179,86,29,0.4)]"></div>
+<div class="bg-[#C2652A] rounded-sm"></div>
+<div class="bg-[#D2834E] rounded-sm"></div>
+<div class="bg-[#D09664] rounded-sm"></div>
+<div class="bg-[#D9B58E] rounded-sm"></div>
+<div class="bg-[#DFC4A3] rounded-sm"></div>
+<div class="bg-[#E5D2B8] rounded-sm"></div>
+<div class="bg-[#EADDCB] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+<div class="bg-[#F0E8DC] rounded-sm"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Heatmap Footer Annotations -->
+<div class="p-2.5 rounded-lg bg-[#FAF6F0] border border-[#EBE3D7] flex items-center justify-between text-xs font-mono-num">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-primary">insights</span>
+<span class="text-espresso-muted">Peak Velocity Event:</span>
+<span class="font-bold text-primary">Saturday 16:00 (1,840 tx/hr)</span>
+</div>
+<span class="text-espresso-muted">Holdout Validation: <strong class="text-espresso">99.4%</strong></span>
+</div>
+</div>
+<!-- 45% Width: SKU Velocity & Live Ingestion Table -->
+<div class="xl:col-span-5 p-5 rounded-xl bg-white border border-[#E5DDD0] shadow-sm flex flex-col justify-between">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-[#EFE8DD]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">bolt</span>
+<h2 class="text-base font-bold text-espresso">SKU Velocity &amp; Live Ingestion</h2>
+</div>
+<!-- View Filter Tabs -->
+<div class="flex items-center bg-[#FAF6F0] p-1 rounded-lg border border-[#EBE3D7]">
+<button class="px-2.5 py-1 rounded bg-white text-primary font-bold text-xs border border-[#DDD3C2] shadow-sm">Top SKUs</button>
+<button class="px-2.5 py-1 rounded text-xs text-espresso-muted hover:text-espresso transition-colors flex items-center gap-1 font-medium">
+<span class="">Anomalies</span>
+<span class="w-1.5 h-1.5 rounded-full bg-crimson"></span>
+<span class="text-crimson font-bold text-[10px]">(2)</span>
+</button>
+</div>
+</div>
+<!-- Structured Telemetry Table -->
+<div class="overflow-x-auto my-2">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-[#EFE8DD] text-espresso-muted font-mono-num text-[10px] uppercase font-bold">
+<th class="py-2.5 px-3">SKU Identifier</th>
+<th class="py-2.5 px-2">Dept</th>
+<th class="py-2.5 px-2 text-right">Units (24h)</th>
+<th class="py-2.5 px-3 text-right">GMV</th>
+<th class="py-2.5 px-2 text-center">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#F5EFE6] font-mono-num text-xs">
+<!-- Row 1 -->
+<tr class="hover:bg-[#FAF6F0]/80 transition-colors">
+<td class="py-2.5 px-3">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_6px_rgba(194,101,42,0.5)]"></span>
+<div class="flex flex-col">
+<span class="font-bold text-espresso truncate max-w-[130px]">AeroFlex Carbon</span>
+<span class="text-[9px] text-espresso-muted">AF-992-BLK</span>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-2 text-espresso-muted text-[11px]">Footwear</td>
+<td class="py-2.5 px-2 text-right text-espresso font-semibold">1,420</td>
+<td class="py-2.5 px-3 text-right text-primary font-bold">$227,200</td>
+<td class="py-2.5 px-2 text-center">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-primary/10 text-primary border border-primary/20">
+                        HIGH VELOCITY
+                      </span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-[#FAF6F0]/80 transition-colors">
+<td class="py-2.5 px-3">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-ochre shadow-[0_0_6px_rgba(217,119,54,0.5)]"></span>
+<div class="flex flex-col">
+<span class="font-bold text-espresso truncate max-w-[130px]">HyperSound ANC</span>
+<span class="text-[9px] text-espresso-muted">HS-ANC-700</span>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-2 text-espresso-muted text-[11px]">Tech</td>
+<td class="py-2.5 px-2 text-right text-espresso font-semibold">894</td>
+<td class="py-2.5 px-3 text-right text-ochre font-bold">$178,800</td>
+<td class="py-2.5 px-2 text-center">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-orange-50 text-ochre border border-orange-200">
+                        STABLE
+                      </span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-[#FAF6F0]/80 transition-colors">
+<td class="py-2.5 px-3">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-olive shadow-[0_0_6px_rgba(94,112,83,0.5)]"></span>
+<div class="flex flex-col">
+<span class="font-bold text-espresso truncate max-w-[130px]">Quantum Ergo Desk</span>
+<span class="text-[9px] text-espresso-muted">QD-CHAIR-PRO</span>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-2 text-espresso-muted text-[11px]">Living</td>
+<td class="py-2.5 px-2 text-right text-espresso font-semibold">612</td>
+<td class="py-2.5 px-3 text-right text-olive font-bold">$152,388</td>
+<td class="py-2.5 px-2 text-center">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-olive border border-emerald-200">
+                        STABLE
+                      </span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-[#FAF6F0]/80 transition-colors">
+<td class="py-2.5 px-3">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-crimson shadow-[0_0_6px_rgba(185,56,44,0.5)]"></span>
+<div class="flex flex-col">
+<span class="font-bold text-espresso truncate max-w-[130px]">HydroGlow Serum</span>
+<span class="text-[9px] text-espresso-muted">HG-SRM-50ML</span>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-2 text-espresso-muted text-[11px]">Beauty</td>
+<td class="py-2.5 px-2 text-right text-espresso font-semibold">2,110</td>
+<td class="py-2.5 px-3 text-right text-crimson font-bold">$101,280</td>
+<td class="py-2.5 px-2 text-center">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-red-50 text-crimson border border-red-200 animate-pulse">
+                        STOCKOUT RISK
+                      </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer -->
+<div class="pt-3 border-t border-[#EFE8DD] flex items-center justify-between font-mono-num text-xs text-espresso-muted">
+<span class="">Tracking <strong class="text-espresso">33 Priority SKUs</strong></span>
+<a class="text-primary hover:text-primary-hover flex items-center gap-1 font-bold" href="#">
+<span class="">Inventory Command Center</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+
+</body></html>

@@ -1,0 +1,779 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="web_dashboard" name="shell-type">
+<title>Nexus Retail AI - Executive Overview</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          primary: {
+            DEFAULT: "#c2652a",
+            hover: "#ad561f",
+            light: "#fbe8d8",
+            dim: "#f0a878",
+            dark: "#8a4518",
+          },
+          sand: {
+            50: "#fdfbf7",
+            100: "#f7f2ea",
+            200: "#eee6d8",
+            300: "#e2d7c3",
+            400: "#c7b79d",
+          },
+          espresso: {
+            DEFAULT: "#1f1b18",
+            subtle: "#3a302a",
+            muted: "#605850",
+            border: "#e6e0d6",
+          },
+          ochre: "#d97736",
+          amber: "#e69535",
+          olive: "#5e7053",
+          crimson: "#b9382c"
+        },
+        fontFamily: {
+          body: ["Manrope", "sans-serif"],
+          headline: ["EB Garamond", "serif"],
+          mono: ["JetBrains Mono", "monospace"],
+        }
+      }
+    }
+  }
+</script>
+<style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #FAF6F0;
+        color: #1F1B18;
+        font-family: 'Manrope', sans-serif;
+      }
+      body {
+        overscroll-behavior: none;
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    .font-mono-num {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .font-headline {
+      font-family: 'EB Garamond', serif;
+    }
+    .font-display {
+      font-family: 'Manrope', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-[#FAF6F0] text-espresso antialiased selection:bg-primary/20 selection:text-primary-dark">
+<!-- Left Sidebar Navigation Chrome (Warm Sahara Theme) -->
+<aside class="fixed left-0 top-0 h-screen w-72 bg-[#F5EFE6] border-r border-[#E5DDD0] backdrop-blur-2xl z-50 flex flex-col justify-between shadow-[4px_0_24px_rgba(70,45,25,0.04)]">
+<div class="flex flex-col">
+<!-- Brand & Systems Header -->
+<div class="px-5 pt-5 pb-4 border-b border-[#E5DDD0]">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-primary to-[#D97736] flex items-center justify-center p-0.5 shadow-[0_2px_10px_rgba(194,101,42,0.3)]">
+<span class="material-symbols-outlined text-white text-xl">hub</span>
+</div>
+<div class="flex flex-col">
+<span class="font-bold tracking-tight text-espresso leading-tight flex items-center gap-1.5 text-base">
+              NEXUS <span class="text-primary font-mono-num font-semibold text-[11px] uppercase px-1.5 py-0.5 bg-[#FAF5EE] border border-primary/30 rounded">v4.8</span>
+</span>
+<span class="text-[10px] font-bold tracking-widest text-espresso-muted uppercase">RETAIL AI FOUNDRY</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="inline-flex items-center justify-between px-2.5 py-1.5 rounded-md bg-white border border-[#E8E2D6] shadow-sm">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
+<span class="font-mono-num text-[11px] text-espresso-subtle font-semibold tracking-wide uppercase">SYSTEM: NOMINAL</span>
+</div>
+<span class="text-[10px] text-espresso-muted font-mono-num font-medium">99.98%</span>
+</div>
+<div class="inline-flex items-center justify-between px-2.5 py-1.5 rounded-md bg-[#FAF5EE] border border-[#E8E2D6]">
+<span class="font-mono-num text-[11px] text-espresso-muted">FASTAPI ENDPOINT:</span>
+<span class="font-mono-num text-[11px] text-emerald-700 font-semibold flex items-center gap-1">
+<span class="w-1 h-1 rounded-full bg-emerald-600"></span>ONLINE (200 OK)
+            </span>
+</div>
+</div>
+</div>
+<!-- Modules Nav -->
+<div class="px-3 py-4">
+<div class="px-3 pb-2">
+<span class="text-[10px] font-bold text-espresso-muted uppercase tracking-wider font-mono-num">Operational Modules</span>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all bg-white border border-[#E2D7C5] text-primary font-bold shadow-sm" href="#">
+<span class="material-symbols-outlined text-primary text-lg">analytics</span>
+<span class="text-sm">Executive Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-espresso-subtle hover:text-espresso hover:bg-white/70 transition-all group" href="#">
+<span class="material-symbols-outlined text-espresso-muted group-hover:text-primary text-lg transition-colors">trending_up</span>
+<span class="text-sm font-medium">AI Sales Forecasting</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-espresso-subtle hover:text-espresso hover:bg-white/70 transition-all group" href="#">
+<span class="material-symbols-outlined text-espresso-muted group-hover:text-primary text-lg transition-colors">group</span>
+<span class="text-sm font-medium">Customer 360 &amp; RFM</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-espresso-subtle hover:text-espresso hover:bg-white/70 transition-all group" href="#">
+<span class="material-symbols-outlined text-espresso-muted group-hover:text-primary text-lg transition-colors">inventory_2</span>
+<span class="text-sm font-medium">Inventory &amp; Supply Chain</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-espresso-subtle hover:text-espresso hover:bg-white/70 transition-all group" href="#">
+<span class="material-symbols-outlined text-espresso-muted group-hover:text-primary text-lg transition-colors">tune</span>
+<span class="text-sm font-medium">Model Management &amp; MLOps</span>
+</a>
+</nav>
+</div>
+</div>
+<!-- Sidebar Bottom Telemetry -->
+<div class="p-3 m-3 rounded-xl bg-white border border-[#E5DDD0] flex flex-col gap-2.5 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-bold text-espresso-muted font-mono-num uppercase tracking-wider">MLOps Telemetry</span>
+<span class="inline-flex items-center gap-1 font-mono-num text-[11px] text-emerald-700 font-semibold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>HEALTHY
+        </span>
+</div>
+<div class="grid grid-cols-2 gap-1.5">
+<div class="flex flex-col bg-[#FAF6F0] p-2 rounded border border-[#EBE3D7]">
+<span class="text-[10px] text-espresso-muted font-mono-num">Inference Latency</span>
+<span class="font-mono-num text-xs font-semibold text-espresso">18ms</span>
+</div>
+<div class="flex flex-col bg-[#FAF6F0] p-2 rounded border border-[#EBE3D7]">
+<span class="text-[10px] text-espresso-muted font-mono-num">Ingested SKUs</span>
+<span class="font-mono-num text-xs font-semibold text-espresso">120,492</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1 border-t border-[#EFE8DD]">
+<div class="flex flex-col">
+<span class="text-[9px] text-espresso-muted uppercase font-mono-num">Active Cluster</span>
+<span class="font-mono-num text-[11px] text-primary font-semibold">Prod / us-east-1a</span>
+</div>
+<span class="material-symbols-outlined text-espresso-muted text-base cursor-pointer hover:text-primary transition-colors">tune</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Space -->
+<div class="pl-72 flex flex-col min-h-screen bg-[#FAF6F0]">
+<!-- Top Persistent Header -->
+<header class="fixed top-0 left-72 right-0 h-16 bg-[#FAF6F0]/90 backdrop-blur-xl z-40 border-b border-[#E5DDD0] flex items-center justify-between px-6 shadow-sm">
+<!-- Breadcrumbs & Sync Info -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 font-mono-num text-xs text-espresso-muted">
+<span class="text-primary font-bold">NEXUS</span>
+<span class="text-sand-400">/</span>
+<span class="">Retail Analytics</span>
+<span class="text-sand-400">/</span>
+<span class="text-espresso font-semibold">Executive Overview</span>
+</div>
+<div class="h-4 w-px bg-[#E5DDD0]"></div>
+<div class="flex items-center gap-2 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-mono-num text-[11px] font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="">LIVE SYNC (3s)</span>
+</div>
+</div>
+<!-- Quick Actions, Search & User -->
+<div class="flex items-center gap-3">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2.5 text-espresso-muted text-sm pointer-events-none">search</span>
+<input class="w-80 h-8 pl-8 pr-3 bg-white border border-[#DDD3C2] text-espresso placeholder:text-espresso-muted text-xs rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-mono-num shadow-sm" placeholder="Search SKUs, cohorts, stores (⌘K)..." type="text">
+</div>
+<div class="flex items-center gap-1.5 px-2.5 h-8 rounded-lg bg-white border border-[#DDD3C2] text-espresso font-mono-num text-xs hover:border-primary/50 transition-colors cursor-pointer shadow-sm">
+<span class="material-symbols-outlined text-sm text-primary">currency_exchange</span>
+<span class="font-medium">USD $ / UTC-5</span>
+</div>
+<div class="flex items-center bg-stone-200/80 p-0.5 rounded-lg border border-stone-300 text-[11px] font-medium tracking-tight">
+  <button class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white text-stone-900 shadow-sm font-semibold transition-all">
+    <span class="material-symbols-outlined text-[14px] text-amber-600">light_mode</span>
+    <span class="">Sahara Light</span>
+  </button>
+  <button class="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-stone-600 hover:text-stone-900 transition-all">
+    <span class="material-symbols-outlined text-[14px]">dark_mode</span>
+    <span class="">Sahara Dark</span>
+  </button>
+</div><button class="h-8 px-3 rounded-lg bg-primary hover:bg-primary-hover text-white font-medium text-xs flex items-center gap-1.5 transition-all shadow-[0_2px_8px_rgba(194,101,42,0.25)] active:scale-95">
+<span class="material-symbols-outlined text-sm">rocket_launch</span>
+<span class="">Deploy</span>
+</button>
+<button class="relative w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-[#DDD3C2] text-espresso-subtle hover:text-espresso transition-colors shadow-sm">
+<span class="material-symbols-outlined text-base">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-crimson ring-2 ring-white"></span>
+</button>
+<div class="flex items-center gap-2.5 pl-2 border-l border-[#E5DDD0]">
+<div class="w-8 h-8 rounded-full bg-gradient-to-tr from-primary to-amber p-0.5 shadow-sm">
+<div class="w-full h-full rounded-full bg-[#FAF5EE] flex items-center justify-center font-bold text-xs text-primary">EV</div>
+</div>
+<div class="hidden xl:flex flex-col">
+<span class="text-xs text-espresso font-bold leading-tight">E. Vance</span>
+<span class="text-[9px] font-mono-num text-espresso-muted uppercase tracking-wider font-semibold">VP Merchandising</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Workspace -->
+<main class="w-full pt-16 flex-1 bg-[#FAF6F0]"><div class="flex flex-col w-full">
+<div class="px-8 py-7 flex flex-col gap-8 max-w-[1600px] mx-auto w-full">
+<!-- Subheader & Telemetry Filter Bar -->
+<div class="flex flex-col gap-5">
+<div class="flex flex-wrap items-center justify-between gap-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="text-[11px] font-mono tracking-widest text-primary font-semibold uppercase">RFM SYNTHESIS CORE</span>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant text-[11px] font-mono font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+              CLUSTERING ENGINE v3.4 (Unsupervised K-Means + UMAP Embedding)
+            </span>
+</div>
+<h1 class="font-headline text-3xl xl:text-4xl text-on-surface tracking-tight font-normal">Customer 360 &amp; Behavioral RFM</h1>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface text-xs font-label font-medium transition-all shadow-sm flex items-center gap-2 active:scale-98">
+<span class="material-symbols-outlined text-base text-secondary">download</span>
+<span class="">Export Cohort Lists (.csv)</span>
+</button>
+<button class="px-4.5 py-2 rounded-lg bg-primary hover:bg-on-primary-fixed-variant text-on-primary text-xs font-label font-medium transition-all shadow-md hover:shadow-lg flex items-center gap-2 active:scale-98">
+<span class="material-symbols-outlined text-base">sync_alt</span>
+<span class="">Trigger Audience Sync to CDP</span>
+</button>
+</div>
+</div>
+<!-- Segment Filter Ribbons -->
+<div class="p-4 rounded-xl bg-surface-container-lowest shadow-sm flex flex-wrap items-center justify-between gap-4">
+<div class="flex flex-wrap items-center gap-3">
+<div class="flex items-center gap-2 bg-surface-container-low px-3 py-1.5 rounded-lg text-xs font-body">
+<span class="text-on-surface-variant font-mono text-[11px] uppercase">Segment:</span>
+<select class="bg-transparent border-0 text-xs font-semibold text-on-surface focus:ring-0 p-0 pr-4 cursor-pointer">
+<option>All Customers (284,520)</option>
+<option selected="">High-Value Champions (18,420)</option>
+<option>Loyalists (42,100)</option>
+<option>At Risk (14,350)</option>
+<option>Dormant (62,180)</option>
+</select>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-low px-3 py-1.5 rounded-lg text-xs font-body">
+<span class="text-on-surface-variant font-mono text-[11px] uppercase">Recency:</span>
+<select class="bg-transparent border-0 text-xs font-semibold text-on-surface focus:ring-0 p-0 pr-4 cursor-pointer">
+<option>Last 30 Days</option>
+<option selected="">Last 90 Days</option>
+<option>Last 365 Days</option>
+</select>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-low px-3 py-1.5 rounded-lg text-xs font-body">
+<span class="text-on-surface-variant font-mono text-[11px] uppercase">Spend Tier:</span>
+<select class="bg-transparent border-0 text-xs font-semibold text-on-surface focus:ring-0 p-0 pr-4 cursor-pointer">
+<option>All Tiers</option>
+<option>$0 – $250</option>
+<option>$250 – $1,000</option>
+<option selected="">$1,000 – $10k+</option>
+</select>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-low px-3 py-1.5 rounded-lg text-xs font-body">
+<span class="text-on-surface-variant font-mono text-[11px] uppercase">Region:</span>
+<select class="bg-transparent border-0 text-xs font-semibold text-on-surface focus:ring-0 p-0 pr-4 cursor-pointer">
+<option selected="">Global (All Geo)</option>
+<option>North America (East / West)</option>
+<option>EMEA Central</option>
+<option>APAC &amp; Oceania</option>
+</select>
+</div>
+</div>
+<div class="flex items-center gap-2 font-mono text-xs text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="">Sample Latency: <strong>42ms</strong></span>
+<span class="text-outline-variant">/</span>
+<span class="">Silhouette Score: <strong>0.742</strong></span>
+</div>
+</div>
+</div>
+<!-- RFM Metric Cards (4 Pillars) -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+<!-- Metric 1 -->
+<div class="p-6 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between transition-all hover:shadow-md group">
+<div class="flex items-center justify-between">
+<span class="font-mono text-[11px] uppercase tracking-wider text-on-surface-variant">Profiles Monitored</span>
+<span class="material-symbols-outlined text-primary text-xl group-hover:scale-110 transition-transform">group</span>
+</div>
+<div class="my-4">
+<div class="font-headline text-4xl text-on-surface tracking-tight">284,520</div>
+<div class="flex items-center gap-1.5 mt-1 text-xs">
+<span class="font-mono text-primary font-semibold">+14.2%</span>
+<span class="text-on-surface-variant">YoY growth</span>
+</div>
+</div>
+<div class="pt-3 bg-surface-container-low/50 -mx-6 -mb-6 px-6 pb-4 rounded-b-xl flex items-center justify-between text-[11px] font-mono text-on-surface-variant">
+<span class="">Active 30D Window</span>
+<span class="font-bold text-on-surface">68.4% (194.6k)</span>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="p-6 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between transition-all hover:shadow-md group">
+<div class="flex items-center justify-between">
+<span class="font-mono text-[11px] uppercase tracking-wider text-on-surface-variant">Average CLV / LTV</span>
+<span class="material-symbols-outlined text-primary text-xl group-hover:scale-110 transition-transform">payments</span>
+</div>
+<div class="my-4">
+<div class="font-headline text-4xl text-on-surface tracking-tight">$842.50</div>
+<div class="flex items-center gap-1.5 mt-1 text-xs">
+<span class="font-mono text-primary font-semibold">+8.7%</span>
+<span class="text-on-surface-variant">QoQ acceleration</span>
+</div>
+</div>
+<div class="pt-3 bg-surface-container-low/50 -mx-6 -mb-6 px-6 pb-4 rounded-b-xl flex items-center justify-between text-[11px] font-mono text-on-surface-variant">
+<span class="">Predicted 12M Peak</span>
+<span class="font-bold text-on-surface">$1,140.00 (Med: $420)</span>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="p-6 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between transition-all hover:shadow-md group">
+<div class="flex items-center justify-between">
+<span class="font-mono text-[11px] uppercase tracking-wider text-on-surface-variant">Order Velocity</span>
+<span class="material-symbols-outlined text-primary text-xl group-hover:scale-110 transition-transform">autorenew</span>
+</div>
+<div class="my-4">
+<div class="font-headline text-4xl text-on-surface tracking-tight">3.42 <span class="text-xl font-body text-on-surface-variant">ord/yr</span></div>
+<div class="flex items-center gap-1.5 mt-1 text-xs">
+<span class="font-mono text-primary font-semibold">48 Days</span>
+<span class="text-on-surface-variant">average re-order interval</span>
+</div>
+</div>
+<div class="pt-3 bg-surface-container-low/50 -mx-6 -mb-6 px-6 pb-4 rounded-b-xl flex items-center justify-between text-[11px] font-mono text-on-surface-variant">
+<span class="">Retention Resilience</span>
+<span class="font-bold text-on-surface">78.6% Target Met</span>
+</div>
+</div>
+<!-- Metric 4 -->
+<div class="p-6 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between transition-all hover:shadow-md group">
+<div class="flex items-center justify-between">
+<span class="font-mono text-[11px] uppercase tracking-wider text-on-surface-variant">Net Churn Vulnerability</span>
+<span class="material-symbols-outlined text-tertiary text-xl group-hover:scale-110 transition-transform">shield</span>
+</div>
+<div class="my-4">
+<div class="font-headline text-4xl text-on-surface tracking-tight">4.8% <span class="text-xs font-mono font-medium px-2 py-0.5 rounded bg-surface-container text-primary">LOW RISK</span></div>
+<div class="flex items-center gap-1.5 mt-1 text-xs">
+<span class="font-mono text-tertiary font-semibold">1,420</span>
+<span class="text-on-surface-variant">High-value flag interventions</span>
+</div>
+</div>
+<div class="pt-3 bg-surface-container-low/50 -mx-6 -mb-6 px-6 pb-4 rounded-b-xl flex items-center justify-between text-[11px] font-mono text-on-surface-variant">
+<span class="">Action Workflow</span>
+<span class="font-bold text-primary hover:underline cursor-pointer">Auto-Nudge Active</span>
+</div>
+</div>
+</div>
+<!-- Segmentation & Visual RFM Matrix Projection -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- 2D UMAP / Cluster Embedding Scatter Canvas -->
+<div class="lg:col-span-8 p-7 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-5">
+<div class="flex flex-wrap items-center justify-between gap-4">
+<div>
+<div class="text-[11px] font-mono uppercase text-primary font-semibold tracking-wider">Unsupervised Latent Space</div>
+<h2 class="font-headline text-2xl text-on-surface">2D UMAP Recency-Monetary Embedding</h2>
+</div>
+<div class="flex items-center gap-3 text-xs font-body">
+<span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-primary"></span> Champions</span>
+<span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-primary-container"></span> Loyalists</span>
+<span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-secondary"></span> At-Risk</span>
+<span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-secondary-fixed-dim"></span> Dormant</span>
+</div>
+</div>
+<!-- Inline SVG Scatter Interactive Projection -->
+<div class="relative w-full h-[410px] rounded-xl bg-surface-container-low/40 p-4 flex flex-col justify-between overflow-hidden">
+<svg class="w-full h-full" fill="none" viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="40" id="warmGrid" patternUnits="userSpaceOnUse" width="40">
+<path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e6e0d6" stroke-dasharray="2 4" stroke-width="0.75"></path>
+</pattern>
+</defs>
+<rect fill="url(#warmGrid)" height="360" width="760"></rect>
+<!-- Axis Guidelines -->
+<line stroke="#d8d0c8" stroke-width="1.5" x1="50" x2="740" y1="330" y2="330"></line>
+<line stroke="#d8d0c8" stroke-width="1.5" x1="50" x2="50" y1="20" y2="330"></line>
+<text fill="#605850" font-family="JetBrains Mono" font-size="11" text-anchor="middle" x="390" y="352">Recency (Days Since Last Order → Lower is Fresher)</text>
+<text fill="#605850" font-family="JetBrains Mono" font-size="11" text-anchor="middle" transform="rotate(-90 18,180)" x="18" y="180">Monetary Spend ($ LTV)</text>
+<!-- Dormant Clusters (Bottom-Right, small nodes) -->
+<g opacity="0.6">
+<circle cx="580" cy="290" fill="#cec6be" r="5"></circle>
+<circle cx="610" cy="275" fill="#cec6be" r="4"></circle>
+<circle cx="640" cy="305" fill="#cec6be" r="6"></circle>
+<circle cx="660" cy="285" fill="#cec6be" r="5"></circle>
+<circle cx="590" cy="315" fill="#cec6be" r="3.5"></circle>
+<circle cx="680" cy="310" fill="#cec6be" r="5.5"></circle>
+<circle cx="560" cy="265" fill="#cec6be" r="4.5"></circle>
+<circle cx="630" cy="255" fill="#cec6be" r="6"></circle>
+</g>
+<!-- At Risk Cluster (Middle-Right, medium nodes) -->
+<g opacity="0.8">
+<circle cx="480" cy="180" fill="#78706a" r="8"></circle>
+<circle cx="520" cy="150" fill="#78706a" r="9"></circle>
+<circle cx="460" cy="130" fill="#78706a" r="7.5"></circle>
+<circle cx="505" cy="210" fill="#78706a" r="8.5"></circle>
+<circle cx="540" cy="190" fill="#78706a" r="10"></circle>
+<circle cx="450" cy="165" fill="#78706a" r="6"></circle>
+</g>
+<!-- Loyalists Cluster (Center-Left, generous nodes) -->
+<g opacity="0.85">
+<circle cx="280" cy="190" fill="#e08850" r="11"></circle>
+<circle cx="310" cy="160" fill="#e08850" r="13"></circle>
+<circle cx="260" cy="140" fill="#e08850" r="10"></circle>
+<circle cx="340" cy="210" fill="#e08850" r="12"></circle>
+<circle cx="295" cy="230" fill="#e08850" r="9"></circle>
+<circle cx="350" cy="175" fill="#e08850" r="14"></circle>
+<circle cx="230" cy="180" fill="#e08850" r="10"></circle>
+</g>
+<!-- Champions Cluster (Top-Left, high spend + ultra fresh) -->
+<g>
+<!-- Halo glow for Champions cluster centroid -->
+<ellipse cx="145" cy="85" fill="#c2652a" fill-opacity="0.12" rx="80" ry="55"></ellipse>
+<circle class="animate-pulse" cx="120" cy="75" fill="#c2652a" r="16"></circle>
+<circle cx="165" cy="60" fill="#c2652a" r="19"></circle>
+<circle cx="105" cy="115" fill="#c2652a" r="14"></circle>
+<circle cx="150" cy="110" fill="#c2652a" r="17"></circle>
+<circle cx="185" cy="95" fill="#c2652a" r="13"></circle>
+<circle cx="135" cy="40" fill="#c2652a" r="15"></circle>
+<circle cx="205" cy="70" fill="#c2652a" r="12"></circle>
+<text fill="#c2652a" font-family="Manrope" font-size="11" font-weight="700" text-anchor="middle" x="145" y="145">K-MEANS CENTROID #1</text>
+</g>
+<!-- Callout target overlay -->
+<line stroke="#c2652a" stroke-dasharray="3 3" stroke-width="1.2" x1="165" x2="220" y1="60" y2="40"></line>
+<rect fill="#ffffff" height="26" rx="4" width="130" x="225" y="24"></rect>
+<text fill="#3a302a" font-family="JetBrains Mono" font-size="10.5" font-weight="600" x="233" y="41">VIP: $3.8k / 3.1d rec</text>
+</svg>
+<div class="flex items-center justify-between text-[11px] font-mono text-on-surface-variant pt-2 border-t border-surface-container">
+<span class="">Dot Size: Frequency of Purchases</span>
+<span class="">UMAP Dispersion Tolerance: ±0.018</span>
+</div>
+</div>
+</div>
+<!-- Cluster Inspector Panel (Right Bento) -->
+<div class="lg:col-span-4 p-7 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between gap-6">
+<div>
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-mono font-bold tracking-widest text-primary uppercase bg-primary-fixed px-2.5 py-1 rounded">CLUSTER INSPECTOR</span>
+<span class="text-xs font-mono text-on-surface-variant">Cluster 01/05</span>
+</div>
+<h3 class="font-headline text-3xl text-on-surface mt-3">Champions &amp; High Velocity</h3>
+<p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
+            Highest recency, frequency, and cart monetary value. Accounts respond swiftly to automated drops and pre-orders.
+          </p>
+<div class="mt-6 flex flex-col gap-3.5">
+<div class="p-3.5 rounded-xl bg-surface-container-low flex items-center justify-between">
+<span class="text-xs text-on-surface-variant font-body">Volume of Customers</span>
+<span class="font-mono text-sm font-bold text-on-surface">18,420 <span class="text-primary text-xs font-normal">(6.5%)</span></span>
+</div>
+<div class="p-3.5 rounded-xl bg-surface-container-low flex items-center justify-between">
+<span class="text-xs text-on-surface-variant font-body">Contribution to GMV</span>
+<span class="font-mono text-sm font-bold text-primary">42.8% of Total</span>
+</div>
+<div class="p-3.5 rounded-xl bg-surface-container-low flex items-center justify-between">
+<span class="text-xs text-on-surface-variant font-body">Avg Spend per Profile</span>
+<span class="font-mono text-sm font-bold text-on-surface">$2,840.00</span>
+</div>
+<div class="p-3.5 rounded-xl bg-surface-container-low flex items-center justify-between">
+<span class="text-xs text-on-surface-variant font-body">Average Recency</span>
+<span class="font-mono text-sm font-bold text-on-surface">4.2 Days</span>
+</div>
+<div class="p-3.5 rounded-xl bg-surface-container-low flex flex-col gap-1.5">
+<span class="text-xs text-on-surface-variant font-body">Dominant Categories</span>
+<div class="flex items-center gap-2 mt-1">
+<span class="px-2.5 py-1 bg-surface-container-highest rounded text-[11px] font-mono text-on-surface font-semibold">Premium Apparel</span>
+<span class="px-2.5 py-1 bg-surface-container-highest rounded text-[11px] font-mono text-on-surface font-semibold">Smart Audio</span>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full py-2.5 rounded-lg bg-primary hover:bg-on-primary-fixed-variant text-on-primary text-xs font-label font-medium transition-all shadow-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">campaign</span>
+<span class="">Deploy Targeted Offer to Cohort</span>
+</button>
+</div>
+</div>
+<!-- Cohort Retention Heatmap Section -->
+<div class="p-7 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-6">
+<div class="flex flex-wrap items-center justify-between gap-4">
+<div>
+<div class="text-[11px] font-mono uppercase text-primary font-semibold tracking-wider">Cohort Decay Trajectory</div>
+<h2 class="font-headline text-2xl text-on-surface">Monthly Acquisition Retention Heatmap (%)</h2>
+</div>
+<div class="flex items-center gap-3">
+<div class="px-3.5 py-2 rounded-xl bg-surface-container-low text-xs font-body flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">lightbulb</span>
+<span class="text-on-surface">Month 3 cliff mitigated by automated re-engagement workflow: <strong>+12.4% lift</strong></span>
+</div>
+</div>
+</div>
+<!-- Triangular Matrix Heatmap -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-center border-collapse">
+<thead>
+<tr class="font-mono text-[11px] text-on-surface-variant border-b border-surface-container">
+<th class="py-2.5 text-left font-semibold">Cohort</th>
+<th class="py-2.5 font-semibold">Acquired</th>
+<th class="py-2.5 font-semibold">M+0</th>
+<th class="py-2.5 font-semibold">M+1</th>
+<th class="py-2.5 font-semibold">M+2</th>
+<th class="py-2.5 font-semibold">M+3</th>
+<th class="py-2.5 font-semibold">M+4</th>
+<th class="py-2.5 font-semibold">M+5</th>
+<th class="py-2.5 font-semibold">M+6</th>
+<th class="py-2.5 font-semibold">M+7</th>
+</tr>
+</thead>
+<tbody class="font-mono text-xs text-on-surface">
+<!-- Row Jan -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-2 text-left font-bold text-on-surface font-body">Jan 2024</td>
+<td class="py-2 text-on-surface-variant font-mono text-[11px]">28,140</td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary text-on-primary font-bold">100%</div></td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary/80 text-on-primary font-medium">54.2%</div></td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary/70 text-on-primary font-medium">48.0%</div></td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary/60 text-on-primary font-medium">44.8%</div></td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary/50 text-on-surface font-medium">41.1%</div></td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary/40 text-on-surface font-medium">38.9%</div></td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary/30 text-on-surface font-medium">37.2%</div></td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary/25 text-on-surface font-medium">36.1%</div></td>
+</tr>
+<!-- Row Feb -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-2 text-left font-bold text-on-surface font-body">Feb 2024</td>
+<td class="py-2 text-on-surface-variant font-mono text-[11px]">31,450</td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary text-on-primary font-bold">100%</div></td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary/85 text-on-primary font-medium">56.1%</div></td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary/75 text-on-primary font-medium">49.4%</div></td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary/65 text-on-primary font-medium">46.2%</div></td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary/55 text-on-surface font-medium">42.8%</div></td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary/45 text-on-surface font-medium">39.7%</div></td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary/35 text-on-surface font-medium">38.0%</div></td>
+<td class="p-1 text-on-surface-variant/40">—</td>
+</tr>
+<!-- Row Mar -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-2 text-left font-bold text-on-surface font-body">Mar 2024</td>
+<td class="py-2 text-on-surface-variant font-mono text-[11px]">29,880</td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary text-on-primary font-bold">100%</div></td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary/80 text-on-primary font-medium">53.9%</div></td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary/70 text-on-primary font-medium">47.8%</div></td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary/60 text-on-primary font-medium">45.0%</div></td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary/50 text-on-surface font-medium">41.5%</div></td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary/40 text-on-surface font-medium">39.1%</div></td>
+<td class="p-1 text-on-surface-variant/40">—</td>
+<td class="p-1 text-on-surface-variant/40">—</td>
+</tr>
+<!-- Row Apr -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-2 text-left font-bold text-on-surface font-body">Apr 2024</td>
+<td class="py-2 text-on-surface-variant font-mono text-[11px]">34,900</td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary text-on-primary font-bold">100%</div></td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary/90 text-on-primary font-medium">58.4%</div></td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary/80 text-on-primary font-medium">52.2%</div></td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary/70 text-on-primary font-medium">48.9%</div></td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary/60 text-on-primary font-medium">45.2%</div></td>
+<td class="p-1 text-on-surface-variant/40">—</td>
+<td class="p-1 text-on-surface-variant/40">—</td>
+<td class="p-1 text-on-surface-variant/40">—</td>
+</tr>
+<!-- Row May -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-2 text-left font-bold text-on-surface font-body">May 2024</td>
+<td class="py-2 text-on-surface-variant font-mono text-[11px]">36,210</td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary text-on-primary font-bold">100%</div></td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary/85 text-on-primary font-medium">57.0%</div></td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary/75 text-on-primary font-medium">50.5%</div></td>
+<td class="p-1"><div class="py-1.5 rounded bg-primary/65 text-on-primary font-medium">47.4%</div></td>
+<td class="p-1 text-on-surface-variant/40">—</td>
+<td class="p-1 text-on-surface-variant/40">—</td>
+<td class="p-1 text-on-surface-variant/40">—</td>
+<td class="p-1 text-on-surface-variant/40">—</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Real-Time High-Value Customer Stream -->
+<div class="p-7 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-6">
+<div class="flex flex-wrap items-center justify-between gap-4">
+<div>
+<div class="text-[11px] font-mono uppercase text-primary font-semibold tracking-wider">Live Customer Ingestion Stream</div>
+<h2 class="font-headline text-2xl text-on-surface">Recent High-Value Transacting Profiles</h2>
+</div>
+<div class="flex items-center gap-2">
+<input class="bg-surface-container-low border-0 text-xs px-3.5 py-2 rounded-lg w-64 focus:ring-1 focus:ring-primary font-mono text-on-surface placeholder:text-on-surface-variant" placeholder="Filter customer ID, tag, or email..." type="text">
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="font-mono text-[11px] text-on-surface-variant border-b border-surface-container">
+<th class="pb-3 font-semibold">Customer / ID</th>
+<th class="pb-3 font-semibold">Segment</th>
+<th class="pb-3 font-semibold">Recency</th>
+<th class="pb-3 font-semibold">Frequency</th>
+<th class="pb-3 font-semibold">Monetary (GMV)</th>
+<th class="pb-3 font-semibold">Next Expected Order</th>
+<th class="pb-3 font-semibold">Churn Propensity</th>
+<th class="pb-3 font-semibold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container text-xs font-body">
+<!-- Customer 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center font-bold text-xs text-primary font-mono">
+                  HL
+                </div>
+<div>
+<div class="font-bold text-on-surface">Helena Lindqvist</div>
+<div class="font-mono text-[10px] text-on-surface-variant">NX-8849-SE</div>
+</div>
+</td>
+<td class="py-3.5">
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-mono text-[11px] font-semibold">Champion</span>
+</td>
+<td class="py-3.5 font-mono text-on-surface">1.2 Days ago</td>
+<td class="py-3.5 font-mono text-on-surface font-semibold">18 Orders</td>
+<td class="py-3.5 font-mono text-primary font-bold">$4,820.00</td>
+<td class="py-3.5 font-mono text-on-surface-variant">In 14 Days (Nov 12)</td>
+<td class="py-3.5">
+<div class="flex items-center gap-2">
+<div class="w-16 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="w-[5%] h-full bg-primary"></div>
+</div>
+<span class="font-mono text-[11px] text-on-surface">1.2%</span>
+</div>
+</td>
+<td class="py-3.5 text-right font-mono">
+<div class="flex items-center justify-end gap-2">
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface text-[11px] font-medium transition-colors">View 360</button>
+<button class="p-1 rounded hover:bg-primary-fixed text-primary transition-colors" title="Add to Campaign">
+<span class="material-symbols-outlined text-base">add_circle</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Customer 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center font-bold text-xs text-on-secondary-fixed font-mono">
+                  MD
+                </div>
+<div>
+<div class="font-bold text-on-surface">Marcus Davies</div>
+<div class="font-mono text-[10px] text-on-surface-variant">NX-4029-UK</div>
+</div>
+</td>
+<td class="py-3.5">
+<span class="px-2 py-0.5 rounded-full bg-primary-container/20 text-on-primary-fixed-variant font-mono text-[11px] font-semibold">Loyalist</span>
+</td>
+<td class="py-3.5 font-mono text-on-surface">3.8 Days ago</td>
+<td class="py-3.5 font-mono text-on-surface font-semibold">9 Orders</td>
+<td class="py-3.5 font-mono text-primary font-bold">$1,940.50</td>
+<td class="py-3.5 font-mono text-on-surface-variant">In 22 Days (Nov 20)</td>
+<td class="py-3.5">
+<div class="flex items-center gap-2">
+<div class="w-16 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="w-[8%] h-full bg-primary"></div>
+</div>
+<span class="font-mono text-[11px] text-on-surface">4.1%</span>
+</div>
+</td>
+<td class="py-3.5 text-right font-mono">
+<div class="flex items-center justify-end gap-2">
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface text-[11px] font-medium transition-colors">View 360</button>
+<button class="p-1 rounded hover:bg-primary-fixed text-primary transition-colors" title="Add to Campaign">
+<span class="material-symbols-outlined text-base">add_circle</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Customer 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed flex items-center justify-center font-bold text-xs text-tertiary font-mono">
+                  SK
+                </div>
+<div>
+<div class="font-bold text-on-surface">Soren Kjeldsen</div>
+<div class="font-mono text-[10px] text-on-surface-variant">NX-1120-DK</div>
+</div>
+</td>
+<td class="py-3.5">
+<span class="px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary font-mono text-[11px] font-semibold">At Risk (VIP)</span>
+</td>
+<td class="py-3.5 font-mono text-on-surface">62.0 Days ago</td>
+<td class="py-3.5 font-mono text-on-surface font-semibold">14 Orders</td>
+<td class="py-3.5 font-mono text-primary font-bold">$3,410.00</td>
+<td class="py-3.5 font-mono text-tertiary font-medium">Overdue (Oct 15)</td>
+<td class="py-3.5">
+<div class="flex items-center gap-2">
+<div class="w-16 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="w-[68%] h-full bg-tertiary"></div>
+</div>
+<span class="font-mono text-[11px] text-tertiary font-bold">68.2%</span>
+</div>
+</td>
+<td class="py-3.5 text-right font-mono">
+<div class="flex items-center justify-end gap-2">
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface text-[11px] font-medium transition-colors">View 360</button>
+<button class="p-1 rounded hover:bg-tertiary-fixed text-tertiary transition-colors" title="Trigger VIP Retention Email">
+<span class="material-symbols-outlined text-base">forward_to_inbox</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Customer 4 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center font-bold text-xs text-primary font-mono">
+                  AC
+                </div>
+<div>
+<div class="font-bold text-on-surface">Amara Chen</div>
+<div class="font-mono text-[10px] text-on-surface-variant">NX-9382-SG</div>
+</div>
+</td>
+<td class="py-3.5">
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-mono text-[11px] font-semibold">Champion</span>
+</td>
+<td class="py-3.5 font-mono text-on-surface">0.5 Days ago</td>
+<td class="py-3.5 font-mono text-on-surface font-semibold">22 Orders</td>
+<td class="py-3.5 font-mono text-primary font-bold">$5,290.00</td>
+<td class="py-3.5 font-mono text-on-surface-variant">In 8 Days (Nov 06)</td>
+<td class="py-3.5">
+<div class="flex items-center gap-2">
+<div class="w-16 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="w-[3%] h-full bg-primary"></div>
+</div>
+<span class="font-mono text-[11px] text-on-surface">0.8%</span>
+</div>
+</td>
+<td class="py-3.5 text-right font-mono">
+<div class="flex items-center justify-end gap-2">
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface text-[11px] font-medium transition-colors">View 360</button>
+<button class="p-1 rounded hover:bg-primary-fixed text-primary transition-colors" title="Add to Campaign">
+<span class="material-symbols-outlined text-base">add_circle</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div></main>
+</div>
+
+
+</body></html>

@@ -1,0 +1,582 @@
+<!DOCTYPE html><html class="dark" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-variant": "#373432", "primary-fixed-dim": "#ffb68d", "primary": "#ffb68d", "inverse-on-surface": "#33302d", "on-primary-container": "#4f2000", "surface-container-low": "#1d1b19", "surface-dim": "#151311", "on-tertiary-fixed-variant": "#773300", "secondary-fixed": "#ffddb4", "inverse-primary": "#9b4600", "on-secondary-fixed": "#291800", "on-primary-fixed": "#331200", "on-primary-fixed-variant": "#763300", "on-primary": "#532200", "background": "#151311", "on-surface": "#e8e1dd", "surface-tint": "#ffb68d", "secondary-fixed-dim": "#ffb955", "outline-variant": "#554339", "secondary-container": "#c3841e", "on-secondary": "#452b00", "surface": "#151311", "inverse-surface": "#e8e1dd", "surface-container-highest": "#373432", "error-container": "#93000a", "on-secondary-container": "#3c2500", "primary-fixed": "#ffdbc9", "error": "#ffb4ab", "primary-container": "#e07a38", "on-secondary-fixed-variant": "#633f00", "surface-container-high": "#2c2927", "tertiary-container": "#de7b3e", "on-surface-variant": "#dcc1b4", "on-error": "#690005", "on-tertiary-container": "#502000", "outline": "#a48c80", "surface-container": "#221f1d", "tertiary-fixed-dim": "#ffb68e", "on-background": "#e8e1dd", "on-error-container": "#ffdad6", "on-tertiary": "#542200", "surface-container-lowest": "#100e0c", "secondary": "#ffb955", "on-tertiary-fixed": "#331200", "surface-bright": "#3c3936", "tertiary-fixed": "#ffdbca", "tertiary": "#ffb68e" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-lg": "1.5rem", "space-xl": "2.5rem", "margin": "3rem", "space-xs": "0.25rem", "margin-mobile": "1.25rem", "gutter-mobile": "1rem", "gutter": "1.5rem", "space-sm": "0.5rem", "space-md": "1rem" }, "fontFamily": { "display-hero-mobile": [ "Newsreader" ], "headline-lg-mobile": [ "Newsreader" ], "display-hero": [ "Newsreader" ], "body-sm": [ "Manrope" ], "body-md": [ "Manrope" ], "label-md": [ "JetBrains Mono" ], "headline-sm": [ "Newsreader" ], "label-sm": [ "JetBrains Mono" ], "body-lg": [ "Manrope" ], "headline-md": [ "Newsreader" ], "headline-lg": [ "Newsreader" ] }, "fontSize": { "display-hero-mobile": [ "38px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "400" } ], "headline-lg-mobile": [ "30px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "400" } ], "display-hero": [ "56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "400" } ], "body-sm": [ "13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" } ], "body-md": [ "15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" } ], "label-md": [ "12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" } ], "headline-sm": [ "22px", { "lineHeight": "30px", "letterSpacing": "0em", "fontWeight": "500" } ], "label-sm": [ "11px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "500" } ], "body-lg": [ "18px", { "lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "400" } ], "headline-md": [ "28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "400" } ], "headline-lg": [ "40px", { "lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "400" } ] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest z-50 flex flex-col justify-between p-space-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col gap-space-md"><div class="flex items-center gap-space-sm px-space-xs py-space-xs"><div class="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_12px_rgba(224,122,56,0.5)]"></div><span class="font-label-md text-label-md text-on-surface tracking-wider uppercase font-semibold">NEXUS V4.8</span></div><div class="bg-surface-container-low rounded-lg p-space-sm flex flex-col gap-1"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase">System</span><span class="font-label-sm text-label-sm text-primary font-medium">NOMINAL 99.98%</span></div><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase">FastAPI</span><span class="font-label-sm text-label-sm text-secondary font-medium">ONLINE (200 OK)</span></div></div><div class="flex flex-col gap-space-xs pt-space-xs"><span class="font-label-sm text-label-sm text-outline px-space-xs uppercase tracking-wider">Operational Modules</span><nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg shadow-[0_0_20px_rgba(224,122,56,0.2)]"><a class="flex items-center gap-3 px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="executive-overview" href="#"><span class="material-symbols-outlined text-[18px]">dashboard</span><span class="">Executive Overview</span></a><a class="flex items-center gap-3 px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="ai-sales-forecasting" href="#"><span class="material-symbols-outlined text-[18px]">trending_up</span><span class="">AI Sales Forecasting</span></a><a class="flex items-center gap-3 px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="customer-360-rfm" href="#"><span class="material-symbols-outlined text-[18px]">groups</span><span class="">Customer 360 &amp; RFM</span></a><a class="flex items-center gap-3 px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="inventory-supply-chain" href="#"><span class="material-symbols-outlined text-[18px]">inventory_2</span><span class="">Inventory &amp; Supply Chain</span></a><a aria-current="page" class="flex items-center gap-3 px-space-sm py-2 transition-all bg-primary-container text-on-primary-container font-semibold rounded-lg shadow-[0_0_20px_rgba(224,122,56,0.2)]" data-path="model-management-mlops" href="#"><span class="material-symbols-outlined text-[18px]">memory</span><span class="">Model Management &amp; MLOps</span></a></nav></div></div><div class="bg-surface-container rounded-lg p-space-sm flex flex-col gap-2 shadow-[0_12px_32px_-8px_rgba(18,16,14,0.85)]"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface font-semibold tracking-wide">MLOPS TELEMETRY</span><span class="font-label-sm text-label-sm text-primary uppercase">[HEALTHY]</span></div><div class="flex flex-col gap-1.5 pt-1"><div class="flex items-center justify-between font-label-sm text-label-sm"><span class="text-on-surface-variant">Inference Latency</span><span class="text-on-surface font-medium">18ms</span></div><div class="flex items-center justify-between font-label-sm text-label-sm"><span class="text-on-surface-variant">Ingested SKUs</span><span class="text-on-surface font-medium">120,492</span></div><div class="flex items-center justify-between font-label-sm text-label-sm"><span class="text-on-surface-variant">Active Cluster</span><span class="text-on-surface font-medium">Prod / us-east-1a</span></div></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter"><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant"><span class="text-on-surface font-medium">NEXUS</span><span class="">/</span><span class="">Retail Analytics</span></div><div class="inline-flex items-center gap-1.5 bg-surface-container-high px-2.5 py-1 rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-secondary shadow-[0_0_8px_rgba(255,185,85,0.6)]"></span><span class="font-label-sm text-label-sm text-on-surface">LIVE SYNC (3s)</span></div></div><div class="flex items-center gap-space-md"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[18px]">search</span><input class="bg-surface-container-lowest text-on-surface placeholder:text-outline font-body-sm text-body-sm pl-9 pr-4 py-1.5 rounded-lg w-72 outline-none focus:ring-1 focus:ring-primary transition-all" placeholder="Search SKUs, cohorts, stores (⌘K)..." type="text"></div><div class="flex items-center gap-1 bg-surface-container px-2.5 py-1.5 rounded-lg"><span class="font-label-sm text-label-sm text-on-surface-variant">USD $ / UTC-5</span></div><div class="flex items-center bg-[#1d1b19] p-0.5 rounded-lg border border-[#383028] text-[11px] font-medium tracking-tight">
+  <button class="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-stone-400 hover:text-stone-200 transition-all">
+    <span class="material-symbols-outlined text-[14px]">light_mode</span>
+    <span class="">Sahara Light</span>
+  </button>
+  <button class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#25221f] text-[#e07a38] ring-1 ring-[#e07a38]/40 shadow-sm font-semibold transition-all">
+    <span class="material-symbols-outlined text-[14px] text-amber-500">dark_mode</span>
+    <span class="">Sahara Dark</span>
+  </button>
+</div><button class="bg-primary-container hover:bg-tertiary-container text-on-primary-container px-space-md py-1.5 rounded-lg font-body-sm text-body-sm font-semibold transition-all shadow-[0_0_16px_rgba(224,122,56,0.25)]">Deploy</button><div class="relative flex items-center justify-center p-1.5 text-on-surface-variant hover:text-on-surface cursor-pointer"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-secondary ring-2 ring-surface"></span></div><div class="flex items-center gap-2.5 pl-2"><div class="flex flex-col text-right"><span class="font-label-sm text-label-sm text-on-surface font-semibold leading-tight">E. Vance</span><span class="font-label-sm text-label-sm text-on-surface-variant text-[10px] leading-tight">VP MERCHANDISING</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 px-gutter bg-surface min-h-screen"><div class="flex flex-col w-full pb-16">
+<!-- Operational Sub-Header Ribbon -->
+<div class="flex flex-wrap items-center justify-between gap-4 py-3 border-b-0">
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 px-3 py-1 rounded bg-surface-container-high">
+<span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_10px_rgba(255,185,85,0.7)] animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-on-surface uppercase tracking-wider">
+          FASTAPI: ONLINE (HTTP 200) <span class="text-outline-variant px-1.5">•</span> RECORDS: 120,000 <span class="text-outline-variant px-1.5">•</span> SKUS: 33 <span class="text-outline-variant px-1.5">•</span> CLUSTER: 99.98% NOMINAL
+        </span>
+</div>
+</div>
+<div class="flex items-center gap-2.5">
+<button class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-all shadow-sm">
+<span class="material-symbols-outlined text-[16px]">terminal</span>
+<span class="">K8s Pod Logs</span>
+</button>
+<button class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-all shadow-sm">
+<span class="material-symbols-outlined text-[16px]">download</span>
+<span class="">Export Registry (.onnx)</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-1.5 rounded-lg bg-primary-container hover:bg-tertiary-container text-on-primary-container font-body-sm text-body-sm font-semibold transition-all shadow-[0_0_24px_rgba(224,122,56,0.3)]" id="retrain-btn">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+<span class="">Retrain Models Now</span>
+</button>
+</div>
+</div>
+<!-- Page Title & Micro Context -->
+<div class="flex flex-col gap-1 mt-4 mb-6">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Autonomous Pipeline Control</span>
+<span class="text-outline-variant">/</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Cluster us-east-1a</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Model Management &amp; MLOps</h1>
+</div>
+<!-- Hero Architecture Banner -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-6 md:p-8 shadow-[0_16px_40px_-12px_rgba(18,16,14,0.9)] mb-8">
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute bottom-0 right-1/3 w-64 h-64 bg-secondary/5 rounded-full blur-2xl pointer-events-none"></div>
+<div class="relative flex flex-col lg:flex-row lg:items-center justify-between gap-6 z-10">
+<div class="flex flex-col gap-3 max-w-3xl">
+<div class="flex items-center gap-2.5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+            Live Registry Ingestion
+          </span>
+<span class="font-label-sm text-label-sm text-outline tracking-wider">Run ID: #exp-2026-10-31-0941</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">
+          Autonomous LightGBM &amp; Prophet Ensemble v2.4
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed max-w-2xl">
+          Production inference pipeline is operational across all 33 SKUs with zero drift anomalies detected over the last 14 observation windows. Residual variance is strictly mesokurtic with a normalized 13.63% MAPE baseline.
+        </p>
+<div class="flex flex-wrap items-center gap-4 pt-2">
+<div class="flex items-center gap-2 bg-surface-container-low px-3 py-1.5 rounded-lg">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+<span class="font-label-sm text-label-sm text-on-surface">Loss Criterion: Huber Loss (δ=1.35)</span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-low px-3 py-1.5 rounded-lg">
+<span class="material-symbols-outlined text-primary text-[18px]">alt_route</span>
+<span class="font-label-sm text-label-sm text-on-surface">Dual Engine: Gradient Boost + Additive Fourier</span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-low px-3 py-1.5 rounded-lg">
+<span class="material-symbols-outlined text-outline text-[18px]">schedule</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Cadence: Daily Retrain @ 04:00 UTC</span>
+</div>
+</div>
+</div>
+<!-- Pipeline Schematic Badge / Diagram Box -->
+<div class="flex flex-col gap-2 bg-surface-container rounded-lg p-4 min-w-[260px] shadow-md">
+<div class="flex items-center justify-between pb-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Pipeline Topology</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">ENSEMBLE ACTIVE</span>
+</div>
+<div class="flex flex-col gap-2 font-label-sm text-label-sm">
+<div class="flex items-center justify-between p-2 rounded bg-surface-container-low">
+<span class="text-on-surface-variant">Raw Ingestion (33 SKUs)</span>
+<span class="text-primary font-mono">120k Recs</span>
+</div>
+<div class="flex items-center justify-center text-outline-variant py-0.5">
+<span class="material-symbols-outlined text-[16px]">arrow_downward</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded bg-surface-container-high">
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="text-on-surface">LGBM (80%) + Prophet (20%)</span>
+</div>
+<span class="text-secondary font-mono">Synced</span>
+</div>
+<div class="flex items-center justify-center text-outline-variant py-0.5">
+<span class="material-symbols-outlined text-[16px]">arrow_downward</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded bg-surface-container-low">
+<span class="text-on-surface-variant">FastAPI Real-time Serve</span>
+<span class="text-primary font-mono">18ms Avg</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- MLOps Core Telemetry Row (4 Cards) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+<!-- Card 1 -->
+<div class="flex flex-col justify-between bg-surface-container rounded-xl p-5 shadow-[0_8px_24px_-6px_rgba(18,16,14,0.7)] transition-all hover:translate-y-[-2px]">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Model Accuracy (R²)</span>
+<span class="material-symbols-outlined text-primary text-[20px]">insights</span>
+</div>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="font-display-hero text-headline-lg text-on-surface font-light tracking-tight">85.0%</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">+3.0% vs target</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5 pt-4">
+<div class="w-full bg-surface-container-low rounded-full h-1.5 overflow-hidden">
+<div class="bg-gradient-to-r from-primary to-secondary h-full rounded-full" style="width: 85%;"></div>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant pt-1">
+<span class="">Ensemble Target Fit</span>
+<span class="font-mono text-on-surface">&gt; 82.0%</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="flex flex-col justify-between bg-surface-container rounded-xl p-5 shadow-[0_8px_24px_-6px_rgba(18,16,14,0.7)] transition-all hover:translate-y-[-2px]">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Prediction Error (MAPE)</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">troubleshoot</span>
+</div>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="font-display-hero text-headline-lg text-primary font-light tracking-tight">13.63%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Best-in-class</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5 pt-4">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="">RMSE Metric</span>
+<span class="font-mono text-on-surface font-semibold">$7,624.18</span>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-outline">
+<span class="">MAE Residual</span>
+<span class="font-mono text-on-surface-variant">$4,112.50</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="flex flex-col justify-between bg-surface-container rounded-xl p-5 shadow-[0_8px_24px_-6px_rgba(18,16,14,0.7)] transition-all hover:translate-y-[-2px]">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Training &amp; Inference</span>
+<span class="material-symbols-outlined text-primary text-[20px]">speed</span>
+</div>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="font-display-hero text-headline-lg text-on-surface font-light tracking-tight">1,150ms</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Sub-2s SLA</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5 pt-4">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="">Batch Inference (33 SKUs)</span>
+<span class="font-mono text-on-surface font-semibold">18ms / req</span>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-outline">
+<span class="">Cold-Start Spinup</span>
+<span class="font-mono text-on-surface-variant">420ms</span>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="flex flex-col justify-between bg-surface-container rounded-xl p-5 shadow-[0_8px_24px_-6px_rgba(18,16,14,0.7)] transition-all hover:translate-y-[-2px]">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Covariate Shift</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">radar</span>
+</div>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="font-headline-md text-headline-md text-secondary font-normal tracking-tight uppercase">NORMAL</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">(STABLE)</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5 pt-4">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="">KS-Test Statistic</span>
+<span class="font-mono text-on-surface font-semibold">0.1556</span>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-outline">
+<span class="">Null Drift p-value</span>
+<span class="font-mono text-primary font-medium">0.6235 (&gt;0.05)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Model Analytics Row (2 Columns: Feature Importance & Residual Distribution) -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+<!-- Feature Importance Rankings (1/2 width) -->
+<div class="flex flex-col bg-surface-container rounded-xl p-6 shadow-[0_8px_24px_-6px_rgba(18,16,14,0.7)]">
+<div class="flex items-start justify-between pb-4">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Feature Importance Rankings</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">LightGBM v4.8 Gini split contributions computed over 5-fold cross validation</p>
+</div>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-label-sm text-label-sm uppercase">12 Predictors</span>
+</div>
+<!-- Feature Bar Chart List -->
+<div class="flex flex-col gap-2.5 my-2">
+<!-- 1 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface font-mono">rolling_mean_7</span>
+<span class="text-primary font-mono font-medium">12.8%</span>
+</div>
+<div class="w-full bg-surface-container-low rounded h-2 overflow-hidden">
+<div class="bg-gradient-to-r from-primary-container to-primary h-full rounded" style="width: 100%;"></div>
+</div>
+</div>
+<!-- 2 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface font-mono">day_of_week</span>
+<span class="text-primary font-mono font-medium">11.4%</span>
+</div>
+<div class="w-full bg-surface-container-low rounded h-2 overflow-hidden">
+<div class="bg-gradient-to-r from-primary-container to-primary h-full rounded" style="width: 89%;"></div>
+</div>
+</div>
+<!-- 3 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface font-mono">rolling_mean_28</span>
+<span class="text-primary font-mono font-medium">10.2%</span>
+</div>
+<div class="w-full bg-surface-container-low rounded h-2 overflow-hidden">
+<div class="bg-gradient-to-r from-primary-container to-secondary h-full rounded" style="width: 79.6%;"></div>
+</div>
+</div>
+<!-- 4 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface font-mono">rolling_std_7</span>
+<span class="text-primary-fixed-dim font-mono">9.7%</span>
+</div>
+<div class="w-full bg-surface-container-low rounded h-2 overflow-hidden">
+<div class="bg-gradient-to-r from-secondary-container to-secondary h-full rounded" style="width: 75.7%;"></div>
+</div>
+</div>
+<!-- 5 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface font-mono">lag_1</span>
+<span class="text-primary-fixed-dim font-mono">9.5%</span>
+</div>
+<div class="w-full bg-surface-container-low rounded h-2 overflow-hidden">
+<div class="bg-gradient-to-r from-secondary-container to-secondary h-full rounded" style="width: 74.2%;"></div>
+</div>
+</div>
+<!-- 6 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface font-mono">month</span>
+<span class="text-on-surface-variant font-mono">8.7%</span>
+</div>
+<div class="w-full bg-surface-container-low rounded h-2 overflow-hidden">
+<div class="bg-surface-variant h-full rounded" style="width: 67.9%;"></div>
+</div>
+</div>
+<!-- 7 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface font-mono">lag_14</span>
+<span class="text-on-surface-variant font-mono">8.0%</span>
+</div>
+<div class="w-full bg-surface-container-low rounded h-2 overflow-hidden">
+<div class="bg-surface-variant h-full rounded" style="width: 62.5%;"></div>
+</div>
+</div>
+<!-- 8 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface font-mono">lag_7</span>
+<span class="text-on-surface-variant font-mono">7.9%</span>
+</div>
+<div class="w-full bg-surface-container-low rounded h-2 overflow-hidden">
+<div class="bg-surface-variant h-full rounded" style="width: 61.7%;"></div>
+</div>
+</div>
+<!-- 9 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface font-mono">day_of_month</span>
+<span class="text-on-surface-variant font-mono">6.8%</span>
+</div>
+<div class="w-full bg-surface-container-low rounded h-2 overflow-hidden">
+<div class="bg-surface-variant h-full rounded" style="width: 53.1%;"></div>
+</div>
+</div>
+<!-- 10 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface font-mono">promo_lift_index</span>
+<span class="text-on-surface-variant font-mono">6.2%</span>
+</div>
+<div class="w-full bg-surface-container-low rounded h-2 overflow-hidden">
+<div class="bg-surface-variant h-full rounded" style="width: 48.4%;"></div>
+</div>
+</div>
+<!-- 11 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant font-mono">price_elasticity</span>
+<span class="text-outline font-mono">4.8%</span>
+</div>
+<div class="w-full bg-surface-container-low rounded h-2 overflow-hidden">
+<div class="bg-surface-container-highest h-full rounded" style="width: 37.5%;"></div>
+</div>
+</div>
+<!-- 12 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant font-mono">temperature_anomaly</span>
+<span class="text-outline font-mono">4.0%</span>
+</div>
+<div class="w-full bg-surface-container-low rounded h-2 overflow-hidden">
+<div class="bg-surface-container-highest h-full rounded" style="width: 31.2%;"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 mt-2 font-label-sm text-label-sm text-outline">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-primary">verified</span>
+          Top 3 predictors account for 34.4% of total model gain
+        </span>
+<span class="text-on-surface-variant">SHAP Trees Enforced</span>
+</div>
+</div>
+<!-- Residual Distribution (1/2 width) -->
+<div class="flex flex-col bg-surface-container rounded-xl p-6 shadow-[0_8px_24px_-6px_rgba(18,16,14,0.7)] justify-between">
+<div>
+<div class="flex items-start justify-between pb-2">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Residual Distribution</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Unbiased Estimator Test (N = 24,000 Out-of-Fold Residuals)</p>
+</div>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-secondary font-label-sm text-label-sm">μ = $0.00</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline mb-4">
+          Demonstrates near-perfect Gaussian symmetry across prediction residuals. Absence of heavy tails indicates low exposure to catastrophic forecast shock.
+        </p>
+<!-- Inline SVG Bell Curve Visualization -->
+<div class="w-full bg-surface-container-low rounded-lg p-4 my-2 relative">
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm mb-2">
+<span class="">-3σ (-$18k)</span>
+<span class="text-primary font-medium">Mean (μ = $0)</span>
+<span class="">+3σ (+$18k)</span>
+</div>
+<svg class="w-full h-44 overflow-visible" preserveAspectRatio="none" viewBox="0 0 500 180">
+<defs>
+<linearGradient id="bellGrad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#e07a38" stop-opacity="0.45"></stop>
+<stop offset="100%" stop-color="#151311" stop-opacity="0.0"></stop>
+</linearGradient>
+<linearGradient id="curveLineGrad" x1="0" x2="1" y1="0" y2="0">
+<stop offset="0%" stop-color="#a48c80"></stop>
+<stop offset="35%" stop-color="#ffb68d"></stop>
+<stop offset="50%" stop-color="#ffb955"></stop>
+<stop offset="65%" stop-color="#ffb68d"></stop>
+<stop offset="100%" stop-color="#a48c80"></stop>
+</linearGradient>
+</defs>
+<!-- Grid Lines -->
+<line stroke="#554339" stroke-dasharray="3 3" stroke-width="1.5" x1="250" x2="250" y1="10" y2="160"></line>
+<line stroke="#373432" stroke-dasharray="2 2" stroke-width="1" x1="125" x2="125" y1="10" y2="160"></line>
+<line stroke="#373432" stroke-dasharray="2 2" stroke-width="1" x1="375" x2="375" y1="10" y2="160"></line>
+<line stroke="#554339" stroke-width="1" x1="30" x2="470" y1="160" y2="160"></line>
+<!-- Area Fill Under Bell Curve -->
+<path d="M 30,160 
+                     C 100,160 160,155 190,120 
+                     C 220,85 235,15 250,15 
+                     C 265,15 280,85 310,120 
+                     C 340,155 400,160 470,160 
+                     Z" fill="url(#bellGrad)"></path>
+<!-- Curve Stroke Line -->
+<path d="M 30,160 
+                     C 100,160 160,155 190,120 
+                     C 220,85 235,15 250,15 
+                     C 265,15 280,85 310,120 
+                     C 340,155 400,160 470,160" fill="none" stroke="url(#curveLineGrad)" stroke-width="2.5"></path>
+<!-- Apex Mean Dot Indicator -->
+<circle class="shadow-lg" cx="250" cy="15" fill="#ffb955" r="4.5"></circle>
+<circle cx="250" cy="15" fill="#ffb955" fill-opacity="0.25" r="8"></circle>
+</svg>
+<div class="flex items-center justify-between text-outline-variant font-label-sm text-label-sm mt-1 px-1">
+<span class="">Under-forecast</span>
+<span class="text-secondary font-mono">Zero Bias Center</span>
+<span class="">Over-forecast</span>
+</div>
+</div>
+</div>
+<!-- Statistical Metrics Grid -->
+<div class="grid grid-cols-3 gap-3 pt-4">
+<div class="flex flex-col p-3 rounded-lg bg-surface-container-low">
+<span class="font-label-sm text-label-sm text-outline">Skewness</span>
+<span class="font-mono text-body-md text-on-surface font-semibold mt-1">-0.04</span>
+<span class="font-label-sm text-label-sm text-primary text-[10px]">Symmetric (Target ±0.1)</span>
+</div>
+<div class="flex flex-col p-3 rounded-lg bg-surface-container-low">
+<span class="font-label-sm text-label-sm text-outline">Kurtosis</span>
+<span class="font-mono text-body-md text-on-surface font-semibold mt-1">2.98</span>
+<span class="font-label-sm text-label-sm text-secondary text-[10px]">Mesokurtic Normal</span>
+</div>
+<div class="flex flex-col p-3 rounded-lg bg-surface-container-low">
+<span class="font-label-sm text-label-sm text-outline">Outliers (&gt;3σ)</span>
+<span class="font-mono text-body-md text-on-surface font-semibold mt-1">12 <span class="text-outline text-label-sm font-normal">(0.01%)</span></span>
+<span class="font-label-sm text-label-sm text-primary text-[10px]">Within SLA Bounds</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Production Versioning & Lineage Section -->
+<div class="flex flex-col bg-surface-container rounded-xl p-6 shadow-[0_8px_24px_-6px_rgba(18,16,14,0.7)]">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Active Production Deployment Ledger</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Model lineage, artifact digests, and active traffic allocation routing</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-outline">Active Target:</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-mono text-label-sm font-medium">ensemble_v2.4.1</span>
+</div>
+</div>
+<!-- Registry Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="bg-surface-container-low text-outline font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-3 px-4 rounded-l-lg">Model Version / Hash</th>
+<th class="py-3 px-4">Architecture / Components</th>
+<th class="py-3 px-4">Registered</th>
+<th class="py-3 px-4">Status &amp; Traffic</th>
+<th class="py-3 px-4 text-right">Size</th>
+<th class="py-3 px-4 text-right">Validation MAPE</th>
+<th class="py-3 px-4 text-right rounded-r-lg">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y-0">
+<!-- Row 1: Production Active -->
+<tr class="hover:bg-surface-container-high/60 transition-colors">
+<td class="py-4 px-4 font-mono font-medium text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(224,122,56,0.6)]"></span>
+<span class="">v2.4.1-ensemble</span>
+</div>
+</td>
+<td class="py-4 px-4 text-on-surface-variant">LightGBM (80%) + Prophet (20%)</td>
+<td class="py-4 px-4 font-label-sm text-label-sm text-outline">Today, 06:14 UTC</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm font-semibold shadow-sm">
+                PRODUCTION (100%)
+              </span>
+</td>
+<td class="py-4 px-4 font-mono text-right text-on-surface">142.8 MB</td>
+<td class="py-4 px-4 font-mono text-right text-primary font-medium">13.63%</td>
+<td class="py-4 px-4 text-right">
+<button class="px-3 py-1 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface font-body-sm text-body-sm transition-all shadow-sm">
+                Telemetry
+              </button>
+</td>
+</tr>
+<!-- Row 2: Canary Candidate -->
+<tr class="hover:bg-surface-container-high/60 transition-colors">
+<td class="py-4 px-4 font-mono font-medium text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(255,185,85,0.6)]"></span>
+<span class="">v2.5.0-rc1</span>
+</div>
+</td>
+<td class="py-4 px-4 text-on-surface-variant">LightGBM + DeepAR Cross-Attn</td>
+<td class="py-4 px-4 font-label-sm text-label-sm text-outline">Yesterday, 18:22 UTC</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-sm text-label-sm font-semibold">
+                CANARY (10%)
+              </span>
+</td>
+<td class="py-4 px-4 font-mono text-right text-on-surface">318.4 MB</td>
+<td class="py-4 px-4 font-mono text-right text-secondary font-medium">12.91%</td>
+<td class="py-4 px-4 text-right">
+<button class="px-3 py-1 rounded bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary font-body-sm text-body-sm font-semibold transition-all shadow-sm">
+                Promote
+              </button>
+</td>
+</tr>
+<!-- Row 3: Standby Predecessor -->
+<tr class="hover:bg-surface-container-high/60 transition-colors">
+<td class="py-4 px-4 font-mono font-medium text-outline">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+<span class="">v2.3.8-lightgbm</span>
+</div>
+</td>
+<td class="py-4 px-4 text-on-surface-variant">Standalone Gradient Boosting</td>
+<td class="py-4 px-4 font-label-sm text-label-sm text-outline">Oct 24, 2026</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container-low text-outline font-label-sm text-label-sm">
+                STANDBY
+              </span>
+</td>
+<td class="py-4 px-4 font-mono text-right text-outline">88.2 MB</td>
+<td class="py-4 px-4 font-mono text-right text-on-surface-variant">14.42%</td>
+<td class="py-4 px-4 text-right">
+<button class="px-3 py-1 rounded bg-surface-container-high hover:bg-surface-bright text-outline hover:text-on-surface font-body-sm text-body-sm transition-all shadow-sm">
+                Rollback
+              </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Active Hyperparameters & Hardware Readout Strip -->
+<div class="flex flex-wrap items-center justify-between gap-4 mt-6 pt-4 bg-surface-container-low rounded-lg p-3.5">
+<div class="flex flex-wrap items-center gap-6 font-label-sm text-label-sm">
+<div class="flex items-center gap-2">
+<span class="text-outline uppercase">learning_rate:</span>
+<span class="font-mono text-primary font-medium">0.03</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-outline uppercase">num_leaves:</span>
+<span class="font-mono text-on-surface font-medium">31</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-outline uppercase">max_depth:</span>
+<span class="font-mono text-on-surface font-medium">6</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-outline uppercase">objective:</span>
+<span class="font-mono text-secondary font-medium">regression_l1</span>
+</div>
+</div>
+<div class="flex items-center gap-4 font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-outline">memory</span>
+<span class="">Hardware: AWS c6i.2xlarge</span>
+</div>
+<div class="inline-flex items-center gap-1 text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="">Auto-Tuning: ON</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple micro-interaction for the Retrain button
+  const retrainBtn = document.getElementById('retrain-btn');
+  if (retrainBtn) {
+    retrainBtn.addEventListener('click', function() {
+      const originalText = this.innerHTML;
+      this.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span><span>Scheduling Job...</span>';
+      this.classList.add('opacity-80', 'pointer-events-none');
+      setTimeout(() => {
+        this.innerHTML = '<span class="material-symbols-outlined text-[18px]">check_circle</span><span>Job Queued (#942)</span>';
+        setTimeout(() => {
+          this.innerHTML = originalText;
+          this.classList.remove('opacity-80', 'pointer-events-none');
+        }, 2200);
+      }, 1200);
+    });
+  }
+</script></main></div>
+
+</body></html>

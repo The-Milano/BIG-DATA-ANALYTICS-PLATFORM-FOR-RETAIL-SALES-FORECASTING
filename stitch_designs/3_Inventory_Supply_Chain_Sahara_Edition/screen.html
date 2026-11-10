@@ -1,0 +1,799 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="web_dashboard" name="shell-type">
+<title>Nexus Retail AI - Executive Overview</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          primary: {
+            DEFAULT: "#c2652a",
+            hover: "#ad561f",
+            light: "#fbe8d8",
+            dim: "#f0a878",
+            dark: "#8a4518",
+          },
+          sand: {
+            50: "#fdfbf7",
+            100: "#f7f2ea",
+            200: "#eee6d8",
+            300: "#e2d7c3",
+            400: "#c7b79d",
+          },
+          espresso: {
+            DEFAULT: "#1f1b18",
+            subtle: "#3a302a",
+            muted: "#605850",
+            border: "#e6e0d6",
+          },
+          ochre: "#d97736",
+          amber: "#e69535",
+          olive: "#5e7053",
+          crimson: "#b9382c"
+        },
+        fontFamily: {
+          body: ["Manrope", "sans-serif"],
+          headline: ["EB Garamond", "serif"],
+          mono: ["JetBrains Mono", "monospace"],
+        }
+      }
+    }
+  }
+</script>
+<style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #FAF6F0;
+        color: #1F1B18;
+        font-family: 'Manrope', sans-serif;
+      }
+      body {
+        overscroll-behavior: none;
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    .font-mono-num {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .font-headline {
+      font-family: 'EB Garamond', serif;
+    }
+    .font-display {
+      font-family: 'Manrope', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-[#FAF6F0] text-espresso antialiased selection:bg-primary/20 selection:text-primary-dark">
+<!-- Left Sidebar Navigation Chrome (Warm Sahara Theme) -->
+<aside class="fixed left-0 top-0 h-screen w-72 bg-[#F5EFE6] border-r border-[#E5DDD0] backdrop-blur-2xl z-50 flex flex-col justify-between shadow-[4px_0_24px_rgba(70,45,25,0.04)]">
+<div class="flex flex-col">
+<!-- Brand & Systems Header -->
+<div class="px-5 pt-5 pb-4 border-b border-[#E5DDD0]">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-primary to-[#D97736] flex items-center justify-center p-0.5 shadow-[0_2px_10px_rgba(194,101,42,0.3)]">
+<span class="material-symbols-outlined text-white text-xl">hub</span>
+</div>
+<div class="flex flex-col">
+<span class="font-bold tracking-tight text-espresso leading-tight flex items-center gap-1.5 text-base">
+              NEXUS <span class="text-primary font-mono-num font-semibold text-[11px] uppercase px-1.5 py-0.5 bg-[#FAF5EE] border border-primary/30 rounded">v4.8</span>
+</span>
+<span class="text-[10px] font-bold tracking-widest text-espresso-muted uppercase">RETAIL AI FOUNDRY</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="inline-flex items-center justify-between px-2.5 py-1.5 rounded-md bg-white border border-[#E8E2D6] shadow-sm">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
+<span class="font-mono-num text-[11px] text-espresso-subtle font-semibold tracking-wide uppercase">SYSTEM: NOMINAL</span>
+</div>
+<span class="text-[10px] text-espresso-muted font-mono-num font-medium">99.98%</span>
+</div>
+<div class="inline-flex items-center justify-between px-2.5 py-1.5 rounded-md bg-[#FAF5EE] border border-[#E8E2D6]">
+<span class="font-mono-num text-[11px] text-espresso-muted">FASTAPI ENDPOINT:</span>
+<span class="font-mono-num text-[11px] text-emerald-700 font-semibold flex items-center gap-1">
+<span class="w-1 h-1 rounded-full bg-emerald-600"></span>ONLINE (200 OK)
+            </span>
+</div>
+</div>
+</div>
+<!-- Modules Nav -->
+<div class="px-3 py-4">
+<div class="px-3 pb-2">
+<span class="text-[10px] font-bold text-espresso-muted uppercase tracking-wider font-mono-num">Operational Modules</span>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all bg-white border border-[#E2D7C5] text-primary font-bold shadow-sm" href="#">
+<span class="material-symbols-outlined text-primary text-lg">analytics</span>
+<span class="text-sm">Executive Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-espresso-subtle hover:text-espresso hover:bg-white/70 transition-all group" href="#">
+<span class="material-symbols-outlined text-espresso-muted group-hover:text-primary text-lg transition-colors">trending_up</span>
+<span class="text-sm font-medium">AI Sales Forecasting</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-espresso-subtle hover:text-espresso hover:bg-white/70 transition-all group" href="#">
+<span class="material-symbols-outlined text-espresso-muted group-hover:text-primary text-lg transition-colors">group</span>
+<span class="text-sm font-medium">Customer 360 &amp; RFM</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-espresso-subtle hover:text-espresso hover:bg-white/70 transition-all group" href="#">
+<span class="material-symbols-outlined text-espresso-muted group-hover:text-primary text-lg transition-colors">inventory_2</span>
+<span class="text-sm font-medium">Inventory &amp; Supply Chain</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-espresso-subtle hover:text-espresso hover:bg-white/70 transition-all group" href="#">
+<span class="material-symbols-outlined text-espresso-muted group-hover:text-primary text-lg transition-colors">tune</span>
+<span class="text-sm font-medium">Model Management &amp; MLOps</span>
+</a>
+</nav>
+</div>
+</div>
+<!-- Sidebar Bottom Telemetry -->
+<div class="p-3 m-3 rounded-xl bg-white border border-[#E5DDD0] flex flex-col gap-2.5 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-bold text-espresso-muted font-mono-num uppercase tracking-wider">MLOps Telemetry</span>
+<span class="inline-flex items-center gap-1 font-mono-num text-[11px] text-emerald-700 font-semibold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>HEALTHY
+        </span>
+</div>
+<div class="grid grid-cols-2 gap-1.5">
+<div class="flex flex-col bg-[#FAF6F0] p-2 rounded border border-[#EBE3D7]">
+<span class="text-[10px] text-espresso-muted font-mono-num">Inference Latency</span>
+<span class="font-mono-num text-xs font-semibold text-espresso">18ms</span>
+</div>
+<div class="flex flex-col bg-[#FAF6F0] p-2 rounded border border-[#EBE3D7]">
+<span class="text-[10px] text-espresso-muted font-mono-num">Ingested SKUs</span>
+<span class="font-mono-num text-xs font-semibold text-espresso">120,492</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1 border-t border-[#EFE8DD]">
+<div class="flex flex-col">
+<span class="text-[9px] text-espresso-muted uppercase font-mono-num">Active Cluster</span>
+<span class="font-mono-num text-[11px] text-primary font-semibold">Prod / us-east-1a</span>
+</div>
+<span class="material-symbols-outlined text-espresso-muted text-base cursor-pointer hover:text-primary transition-colors">tune</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Space -->
+<div class="pl-72 flex flex-col min-h-screen bg-[#FAF6F0]">
+<!-- Top Persistent Header -->
+<header class="fixed top-0 left-72 right-0 h-16 bg-[#FAF6F0]/90 backdrop-blur-xl z-40 border-b border-[#E5DDD0] flex items-center justify-between px-6 shadow-sm">
+<!-- Breadcrumbs & Sync Info -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 font-mono-num text-xs text-espresso-muted">
+<span class="text-primary font-bold">NEXUS</span>
+<span class="text-sand-400">/</span>
+<span class="">Retail Analytics</span>
+<span class="text-sand-400">/</span>
+<span class="text-espresso font-semibold">Executive Overview</span>
+</div>
+<div class="h-4 w-px bg-[#E5DDD0]"></div>
+<div class="flex items-center gap-2 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-mono-num text-[11px] font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="">LIVE SYNC (3s)</span>
+</div>
+</div>
+<!-- Quick Actions, Search & User -->
+<div class="flex items-center gap-3">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2.5 text-espresso-muted text-sm pointer-events-none">search</span>
+<input class="w-80 h-8 pl-8 pr-3 bg-white border border-[#DDD3C2] text-espresso placeholder:text-espresso-muted text-xs rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-mono-num shadow-sm" placeholder="Search SKUs, cohorts, stores (⌘K)..." type="text">
+</div>
+<div class="flex items-center gap-1.5 px-2.5 h-8 rounded-lg bg-white border border-[#DDD3C2] text-espresso font-mono-num text-xs hover:border-primary/50 transition-colors cursor-pointer shadow-sm">
+<span class="material-symbols-outlined text-sm text-primary">currency_exchange</span>
+<span class="font-medium">USD $ / UTC-5</span>
+</div>
+<div class="flex items-center bg-stone-200/80 p-0.5 rounded-lg border border-stone-300 text-[11px] font-medium tracking-tight">
+  <button class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white text-stone-900 shadow-sm font-semibold transition-all">
+    <span class="material-symbols-outlined text-[14px] text-amber-600">light_mode</span>
+    <span class="">Sahara Light</span>
+  </button>
+  <button class="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-stone-600 hover:text-stone-900 transition-all">
+    <span class="material-symbols-outlined text-[14px]">dark_mode</span>
+    <span class="">Sahara Dark</span>
+  </button>
+</div><button class="h-8 px-3 rounded-lg bg-primary hover:bg-primary-hover text-white font-medium text-xs flex items-center gap-1.5 transition-all shadow-[0_2px_8px_rgba(194,101,42,0.25)] active:scale-95">
+<span class="material-symbols-outlined text-sm">rocket_launch</span>
+<span class="">Deploy</span>
+</button>
+<button class="relative w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-[#DDD3C2] text-espresso-subtle hover:text-espresso transition-colors shadow-sm">
+<span class="material-symbols-outlined text-base">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-crimson ring-2 ring-white"></span>
+</button>
+<div class="flex items-center gap-2.5 pl-2 border-l border-[#E5DDD0]">
+<div class="w-8 h-8 rounded-full bg-gradient-to-tr from-primary to-amber p-0.5 shadow-sm">
+<div class="w-full h-full rounded-full bg-[#FAF5EE] flex items-center justify-center font-bold text-xs text-primary">EV</div>
+</div>
+<div class="hidden xl:flex flex-col">
+<span class="text-xs text-espresso font-bold leading-tight">E. Vance</span>
+<span class="text-[9px] font-mono-num text-espresso-muted uppercase tracking-wider font-semibold">VP Merchandising</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Workspace -->
+<main class="w-full pt-16 flex-1 bg-[#FAF6F0]"><div class="flex flex-col w-full">
+<div class="px-8 py-8 flex flex-col gap-8 max-w-[1720px] mx-auto w-full">
+<!-- Context Header & System Filters -->
+<div class="flex flex-col gap-5">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-xs font-mono text-on-surface-variant uppercase tracking-wider">
+<span class="">NEXUS</span>
+<span class="text-secondary-fixed-dim">/</span>
+<span class="">Operations Foundry</span>
+<span class="text-secondary-fixed-dim">/</span>
+<span class="text-primary font-semibold">Inventory &amp; Supply Chain Engine</span>
+</div>
+<div class="flex items-baseline gap-4 mt-1">
+<h1 class="font-headline text-3xl lg:text-4xl text-on-surface tracking-tight font-normal">
+              Supply Network &amp; Restock Intelligence
+            </h1>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-mono text-[11px]">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+              9 FCs / 142 MICRO-HUBS LINKED
+            </span>
+</div>
+</div>
+<!-- Action Commands -->
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-colors shadow-sm flex items-center gap-2 text-xs font-medium font-body">
+<span class="material-symbols-outlined text-sm text-primary">swap_horiz</span>
+<span class="">Rebalance Inventory</span>
+</button>
+<button class="px-4 py-2 rounded-lg bg-primary hover:bg-on-primary-fixed-variant text-on-primary transition-all shadow-sm flex items-center gap-2 text-xs font-semibold font-body">
+<span class="material-symbols-outlined text-sm">send_time_extension</span>
+<span class="">Automated PO Dispatch</span>
+<span class="ml-1 px-1.5 py-0.2 rounded bg-surface-container-lowest/20 font-mono text-[10px]">7 Pending</span>
+</button>
+</div>
+</div>
+<!-- Multi-Filter Control Console -->
+<div class="p-3 bg-surface-container-lowest rounded-xl shadow-sm flex flex-wrap items-center justify-between gap-3">
+<div class="flex flex-wrap items-center gap-2.5">
+<div class="flex items-center gap-2 px-3 py-1.5 bg-surface-container-low rounded-lg text-xs font-mono text-on-surface">
+<span class="text-on-surface-variant font-sans font-medium text-[11px] uppercase">Node:</span>
+<select class="bg-transparent text-xs font-mono font-medium text-on-surface focus:outline-none cursor-pointer">
+<option>All Fulfillment Centers (9)</option>
+<option>East DC-01 (Newark Gateway)</option>
+<option>West DC-02 (Reno Central)</option>
+<option>Central DC-03 (Dallas Metro)</option>
+<option>Midwest Hub-04 (Chicago)</option>
+</select>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 bg-surface-container-low rounded-lg text-xs font-mono text-on-surface">
+<span class="text-on-surface-variant font-sans font-medium text-[11px] uppercase">Category:</span>
+<select class="bg-transparent text-xs font-mono font-medium text-on-surface focus:outline-none cursor-pointer">
+<option>All Product Silos</option>
+<option>Technical Outerwear</option>
+<option>Performance Footwear</option>
+<option>Modular Gear &amp; Packs</option>
+<option>Thermal Base Layers</option>
+</select>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 bg-surface-container-low rounded-lg text-xs font-mono text-on-surface">
+<span class="text-on-surface-variant font-sans font-medium text-[11px] uppercase">Health State:</span>
+<select class="bg-transparent text-xs font-mono font-medium text-on-surface focus:outline-none cursor-pointer">
+<option>All Health States</option>
+<option>Critical Stockout Threat (&lt;7d)</option>
+<option>Low Buffer Warning (&lt;14d)</option>
+<option>Balanced / Nominal</option>
+<option>Surplus / Overstocked (&gt;90d)</option>
+</select>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 bg-surface-container-low rounded-lg text-xs font-mono text-on-surface">
+<span class="text-on-surface-variant font-sans font-medium text-[11px] uppercase">Horizon:</span>
+<span class="font-semibold text-primary">30-Day Lead Cycle</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-xs font-mono text-on-surface-variant pr-2">
+<span class="material-symbols-outlined text-sm text-secondary">update</span>
+<span class="">Last Model Ingest: <strong class="text-on-surface font-medium">4 mins ago</strong></span>
+</div>
+</div>
+</div>
+<!-- Core KPI Band -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+<!-- KPI 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-1">
+<span class="text-[11px] font-mono uppercase tracking-wider text-on-surface-variant">Total Capital In Stock</span>
+<span class="font-headline text-3xl text-on-surface font-normal tracking-tight">$38,420,100</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+</div>
+<div class="pt-4 flex items-center justify-between text-xs font-mono">
+<span class="text-on-surface-variant">Retail GMV Equiv: <strong class="text-on-surface">$64.2M</strong></span>
+<span class="text-primary font-medium flex items-center">+4.1% MoM</span>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-1">
+<span class="text-[11px] font-mono uppercase tracking-wider text-on-surface-variant">Stockout Vulnerability</span>
+<span class="font-headline text-3xl text-primary font-normal tracking-tight">1.84%</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">warning_amber</span>
+</div>
+</div>
+<div class="pt-4 flex items-center justify-between text-xs font-mono">
+<span class="text-on-surface-variant">Target: &lt;2.50%</span>
+<span class="px-2 py-0.5 rounded bg-tertiary/10 text-tertiary font-medium">14 Critical SKUs</span>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-1">
+<span class="text-[11px] font-mono uppercase tracking-wider text-on-surface-variant">Turnover Velocity</span>
+<span class="font-headline text-3xl text-on-surface font-normal tracking-tight">6.8x <span class="text-sm font-mono text-on-surface-variant">/ yr</span></span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">published_with_changes</span>
+</div>
+</div>
+<div class="pt-4 flex items-center justify-between text-xs font-mono">
+<span class="text-on-surface-variant">DSI: <strong class="text-on-surface">53.7 Days</strong></span>
+<span class="text-primary font-medium">-4.2d improvement</span>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-1">
+<span class="text-[11px] font-mono uppercase tracking-wider text-on-surface-variant">OTIF Supplier Rate</span>
+<span class="font-headline text-3xl text-on-surface font-normal tracking-tight">96.4%</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">verified</span>
+</div>
+</div>
+<div class="pt-4 flex items-center justify-between text-xs font-mono">
+<span class="text-on-surface-variant">Lead Time Delta:</span>
+<span class="text-on-surface font-medium">±1.8 Days dev</span>
+</div>
+</div>
+</div>
+<!-- Depletion Curve Simulator & Fulfillment Center Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
+<!-- Depletion & Runout Simulation (Left 8 Cols) -->
+<div class="xl:col-span-8 bg-surface-container-lowest p-7 rounded-xl shadow-sm flex flex-col gap-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div class="flex flex-col">
+<span class="text-[11px] font-mono text-on-surface-variant uppercase tracking-wider">Predictive Burn Rate Model</span>
+<h2 class="font-headline text-2xl text-on-surface">Inventory Depletion &amp; Safety Stock Horizon</h2>
+</div>
+<!-- Mode Switcher -->
+<div class="flex items-center gap-1.5 p-1 bg-surface-container-low rounded-lg text-xs font-mono">
+<button class="px-3 py-1 rounded bg-surface-container-lowest text-primary font-semibold shadow-xs transition-all" id="toggle-std">
+              Baseline Demand
+            </button>
+<button class="px-3 py-1 rounded text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-1" id="toggle-promo">
+<span class="">Promo-Shock (+35%)</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</button>
+</div>
+</div>
+<!-- SVG Depletion Curve Visualizer -->
+<div class="relative w-full bg-surface-container-low/40 rounded-xl p-6 overflow-hidden">
+<div class="flex items-center justify-between text-[11px] font-mono text-on-surface-variant mb-4">
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span class="">AeroFlex Carbon Shell (SKU-8821)</span>
+</span>
+<span class="flex items-center gap-1.5">
+<span class="w-2.5 h-0.5 bg-tertiary"></span>
+<span class="">Critical Safety Buffer</span>
+</span>
+<span class="flex items-center gap-1.5">
+<span class="w-2.5 h-0.5 bg-secondary border-dashed"></span>
+<span class="">Reorder Point (ROP)</span>
+</span>
+</div>
+<span class="">Forecast Window: 30 Days</span>
+</div>
+<!-- Chart Visual Area -->
+<div class="relative h-64 w-full">
+<svg class="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 800 240">
+<defs>
+<linearGradient id="depleteGrad" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop class="text-primary" offset="0%" stop-color="currentColor" stop-opacity="0.32"></stop>
+<stop class="text-primary" offset="70%" stop-color="currentColor" stop-opacity="0.04"></stop>
+<stop class="text-primary" offset="100%" stop-color="currentColor" stop-opacity="0.0"></stop>
+</linearGradient>
+</defs>
+<!-- Grid lines -->
+<line class="text-surface-container-highest" stroke="currentColor" stroke-width="1" x1="0" x2="800" y1="40" y2="40"></line>
+<line class="text-surface-container-highest" stroke="currentColor" stroke-width="1" x1="0" x2="800" y1="100" y2="100"></line>
+<line class="text-surface-container-highest" stroke="currentColor" stroke-width="1" x1="0" x2="800" y1="160" y2="160"></line>
+<line class="text-surface-container-highest" stroke="currentColor" stroke-width="1" x1="0" x2="800" y1="210" y2="210"></line>
+<!-- Safety Buffer Line (Red/Tertiary) -->
+<line class="text-tertiary" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1.5" x1="0" x2="800" y1="190" y2="190"></line>
+<!-- Reorder Trigger Level (ROP) -->
+<line class="text-secondary" stroke="currentColor" stroke-dasharray="3 3" stroke-width="1.5" x1="0" x2="800" y1="130" y2="130"></line>
+<!-- Shaded Depletion Area -->
+<path d="M 0,35 Q 200,60 380,128 T 610,195 L 800,225 L 800,240 L 0,240 Z" fill="url(#depleteGrad)"></path>
+<!-- Depletion Trajectory Line -->
+<path class="text-primary" d="M 0,35 Q 200,60 380,128 T 610,195 L 800,225" fill="none" id="trajectory-path" stroke="currentColor" stroke-width="3"></path>
+<!-- Key Event Markers -->
+<circle class="fill-surface-container-lowest stroke-primary" cx="380" cy="128" r="5" stroke-width="3"></circle>
+<circle class="fill-tertiary stroke-surface-container-lowest" cx="585" cy="190" r="6" stroke-width="2"></circle>
+</svg>
+<!-- Annotation Callouts -->
+<div class="absolute top-[108px] left-[45%] -translate-x-1/2 bg-surface-container-lowest px-2.5 py-1 rounded shadow-sm text-[10px] font-mono border-l-2 border-primary">
+<span class="text-primary font-bold">Day 14:</span> Auto Reorder Trigger
+            </div>
+<div class="absolute bottom-[28px] left-[71%] -translate-x-1/2 bg-tertiary text-on-tertiary px-2 py-0.5 rounded shadow-sm text-[10px] font-mono flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">alarm</span>
+<span class="">Stockout: Day 21 (Zero Buffer)</span>
+</div>
+</div>
+<!-- Bottom Axis Time Marks -->
+<div class="grid grid-cols-6 pt-3 text-[10px] font-mono text-on-surface-variant text-center">
+<span class="">Day 0 (Today)</span>
+<span class="">Day 6</span>
+<span class="">Day 12</span>
+<span class="">Day 18</span>
+<span class="">Day 24</span>
+<span class="">Day 30</span>
+</div>
+</div>
+<!-- 3 Flagged Vulnerable Trajectories Quick Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+<div class="p-3.5 bg-surface-container-low rounded-lg flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-mono text-xs font-semibold text-on-surface">AeroFlex Carbon Shell</span>
+<span class="px-1.5 py-0.5 rounded bg-tertiary/10 text-tertiary font-mono text-[10px] font-bold">6 Days Left</span>
+</div>
+<p class="text-[11px] text-on-surface-variant mt-1.5 font-body">Burn rate elevated +42% by regional storm forecast in Pacific NW.</p>
+<div class="mt-3 flex items-center justify-between text-[11px] font-mono text-primary font-medium">
+<span class="">On Hand: 310 units</span>
+<span class="underline cursor-pointer">Dispatch +650</span>
+</div>
+</div>
+<div class="p-3.5 bg-surface-container-low rounded-lg flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-mono text-xs font-semibold text-on-surface">TerraShield Parka Pro</span>
+<span class="px-1.5 py-0.5 rounded bg-primary/10 text-primary font-mono text-[10px] font-bold">11 Days Left</span>
+</div>
+<p class="text-[11px] text-on-surface-variant mt-1.5 font-body">Supplier shipment delayed 48hrs due to port clearance backlog.</p>
+<div class="mt-3 flex items-center justify-between text-[11px] font-mono text-primary font-medium">
+<span class="">On Hand: 540 units</span>
+<span class="underline cursor-pointer">Reroute DC-03</span>
+</div>
+</div>
+<div class="p-3.5 bg-surface-container-low rounded-lg flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-mono text-xs font-semibold text-on-surface">Merino Seamless Base</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-mono text-[10px]">19 Days Left</span>
+</div>
+<p class="text-[11px] text-on-surface-variant mt-1.5 font-body">Normal depletion within standard tolerance buffer thresholds.</p>
+<div class="mt-3 flex items-center justify-between text-[11px] font-mono text-on-surface-variant">
+<span class="">On Hand: 1,420 units</span>
+<span class="text-on-surface">Nominal</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Fulfillment Centers Capacity & Geographic Network (Right 4 Cols) -->
+<div class="xl:col-span-4 bg-surface-container-lowest p-7 rounded-xl shadow-sm flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-[11px] font-mono text-on-surface-variant uppercase tracking-wider">Node Load Status</span>
+<h2 class="font-headline text-2xl text-on-surface">Fulfillment Center Load</h2>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-lg">warehouse</span>
+</div>
+<!-- Node List with Gauges -->
+<div class="flex flex-col gap-4">
+<!-- Hub 1 -->
+<div class="p-3.5 bg-surface-container-low rounded-lg flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-mono text-xs font-semibold text-on-surface">East DC-01</span>
+<span class="text-[11px] text-on-surface-variant font-body">(Newark Hub)</span>
+</div>
+<span class="font-mono text-xs font-bold text-primary">84%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 84%;"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] font-mono text-on-surface-variant">
+<span class="">Velocity: <strong>14,200 u/day</strong></span>
+<span class="">In-Flight: <strong>4,800 u</strong></span>
+</div>
+</div>
+<!-- Hub 2 -->
+<div class="p-3.5 bg-surface-container-low rounded-lg flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-mono text-xs font-semibold text-on-surface">West DC-02</span>
+<span class="text-[11px] text-on-surface-variant font-body">(Reno Apex)</span>
+</div>
+<span class="font-mono text-xs font-bold text-tertiary">91% PEAK</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 91%;"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] font-mono text-on-surface-variant">
+<span class="">Velocity: <strong>19,500 u/day</strong></span>
+<span class="text-tertiary font-semibold">Throttle Active</span>
+</div>
+</div>
+<!-- Hub 3 -->
+<div class="p-3.5 bg-surface-container-low rounded-lg flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-mono text-xs font-semibold text-on-surface">Central DC-03</span>
+<span class="text-[11px] text-on-surface-variant font-body">(Dallas Express)</span>
+</div>
+<span class="font-mono text-xs font-bold text-on-surface">72%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 72%;"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] font-mono text-on-surface-variant">
+<span class="">Velocity: <strong>11,800 u/day</strong></span>
+<span class="">Available Capacity</span>
+</div>
+</div>
+<!-- Hub 4 -->
+<div class="p-3.5 bg-surface-container-low rounded-lg flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-mono text-xs font-semibold text-on-surface">Midwest DC-04</span>
+<span class="text-[11px] text-on-surface-variant font-body">(Chicago Lake)</span>
+</div>
+<span class="font-mono text-xs font-bold text-on-surface">63%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 63%;"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] font-mono text-on-surface-variant">
+<span class="">Velocity: <strong>8,900 u/day</strong></span>
+<span class="">Nominal Inflow</span>
+</div>
+</div>
+</div>
+<!-- AI Routing Recommendation Card -->
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col gap-2.5">
+<div class="flex items-center gap-2 text-primary font-mono text-xs font-semibold">
+<span class="material-symbols-outlined text-base">auto_fix_high</span>
+<span class="">AI Dynamic Load Recommendation</span>
+</div>
+<p class="text-xs text-on-surface font-body leading-relaxed">
+            West DC-02 is approaching 91% capacity cap. Shift <strong>2,400 incoming outerwear units</strong> from Reno to Central DC-03 to prevent cross-dock choke and shave <strong>14 hrs</strong> off delivery to Midwest hubs.
+          </p>
+<div class="pt-1">
+<button class="w-full py-2 rounded-lg bg-surface-container-lowest text-primary text-xs font-mono font-semibold shadow-xs hover:bg-surface-container-highest transition-all">
+              Execute Reroute Rule #482
+            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Automated Restock Queue & Reorder Ledger -->
+<div class="bg-surface-container-lowest p-7 rounded-xl shadow-sm flex flex-col gap-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div class="flex flex-col">
+<span class="text-[11px] font-mono text-on-surface-variant uppercase tracking-wider">Predictive Purchase Orders</span>
+<h2 class="font-headline text-2xl text-on-surface">Intelligent Restocking &amp; Reorder Queue</h2>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-xs font-mono text-on-surface-variant">Auto-EOQ Engine: <strong class="text-primary">ACTIVE</strong></span>
+<button class="px-3.5 py-1.5 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors text-xs font-mono flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+<span class="">Filter Active Exceptions</span>
+</button>
+</div>
+</div>
+<!-- Ledger Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-[11px] font-mono text-on-surface-variant uppercase tracking-wider">
+<th class="py-3 px-4 rounded-l-lg">SKU / Item</th>
+<th class="py-3 px-4">Category</th>
+<th class="py-3 px-4">On-Hand</th>
+<th class="py-3 px-4">Runout Est.</th>
+<th class="py-3 px-4">ROP Trigger</th>
+<th class="py-3 px-4">EOQ Order Qty</th>
+<th class="py-3 px-4">Primary Vendor</th>
+<th class="py-3 px-4">Cost/Unit</th>
+<th class="py-3 px-4 rounded-r-lg text-right">Action Protocol</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high text-xs font-mono">
+<!-- Row 1 (Critical) -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="font-bold text-on-surface">AeroFlex Carbon Shell</span>
+<span class="text-[10px] text-on-surface-variant">NX-AF-8821-BLK</span>
+</div>
+</td>
+<td class="py-4 px-4 text-on-surface-variant font-body">Outerwear</td>
+<td class="py-4 px-4 font-semibold text-tertiary">310 pcs</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-tertiary/10 text-tertiary font-bold text-[10px]">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-ping"></span>
+                  6 Days
+                </span>
+</td>
+<td class="py-4 px-4 text-on-surface-variant">750 pcs</td>
+<td class="py-4 px-4 font-bold text-on-surface">1,200 pcs</td>
+<td class="py-4 px-4 text-on-surface font-body">Apex Technical Mills (TW)</td>
+<td class="py-4 px-4 text-on-surface">$148.50</td>
+<td class="py-4 px-4 text-right">
+<div class="inline-flex items-center gap-2">
+<button class="px-3 py-1.5 rounded bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-semibold text-xs transition-colors shadow-xs">
+                    Approve PO
+                  </button>
+<button class="p-1.5 rounded bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors" title="Reroute options">
+<span class="material-symbols-outlined text-sm">alt_route</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="font-bold text-on-surface">TerraShield Parka Pro</span>
+<span class="text-[10px] text-on-surface-variant">NX-TS-4419-OD</span>
+</div>
+</td>
+<td class="py-4 px-4 text-on-surface-variant font-body">Outerwear</td>
+<td class="py-4 px-4 font-semibold text-primary">540 pcs</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-primary/10 text-primary font-bold text-[10px]">
+                  11 Days
+                </span>
+</td>
+<td class="py-4 px-4 text-on-surface-variant">600 pcs</td>
+<td class="py-4 px-4 font-bold text-on-surface">850 pcs</td>
+<td class="py-4 px-4 text-on-surface font-body">Vanguard Fiber Ltd (VN)</td>
+<td class="py-4 px-4 text-on-surface">$192.00</td>
+<td class="py-4 px-4 text-right">
+<div class="inline-flex items-center gap-2">
+<button class="px-3 py-1.5 rounded bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-semibold text-xs transition-colors shadow-xs">
+                    Approve PO
+                  </button>
+<button class="p-1.5 rounded bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors" title="Reroute options">
+<span class="material-symbols-outlined text-sm">alt_route</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="font-bold text-on-surface">Veloce Trail Runner V2</span>
+<span class="text-[10px] text-on-surface-variant">NX-VT-9022-GR</span>
+</div>
+</td>
+<td class="py-4 px-4 text-on-surface-variant font-body">Footwear</td>
+<td class="py-4 px-4 font-semibold text-on-surface">820 pcs</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant text-[10px]">
+                  14 Days
+                </span>
+</td>
+<td class="py-4 px-4 text-on-surface-variant">900 pcs</td>
+<td class="py-4 px-4 font-bold text-on-surface">1,500 pcs</td>
+<td class="py-4 px-4 text-on-surface font-body">SoleCraft Composites (KR)</td>
+<td class="py-4 px-4 text-on-surface">$64.20</td>
+<td class="py-4 px-4 text-right">
+<div class="inline-flex items-center gap-2">
+<button class="px-3 py-1.5 rounded bg-surface-container-low hover:bg-surface-container-high text-on-surface font-semibold text-xs transition-colors">
+                    Rebalance DC
+                  </button>
+<button class="p-1.5 rounded bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors" title="Reroute options">
+<span class="material-symbols-outlined text-sm">alt_route</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="font-bold text-on-surface">Modular Summit Hauler 45L</span>
+<span class="text-[10px] text-on-surface-variant">NX-MS-1108-SND</span>
+</div>
+</td>
+<td class="py-4 px-4 text-on-surface-variant font-body">Gear &amp; Packs</td>
+<td class="py-4 px-4 font-semibold text-on-surface">1,120 pcs</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant text-[10px]">
+                  22 Days
+                </span>
+</td>
+<td class="py-4 px-4 text-on-surface-variant">800 pcs</td>
+<td class="py-4 px-4 font-bold text-on-surface">500 pcs</td>
+<td class="py-4 px-4 text-on-surface font-body">Cordura Alpine Co (PT)</td>
+<td class="py-4 px-4 text-on-surface">$88.00</td>
+<td class="py-4 px-4 text-right">
+<div class="inline-flex items-center gap-2">
+<button class="px-3 py-1.5 rounded bg-surface-container-low hover:bg-surface-container-high text-on-surface font-semibold text-xs transition-colors">
+                    Review Buffer
+                  </button>
+<button class="p-1.5 rounded bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors" title="Reroute options">
+<span class="material-symbols-outlined text-sm">alt_route</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Batch Footer Toolbar -->
+<div class="pt-3 border-t border-surface-container-high flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono text-on-surface-variant">
+<div class="flex items-center gap-3">
+<span class="">Showing <strong>4</strong> of 14 critical replenishment suggestions</span>
+<span class="text-secondary-fixed-dim">|</span>
+<span class="text-primary font-semibold">Total PO Capital Requisition: $421,830</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors font-medium">
+            Export EDI-850 Feed
+          </button>
+<button class="px-3 py-1.5 rounded bg-primary text-on-primary hover:bg-on-primary-fixed-variant transition-colors font-semibold">
+            Batch Authorize Top 3
+          </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple interactive toggle for demand shock visualization
+  const btnStd = document.getElementById('toggle-std');
+  const btnPromo = document.getElementById('toggle-promo');
+  const path = document.getElementById('trajectory-path');
+
+  if (btnStd && btnPromo && path) {
+    btnPromo.addEventListener('click', () => {
+      btnPromo.classList.add('bg-surface-container-lowest', 'text-primary', 'font-semibold', 'shadow-xs');
+      btnPromo.classList.remove('text-on-surface-variant');
+      btnStd.classList.remove('bg-surface-container-lowest', 'text-primary', 'font-semibold', 'shadow-xs');
+      btnStd.classList.add('text-on-surface-variant');
+      
+      // Morph path steeper
+      path.setAttribute('d', 'M 0,35 Q 160,80 300,165 T 480,215 L 800,238');
+    });
+
+    btnStd.addEventListener('click', () => {
+      btnStd.classList.add('bg-surface-container-lowest', 'text-primary', 'font-semibold', 'shadow-xs');
+      btnStd.classList.remove('text-on-surface-variant');
+      btnPromo.classList.remove('bg-surface-container-lowest', 'text-primary', 'font-semibold', 'shadow-xs');
+      btnPromo.classList.add('text-on-surface-variant');
+      
+      // Standard path
+      path.setAttribute('d', 'M 0,35 Q 200,60 380,128 T 610,195 L 800,225');
+    });
+  }
+</script></main>
+</div>
+
+
+</body></html>

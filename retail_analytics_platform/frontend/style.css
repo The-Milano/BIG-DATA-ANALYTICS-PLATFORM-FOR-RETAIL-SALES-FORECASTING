@@ -1,0 +1,673 @@
+/* ==============================================================================
+   NEXUS RETAIL AI — Sahara Design System
+   Dual Aesthetic: Sahara Nocturne (Dark Mode) & Sahara (Warm Minimalist Light)
+   Typography: Manrope (Body/UI), EB Garamond (Editorial), JetBrains Mono (Telemetry)
+   ============================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
+
+/* --- Theme Design Tokens --- */
+:root {
+  /* Sahara Nocturne (Dark Mode Default) */
+  --bg-main: #151311;
+  --bg-sidebar: #12100E;
+  --bg-surface: #1D1B19;
+  --bg-surface-elevated: #25221F;
+  --bg-surface-high: #373432;
+  --bg-surface-low: #181614;
+  --border-subtle: #383028;
+  --border-strong: #554339;
+  --primary: #E07A38;
+  --primary-glow: rgba(224, 122, 56, 0.28);
+  --primary-light: #FFB68D;
+  --secondary: #FFB955;
+  --secondary-glow: rgba(255, 185, 85, 0.25);
+  --tertiary: #C3841E;
+  --text-main: #EDE6DD;
+  --text-muted: #A89F91;
+  --text-dim: #7A7165;
+  --emerald: #10B981;
+  --emerald-bg: rgba(16, 185, 129, 0.12);
+  --coral: #EF4444;
+  --coral-bg: rgba(239, 68, 68, 0.12);
+  --amber-warning: #F59E0B;
+}
+
+[data-theme="light"], .theme-light {
+  /* Sahara Light (Warm Minimalist) */
+  --bg-main: #FAF6F0;
+  --bg-sidebar: #F5EFE6;
+  --bg-surface: #FFFFFF;
+  --bg-surface-elevated: #F5EFE6;
+  --bg-surface-high: #EBE5DC;
+  --bg-surface-low: #FAF5EE;
+  --border-subtle: #E8E2D6;
+  --border-strong: #D5CBBF;
+  --primary: #C2652A;
+  --primary-glow: rgba(194, 101, 42, 0.20);
+  --primary-light: #D97736;
+  --secondary: #D9822B;
+  --secondary-glow: rgba(217, 130, 43, 0.18);
+  --tertiary: #9B4600;
+  --text-main: #1F1B18;
+  --text-muted: #6E6459;
+  --text-dim: #9E9384;
+  --emerald: #059669;
+  --emerald-bg: rgba(5, 150, 105, 0.10);
+  --coral: #DC2626;
+  --coral-bg: rgba(220, 38, 38, 0.10);
+  --amber-warning: #D97706;
+}
+
+/* Base Body & App View Container */
+html, body, [data-testid="stAppViewContainer"] {
+  background-color: var(--bg-main) !important;
+  color: var(--text-main) !important;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  letter-spacing: -0.01em;
+}
+
+[data-testid="stHeader"] {
+  background: transparent !important;
+}
+
+[data-testid="stSidebar"] {
+  background-color: var(--bg-sidebar) !important;
+  border-right: 1px solid var(--border-subtle) !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+/* Material Symbols Outlined Icon Font */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined' !important;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Specialized Typography Helpers */
+.font-mono-num {
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+.font-headline {
+  font-family: 'EB Garamond', serif !important;
+}
+
+.font-display {
+  font-family: 'Manrope', sans-serif !important;
+}
+
+/* --- Persistent Sahara Telemetry Header --- */
+.sahara-top-chrome {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.sahara-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.sahara-brand-emblem {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--primary) 0%, #D97736 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px var(--primary-glow);
+}
+
+.sahara-brand-title {
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sahara-version-pill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--primary);
+  background: var(--bg-surface-low);
+  border: 1px solid var(--border-subtle);
+  padding: 2px 7px;
+  border-radius: 6px;
+}
+
+.sahara-status-capsule {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+}
+
+.sahara-dot-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--emerald);
+  box-shadow: 0 0 8px var(--emerald);
+  animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.sahara-meta-strip {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+}
+
+/* Theme Switcher Capsule */
+.sahara-theme-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  background: var(--bg-surface-low);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  gap: 2px;
+}
+
+.theme-btn-active {
+  background: var(--bg-surface-high);
+  color: var(--primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* User Profile Badge */
+.sahara-user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* --- Section Headings & Hero Headers --- */
+.sahara-hero-title {
+  font-family: 'EB Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+  margin: 4px 0 6px 0;
+  line-height: 1.15;
+}
+
+.sahara-hero-subtitle {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.sahara-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--primary);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* --- Sahara KPI Telemetry Cards --- */
+.sahara-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 20px 22px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  margin-bottom: 18px;
+}
+
+.sahara-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.08), 0 0 16px var(--primary-glow);
+  transform: translateY(-2px);
+}
+
+.sahara-kpi-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.sahara-kpi-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.sahara-kpi-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+}
+
+.sahara-kpi-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.03em;
+  margin-bottom: 10px;
+  line-height: 1.1;
+}
+
+.sahara-kpi-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+}
+
+/* Badges */
+.sahara-badge-positive {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--emerald);
+  background: var(--emerald-bg);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.72rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.sahara-badge-negative {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--coral);
+  background: var(--coral-bg);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.72rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.sahara-badge-neutral {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--primary);
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.72rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.sahara-subtext {
+  color: var(--text-dim);
+  font-size: 0.75rem;
+}
+
+/* Banner Panel */
+.sahara-banner {
+  background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-surface-elevated) 100%);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 26px 30px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Streamlit Input / Select / Button Overrides */
+div.stButton > button {
+  background: linear-gradient(135deg, var(--primary) 0%, #D97736 100%) !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(224, 122, 56, 0.4) !important;
+  border-radius: 8px !important;
+  font-weight: 700 !important;
+  font-size: 0.88rem !important;
+  letter-spacing: 0.02em !important;
+  padding: 0.55rem 1.4rem !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 4px 14px var(--primary-glow) !important;
+}
+
+div.stButton > button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px var(--primary-glow) !important;
+}
+
+[data-testid="stDataFrame"] {
+  background: var(--bg-surface) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 12px !important;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 3px;
+}
+
+/* ==============================================================================
+   NEXUS RETAIL AI — Stitch Sahara Design Tokens & Table / Card Upgrades
+   ============================================================================== */
+
+/* Native Sahara High-Fidelity Table Container */
+.sahara-table-wrapper {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  margin-top: 8px;
+  margin-bottom: 20px;
+}
+
+.sahara-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.84rem;
+}
+
+.sahara-table th {
+  padding: 12px 16px;
+  background: var(--bg-surface-elevated);
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.sahara-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  vertical-align: middle;
+}
+
+.sahara-table tbody tr:hover {
+  background: var(--bg-surface-high);
+  transition: background 0.15s ease-in-out;
+}
+
+.sahara-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* DC Capacity Load Bar Component */
+.sahara-load-node {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.sahara-load-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+}
+
+.sahara-load-bar-track {
+  width: 100%;
+  height: 8px;
+  background: var(--bg-surface-low);
+  border-radius: 9999px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+}
+
+.sahara-load-bar-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.4s ease;
+}
+
+/* Action Protocol Pill Button */
+.sahara-action-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: var(--primary);
+  color: #FFFFFF !important;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 8px var(--primary-glow);
+  transition: all 0.2s ease;
+}
+
+.sahara-action-pill:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px var(--primary-glow);
+}
+
+/* Customer Persona Archetype Tag */
+.sahara-archetype-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Glassmorphism Quick Filter Toolbar */
+.sahara-filter-toolbar {
+  background: var(--bg-surface-low);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+/* Enhanced KPI Card with Target & Sparkline */
+.sahara-kpi-target-label {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  font-family: 'JetBrains Mono', monospace;
+  margin-top: -4px;
+  margin-bottom: 8px;
+}
+
+.sahara-kpi-target-val {
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+
+/* Hide default ugly Streamlit multi-page sidebar navigation */
+[data-testid="stSidebarNav"] {
+  display: none !important;
+}
+
+div[data-testid="stSidebarUserContent"] > div:first-child:has([data-testid="stSidebarNav"]) {
+  display: none !important;
+}
+
+ul[data-testid="stSidebarNavItems"] {
+  display: none !important;
+}
+
+/* Custom Sahara Stitch Navigation Menu */
+.sahara-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
+.sahara-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none !important;
+  color: var(--text-muted) !important;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid transparent;
+}
+
+.sahara-nav-item:hover {
+  background: var(--bg-surface-elevated);
+  color: var(--text-main) !important;
+  border-color: var(--border-subtle);
+  transform: translateX(3px);
+}
+
+.sahara-nav-item.active {
+  background: var(--primary);
+  color: #FFFFFF !important;
+  font-weight: 700;
+  box-shadow: 0 0 20px var(--primary-glow);
+  border-color: rgba(224, 122, 56, 0.5);
+}
+
+.sahara-nav-item.active .material-symbols-outlined {
+  color: #FFFFFF !important;
+}
+
+.sahara-nav-item .material-symbols-outlined {
+  font-size: 18px;
+  color: var(--text-dim);
+  transition: color 0.2s ease;
+}
+
+.sahara-nav-item:hover .material-symbols-outlined {
+  color: var(--primary);
+}
+
+/* Theme switcher segmented button */
+.sahara-theme-pills {
+  display: flex;
+  background: var(--bg-surface-low);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 3px;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+
+.sahara-theme-pill {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  transition: all 0.15s ease;
+}
+
+.sahara-theme-pill.active {
+  background: var(--bg-surface-high);
+  color: var(--primary);
+  box-shadow: 0 0 10px var(--primary-glow);
+  border: 1px solid var(--border-strong);
+}

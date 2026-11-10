@@ -1,0 +1,759 @@
+<!DOCTYPE html><html class="dark" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-variant": "#373432", "primary-fixed-dim": "#ffb68d", "primary": "#ffb68d", "inverse-on-surface": "#33302d", "on-primary-container": "#4f2000", "surface-container-low": "#1d1b19", "surface-dim": "#151311", "on-tertiary-fixed-variant": "#773300", "secondary-fixed": "#ffddb4", "inverse-primary": "#9b4600", "on-secondary-fixed": "#291800", "on-primary-fixed": "#331200", "on-primary-fixed-variant": "#763300", "on-primary": "#532200", "background": "#151311", "on-surface": "#e8e1dd", "surface-tint": "#ffb68d", "secondary-fixed-dim": "#ffb955", "outline-variant": "#554339", "secondary-container": "#c3841e", "on-secondary": "#452b00", "surface": "#151311", "inverse-surface": "#e8e1dd", "surface-container-highest": "#373432", "error-container": "#93000a", "on-secondary-container": "#3c2500", "primary-fixed": "#ffdbc9", "error": "#ffb4ab", "primary-container": "#e07a38", "on-secondary-fixed-variant": "#633f00", "surface-container-high": "#2c2927", "tertiary-container": "#de7b3e", "on-surface-variant": "#dcc1b4", "on-error": "#690005", "on-tertiary-container": "#502000", "outline": "#a48c80", "surface-container": "#221f1d", "tertiary-fixed-dim": "#ffb68e", "on-background": "#e8e1dd", "on-error-container": "#ffdad6", "on-tertiary": "#542200", "surface-container-lowest": "#100e0c", "secondary": "#ffb955", "on-tertiary-fixed": "#331200", "surface-bright": "#3c3936", "tertiary-fixed": "#ffdbca", "tertiary": "#ffb68e" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-lg": "1.5rem", "space-xl": "2.5rem", "margin": "3rem", "space-xs": "0.25rem", "margin-mobile": "1.25rem", "gutter-mobile": "1rem", "gutter": "1.5rem", "space-sm": "0.5rem", "space-md": "1rem" }, "fontFamily": { "display-hero-mobile": [ "Newsreader" ], "headline-lg-mobile": [ "Newsreader" ], "display-hero": [ "Newsreader" ], "body-sm": [ "Manrope" ], "body-md": [ "Manrope" ], "label-md": [ "JetBrains Mono" ], "headline-sm": [ "Newsreader" ], "label-sm": [ "JetBrains Mono" ], "body-lg": [ "Manrope" ], "headline-md": [ "Newsreader" ], "headline-lg": [ "Newsreader" ] }, "fontSize": { "display-hero-mobile": [ "38px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "400" } ], "headline-lg-mobile": [ "30px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "400" } ], "display-hero": [ "56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "400" } ], "body-sm": [ "13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" } ], "body-md": [ "15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" } ], "label-md": [ "12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" } ], "headline-sm": [ "22px", { "lineHeight": "30px", "letterSpacing": "0em", "fontWeight": "500" } ], "label-sm": [ "11px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "500" } ], "body-lg": [ "18px", { "lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "400" } ], "headline-md": [ "28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "400" } ], "headline-lg": [ "40px", { "lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "400" } ] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest z-50 flex flex-col justify-between p-space-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col gap-space-md"><div class="flex items-center gap-space-sm px-space-xs py-space-xs"><div class="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_12px_rgba(224,122,56,0.5)]"></div><span class="font-label-md text-label-md text-on-surface tracking-wider uppercase font-semibold">NEXUS V4.8</span></div><div class="bg-surface-container-low rounded-lg p-space-sm flex flex-col gap-1"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase">System</span><span class="font-label-sm text-label-sm text-primary font-medium">NOMINAL 99.98%</span></div><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase">FastAPI</span><span class="font-label-sm text-label-sm text-secondary font-medium">ONLINE (200 OK)</span></div></div><div class="flex flex-col gap-space-xs pt-space-xs"><span class="font-label-sm text-label-sm text-outline px-space-xs uppercase tracking-wider">Operational Modules</span><nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg shadow-[0_0_20px_rgba(224,122,56,0.2)]"><a class="flex items-center gap-3 px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="executive-overview" href="#"><span class="material-symbols-outlined text-[18px]">dashboard</span><span class="">Executive Overview</span></a><a class="flex items-center gap-3 px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="ai-sales-forecasting" href="#"><span class="material-symbols-outlined text-[18px]">trending_up</span><span class="">AI Sales Forecasting</span></a><a aria-current="page" class="flex items-center gap-3 px-space-sm py-2 transition-all bg-primary-container text-on-primary-container font-semibold rounded-lg shadow-[0_0_20px_rgba(224,122,56,0.2)]" data-path="customer-360-rfm" href="#"><span class="material-symbols-outlined text-[18px]">groups</span><span class="">Customer 360 &amp; RFM</span></a><a class="flex items-center gap-3 px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="inventory-supply-chain" href="#"><span class="material-symbols-outlined text-[18px]">inventory_2</span><span class="">Inventory &amp; Supply Chain</span></a><a class="flex items-center gap-3 px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="model-management-mlops" href="#"><span class="material-symbols-outlined text-[18px]">memory</span><span class="">Model Management &amp; MLOps</span></a></nav></div></div><div class="bg-surface-container rounded-lg p-space-sm flex flex-col gap-2 shadow-[0_12px_32px_-8px_rgba(18,16,14,0.85)]"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface font-semibold tracking-wide">MLOPS TELEMETRY</span><span class="font-label-sm text-label-sm text-primary uppercase">[HEALTHY]</span></div><div class="flex flex-col gap-1.5 pt-1"><div class="flex items-center justify-between font-label-sm text-label-sm"><span class="text-on-surface-variant">Inference Latency</span><span class="text-on-surface font-medium">18ms</span></div><div class="flex items-center justify-between font-label-sm text-label-sm"><span class="text-on-surface-variant">Ingested SKUs</span><span class="text-on-surface font-medium">120,492</span></div><div class="flex items-center justify-between font-label-sm text-label-sm"><span class="text-on-surface-variant">Active Cluster</span><span class="text-on-surface font-medium">Prod / us-east-1a</span></div></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter"><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant"><span class="text-on-surface font-medium">NEXUS</span><span class="">/</span><span class="">Retail Analytics</span></div><div class="inline-flex items-center gap-1.5 bg-surface-container-high px-2.5 py-1 rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-secondary shadow-[0_0_8px_rgba(255,185,85,0.6)]"></span><span class="font-label-sm text-label-sm text-on-surface">LIVE SYNC (3s)</span></div></div><div class="flex items-center gap-space-md"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[18px]">search</span><input class="bg-surface-container-lowest text-on-surface placeholder:text-outline font-body-sm text-body-sm pl-9 pr-4 py-1.5 rounded-lg w-72 outline-none focus:ring-1 focus:ring-primary transition-all" placeholder="Search SKUs, cohorts, stores (⌘K)..." type="text"></div><div class="flex items-center gap-1 bg-surface-container px-2.5 py-1.5 rounded-lg"><span class="font-label-sm text-label-sm text-on-surface-variant">USD $ / UTC-5</span></div><div class="flex items-center bg-[#1d1b19] p-0.5 rounded-lg border border-[#383028] text-[11px] font-medium tracking-tight"><button class="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-stone-400 hover:text-stone-200 transition-all"><span class="material-symbols-outlined text-[14px]">light_mode</span><span class="">Sahara Light</span></button><button class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#25221f] text-[#e07a38] ring-1 ring-[#e07a38]/40 shadow-sm font-semibold transition-all"><span class="material-symbols-outlined text-[14px] text-amber-500">dark_mode</span><span class="">Sahara Dark</span></button></div><button class="bg-primary-container hover:bg-tertiary-container text-on-primary-container px-space-md py-1.5 rounded-lg font-body-sm text-body-sm font-semibold transition-all shadow-[0_0_16px_rgba(224,122,56,0.25)]">Deploy</button><div class="relative flex items-center justify-center p-1.5 text-on-surface-variant hover:text-on-surface cursor-pointer"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-secondary ring-2 ring-surface"></span></div><div class="flex items-center gap-2.5 pl-2"><div class="flex flex-col text-right"><span class="font-label-sm text-label-sm text-on-surface font-semibold leading-tight">E. Vance</span><span class="font-label-sm text-label-sm text-on-surface-variant text-[10px] leading-tight">VP MERCHANDISING</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 px-gutter bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Subtle Ambient Glow Orbs contained within canvas -->
+<div class="relative w-full overflow-hidden pb-12">
+<div class="pointer-events-none absolute -top-24 -left-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="pointer-events-none absolute top-1/3 -right-24 w-80 h-80 bg-secondary/10 rounded-full blur-3xl"></div>
+<!-- Editorial Header Section -->
+<header class="relative pt-6 pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="flex flex-col gap-2 max-w-2xl">
+<div class="flex items-center gap-3">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm tracking-widest uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+            RFM Synthesis Core
+          </span>
+<span class="text-outline text-label-sm font-label-sm">•</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wide">Clustering Engine v3.4 (K-Means + UMAP)</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight leading-none mt-1">
+          Customer 360 &amp; Behavioral RFM
+        </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+          High-dimensional unsupervised vector clustering isolating lifetime value acceleration, cadence shifts, and preemptive churn signals.
+        </p>
+</div>
+<!-- Action Cluster -->
+<div class="flex items-center gap-3 flex-wrap sm:flex-nowrap">
+<button class="group flex items-center gap-2 px-4 py-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-body-sm text-body-sm transition-all duration-200 shadow-sm active:scale-95" id="btn-export-csv">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant group-hover:text-primary transition-colors">download</span>
+<span class="">Export Cohort Lists (.csv)</span>
+</button>
+<div class="flex items-center bg-[#1d1b19] p-0.5 rounded-lg border border-[#383028] text-[11px] font-medium tracking-tight"><button class="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-stone-400 hover:text-stone-200 transition-all"><span class="material-symbols-outlined text-[14px]">light_mode</span><span class="">Sahara Light</span></button><button class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#25221f] text-[#e07a38] ring-1 ring-[#e07a38]/40 shadow-sm font-semibold transition-all"><span class="material-symbols-outlined text-[14px] text-amber-500">dark_mode</span><span class="">Sahara Dark</span></button></div><button class="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary-container hover:bg-tertiary-container text-on-primary-container font-body-sm text-body-sm font-semibold transition-all duration-200 shadow-[0_0_24px_rgba(224,122,56,0.3)] active:scale-95" id="btn-sync-cdp">
+<span class="material-symbols-outlined text-[18px]">sync_alt</span>
+<span class="">Trigger Audience Sync to CDP</span>
+</button>
+</div>
+</header>
+<!-- Operational Filter Strip & Telemetry Health Bar -->
+<div class="bg-surface-container-low rounded-xl p-4 mb-8 shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div class="flex items-center gap-3 flex-wrap">
+<!-- Segment Dropdown -->
+<div class="relative inline-flex items-center">
+<label class="sr-only" for="cohort-filter">Segment</label>
+<span class="absolute left-3 text-on-surface-variant material-symbols-outlined text-[16px]">pie_chart</span>
+<select class="appearance-none bg-surface-container-high text-on-surface font-body-sm text-body-sm pl-9 pr-8 py-2 rounded-lg outline-none focus:bg-surface-container-highest cursor-pointer transition-colors" id="cohort-filter">
+<option selected="">High-Value Champions (18,420)</option>
+<option>Loyal High-Frequency (42,810)</option>
+<option>Promising High-Spenders (29,140)</option>
+<option>Need Attention / Drift (34,110)</option>
+<option>At-Risk VIPs (12,980)</option>
+<option>Dormant Cohort (87,060)</option>
+</select>
+<span class="pointer-events-none absolute right-2.5 text-on-surface-variant material-symbols-outlined text-[16px]">expand_more</span>
+</div>
+<!-- Recency Dropdown -->
+<div class="relative inline-flex items-center">
+<label class="sr-only" for="recency-filter">Recency</label>
+<span class="absolute left-3 text-on-surface-variant material-symbols-outlined text-[16px]">calendar_today</span>
+<select class="appearance-none bg-surface-container-high text-on-surface font-body-sm text-body-sm pl-9 pr-8 py-2 rounded-lg outline-none focus:bg-surface-container-highest cursor-pointer transition-colors" id="recency-filter">
+<option>Last 30 Days</option>
+<option selected="">Last 90 Days</option>
+<option>Last 180 Days</option>
+<option>Full Fiscal Year 2024</option>
+</select>
+<span class="pointer-events-none absolute right-2.5 text-on-surface-variant material-symbols-outlined text-[16px]">expand_more</span>
+</div>
+<!-- Spend Tier -->
+<div class="relative inline-flex items-center">
+<label class="sr-only" for="spend-filter">Spend Tier</label>
+<span class="absolute left-3 text-on-surface-variant material-symbols-outlined text-[16px]">payments</span>
+<select class="appearance-none bg-surface-container-high text-on-surface font-body-sm text-body-sm pl-9 pr-8 py-2 rounded-lg outline-none focus:bg-surface-container-highest cursor-pointer transition-colors" id="spend-filter">
+<option>&lt; $500 Micro-Orders</option>
+<option>$500 - $1,000 Mid Tier</option>
+<option selected="">$1,000 - $10k+ Prestige</option>
+<option>&gt; $10k Enterprise / VIP</option>
+</select>
+<span class="pointer-events-none absolute right-2.5 text-on-surface-variant material-symbols-outlined text-[16px]">expand_more</span>
+</div>
+<!-- Region -->
+<div class="relative inline-flex items-center">
+<label class="sr-only" for="geo-filter">Region</label>
+<span class="absolute left-3 text-on-surface-variant material-symbols-outlined text-[16px]">public</span>
+<select class="appearance-none bg-surface-container-high text-on-surface font-body-sm text-body-sm pl-9 pr-8 py-2 rounded-lg outline-none focus:bg-surface-container-highest cursor-pointer transition-colors" id="geo-filter">
+<option selected="">Global (All Geo)</option>
+<option>North America (East/West)</option>
+<option>Europe &amp; Nordic (EMEA)</option>
+<option>Asia-Pacific (APAC)</option>
+</select>
+<span class="pointer-events-none absolute right-2.5 text-on-surface-variant material-symbols-outlined text-[16px]">expand_more</span>
+</div>
+</div>
+<!-- Engine Diagnostic Meta -->
+<div class="flex items-center gap-4 text-on-surface-variant font-label-sm text-label-sm border-t lg:border-t-0 pt-2 lg:pt-0">
+<div class="flex items-center gap-1.5">
+<span class="text-outline">LATENCY:</span>
+<span class="text-on-surface font-medium">42ms</span>
+</div>
+<span class="text-outline">•</span>
+<div class="flex items-center gap-1.5">
+<span class="text-outline">SILHOUETTE SCORE:</span>
+<span class="text-primary font-medium">0.742</span>
+<span class="text-secondary text-[10px]">(CONVERGED)</span>
+</div>
+</div>
+</div>
+<!-- Telemetry KPI Quadrant (4 Cards) -->
+<section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 mb-8">
+<!-- Card 1 -->
+<div class="bg-surface-container rounded-xl p-5 flex flex-col justify-between shadow-sm relative overflow-hidden group hover:bg-surface-container-high transition-colors duration-200">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 bg-primary/5 rounded-full blur-xl group-hover:bg-primary/10 transition-colors"></div>
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Profiles Monitored</span>
+<span class="material-symbols-outlined text-[18px] text-primary">fingerprint</span>
+</div>
+<div class="flex items-baseline gap-2.5">
+<span class="font-headline-md text-headline-md text-on-surface font-normal">284,520</span>
+<span class="font-label-sm text-label-sm text-secondary flex items-center font-medium">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span>14.2% YoY
+            </span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span class="">Active 30D Window</span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">68.4% (194.6k)</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container rounded-xl p-5 flex flex-col justify-between shadow-sm relative overflow-hidden group hover:bg-surface-container-high transition-colors duration-200">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 bg-secondary/5 rounded-full blur-xl group-hover:bg-secondary/10 transition-colors"></div>
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Average CLV / LTV</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">monetization_on</span>
+</div>
+<div class="flex items-baseline gap-2.5">
+<span class="font-headline-md text-headline-md text-on-surface font-normal">$842.50</span>
+<span class="font-label-sm text-label-sm text-secondary flex items-center font-medium">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span>8.7% QoQ
+            </span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span class="">Pred. 12M Peak</span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">$1,140.00 <span class="text-outline text-[11px]">(Med: $420)</span></span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container rounded-xl p-5 flex flex-col justify-between shadow-sm relative overflow-hidden group hover:bg-surface-container-high transition-colors duration-200">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Order Velocity</span>
+<span class="material-symbols-outlined text-[18px] text-tertiary">speed</span>
+</div>
+<div class="flex items-baseline gap-2.5">
+<span class="font-headline-md text-headline-md text-on-surface font-normal">3.42 <span class="text-[16px] text-on-surface-variant">ord/yr</span></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center">
+              48d avg cycle
+            </span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span class="">Retention Resilience</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">78.6% (Target Met)</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container rounded-xl p-5 flex flex-col justify-between shadow-sm relative overflow-hidden group hover:bg-surface-container-high transition-colors duration-200">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Net Churn Vulnerability</span>
+<span class="material-symbols-outlined text-[18px] text-primary-container">shield</span>
+</div>
+<div class="flex items-baseline gap-2.5">
+<span class="font-headline-md text-headline-md text-on-surface font-normal">4.8%</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-label-sm uppercase bg-surface-container-highest text-secondary font-medium">
+              Low Risk
+            </span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span class="">High-Value Flags</span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">1,420 Auto-Nudged</span>
+</div>
+</div>
+</section>
+<!-- Middle Asymmetric Cluster: UMAP Scatter Plot + Inspector Panel -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8">
+<!-- Left 2D UMAP Visualizer (8 cols) -->
+<div class="lg:col-span-8 bg-surface-container rounded-xl p-6 shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">2D UMAP Recency-Monetary Embedding</h2>
+<span class="text-xs bg-surface-container-high text-primary px-2 py-0.5 rounded font-label-sm">5 CLUSTERS</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Nonlinear dimension reduction representing 284k records clustered along RFM vectors.</p>
+</div>
+<!-- Scatter Legend -->
+<div class="flex items-center gap-3 text-label-sm font-label-sm">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_8px_rgba(255,182,141,0.6)]"></span>
+<span class="">Champions</span>
+</div>
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="">Loyalists</span>
+</div>
+<div class="flex items-center gap-1.5 text-outline">
+<span class="w-2.5 h-2.5 rounded-full bg-outline"></span>
+<span class="">At-Risk</span>
+</div>
+<div class="flex items-center gap-1.5 text-surface-bright">
+<span class="w-2.5 h-2.5 rounded-full bg-surface-bright"></span>
+<span class="">Dormant</span>
+</div>
+</div>
+</div>
+<!-- Interactive Plot Canvas Area (Inline Rich SVG with Coordinates & Centroids) -->
+<div class="relative w-full h-80 sm:h-96 bg-surface-container-lowest rounded-lg p-3 overflow-hidden flex items-center justify-center">
+<!-- Background Axis Grid Lines -->
+<svg class="w-full h-full text-surface-container-high/40 select-none" preserveAspectRatio="none" viewBox="0 0 800 400">
+<!-- Grid Lines -->
+<line stroke="currentColor" stroke-dasharray="3 3" x1="80" x2="80" y1="40" y2="360"></line>
+<line stroke="currentColor" stroke-dasharray="3 3" x1="220" x2="220" y1="40" y2="360"></line>
+<line stroke="currentColor" stroke-dasharray="3 3" x1="360" x2="360" y1="40" y2="360"></line>
+<line stroke="currentColor" stroke-dasharray="3 3" x1="500" x2="500" y1="40" y2="360"></line>
+<line stroke="currentColor" stroke-dasharray="3 3" x1="640" x2="640" y1="40" y2="360"></line>
+<line stroke="currentColor" stroke-dasharray="3 3" x1="40" x2="760" y1="80" y2="80"></line>
+<line stroke="currentColor" stroke-dasharray="3 3" x1="40" x2="760" y1="160" y2="160"></line>
+<line stroke="currentColor" stroke-dasharray="3 3" x1="40" x2="760" y1="240" y2="240"></line>
+<line stroke="currentColor" stroke-dasharray="3 3" x1="40" x2="760" y1="320" y2="320"></line>
+<!-- Dormant Points (Cluster 4) - Bottom-Left dense -->
+<g class="fill-surface-variant/80">
+<circle cx="95" cy="330" r="2.5"></circle>
+<circle cx="110" cy="340" r="3"></circle>
+<circle cx="130" cy="325" r="2.5"></circle>
+<circle cx="105" cy="310" r="3"></circle>
+<circle cx="145" cy="335" r="2"></circle>
+<circle cx="160" cy="315" r="3.5"></circle>
+<circle cx="120" cy="350" r="2"></circle>
+<circle cx="175" cy="340" r="2.5"></circle>
+<circle cx="190" cy="320" r="3"></circle>
+<circle cx="135" cy="295" r="3.5"></circle>
+<circle cx="150" cy="285" r="2"></circle>
+<circle cx="170" cy="290" r="2.5"></circle>
+</g>
+<!-- At-Risk Points (Cluster 3) - Middle-Left -->
+<g class="fill-outline/80">
+<circle cx="210" cy="230" r="3.5"></circle>
+<circle cx="230" cy="250" r="4"></circle>
+<circle cx="245" cy="215" r="3"></circle>
+<circle cx="270" cy="240" r="4.5"></circle>
+<circle cx="260" cy="265" r="3"></circle>
+<circle cx="290" cy="235" r="3.5"></circle>
+<circle cx="310" cy="220" r="4"></circle>
+<circle cx="280" cy="205" r="3"></circle>
+<circle cx="305" cy="255" r="2.5"></circle>
+<circle cx="330" cy="245" r="4"></circle>
+<circle cx="250" cy="190" r="3"></circle>
+</g>
+<!-- Loyalist Points (Cluster 2) - Center right -->
+<g class="fill-secondary">
+<circle class="opacity-90" cx="430" cy="180" r="4.5"></circle>
+<circle class="opacity-80" cx="450" cy="155" r="5"></circle>
+<circle class="opacity-85" cx="470" cy="200" r="4"></circle>
+<circle class="opacity-90" cx="490" cy="165" r="6"></circle>
+<circle class="opacity-75" cx="510" cy="190" r="5"></circle>
+<circle class="opacity-90" cx="530" cy="140" r="4.5"></circle>
+<circle class="opacity-85" cx="550" cy="175" r="6.5"></circle>
+<circle class="opacity-80" cx="480" cy="130" r="4"></circle>
+<circle class="opacity-85" cx="520" cy="210" r="4.5"></circle>
+<circle class="opacity-90" cx="460" cy="170" r="5"></circle>
+<circle class="opacity-80" cx="540" cy="200" r="4"></circle>
+</g>
+<!-- Champions Points (Cluster 1) - Top right Glowing Warm Terracotta -->
+<g class="fill-primary filter drop-shadow-[0_0_6px_rgba(224,122,56,0.8)]">
+<circle cx="610" cy="95" r="6.5"></circle>
+<circle cx="635" cy="75" r="7"></circle>
+<circle cx="650" cy="115" r="5.5"></circle>
+<circle cx="670" cy="85" r="8"></circle>
+<circle cx="690" cy="105" r="6.5"></circle>
+<circle cx="630" cy="130" r="7.5"></circle>
+<circle cx="665" cy="140" r="6"></circle>
+<circle cx="710" cy="90" r="7"></circle>
+<circle cx="680" cy="65" r="6.5"></circle>
+<circle cx="725" cy="110" r="8.5"></circle>
+<circle cx="645" cy="90" r="6"></circle>
+<circle cx="695" cy="130" r="7.5"></circle>
+</g>
+<!-- K-Means Centroid #1 Highlight & Radar Ring -->
+<g class="cursor-pointer" id="centroid-1-target">
+<circle class="animate-spin origin-[665px_100px]" cx="665" cy="100" fill="none" r="28" stroke="#e07a38" stroke-dasharray="4 2" stroke-width="1.5" style="animation-duration: 18s;"></circle>
+<circle cx="665" cy="100" fill="#e07a38" r="6" stroke="#100e0c" stroke-width="2"></circle>
+<!-- Centroid Tag Annotation -->
+<rect fill="#221f1d" height="28" rx="4" stroke="#554339" stroke-width="1" width="170" x="580" y="24"></rect>
+<text fill="#ffb68d" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" text-anchor="middle" x="665" y="42">
+                CENTROID #1: VIP ($3.8k / 3.1d)
+              </text>
+<line stroke="#e07a38" stroke-width="1" x1="665" x2="665" y1="52" y2="72"></line>
+</g>
+<!-- Density Field Lines Contour (Subtle decorative spline) -->
+<path d="M 580 150 C 620 50, 740 50, 750 160 C 760 210, 680 180, 580 150 Z" fill="none" opacity="0.3" stroke="#e07a38" stroke-width="0.75"></path>
+<path d="M 400 230 C 440 120, 560 110, 570 230 C 580 280, 480 260, 400 230 Z" fill="none" opacity="0.2" stroke="#ffb955" stroke-width="0.75"></path>
+</svg>
+<!-- Floating Micro Coordinates overlay -->
+<div class="absolute bottom-3 left-4 font-label-sm text-label-sm text-on-surface-variant flex items-center gap-4 select-none">
+<span class="">UMAP_DIM_1: Recency Horizon (Days) →</span>
+<span class="">↑ UMAP_DIM_2: Monetary Depth ($)</span>
+</div>
+<div class="absolute top-3 right-4 font-label-sm text-label-sm text-outline">
+            DBSCAN eps=0.34 • MinPts=45
+          </div>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant mt-4 pt-2">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">scatter_plot</span>
+            Showing 1:1,000 sub-sampled representative embeddings
+          </span>
+<span class="font-label-sm text-label-sm text-primary hover:underline cursor-pointer">
+            Recompute 3D Projection →
+          </span>
+</div>
+</div>
+<!-- Right Cluster Inspector Panel (4 cols) -->
+<div class="lg:col-span-4 bg-surface-container rounded-xl p-6 shadow-sm flex flex-col justify-between">
+<div>
+<!-- Header and Badge -->
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Cluster Inspector</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded font-label-sm text-label-sm bg-primary/10 text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              CLUSTER 01 / 05
+            </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">
+            Champions &amp; High Velocity
+          </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6">
+            Elite customer tier with minimal inter-purchase latency and high basket density across luxury lines.
+          </p>
+<!-- Metrics Breakdown Grid -->
+<div class="space-y-4">
+<div class="bg-surface-container-low rounded-lg p-3.5 flex items-center justify-between">
+<div>
+<span class="font-body-sm text-body-sm text-on-surface-variant block">Volume of Customers</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">18,420</span>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-outline block">PROPORTION</span>
+<span class="font-label-md text-label-md text-primary font-semibold">6.5% of Total</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg p-3.5 flex items-center justify-between">
+<div>
+<span class="font-body-sm text-body-sm text-on-surface-variant block">GMV Contribution</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">$52.3M</span>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-outline block">REVENUE SHARE</span>
+<span class="font-label-md text-label-md text-secondary font-semibold">42.8% of Total</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-surface-container-low rounded-lg p-3">
+<span class="font-label-sm text-label-sm text-outline block mb-1">AVG SPEND / PROFILE</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">$2,840.00</span>
+<span class="font-body-sm text-body-sm text-secondary block mt-1">+18% above mean</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-3">
+<span class="font-label-sm text-label-sm text-outline block mb-1">AVG RECENCY</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">4.2 Days</span>
+<span class="font-body-sm text-body-sm text-primary block mt-1">High Momentum</span>
+</div>
+</div>
+<!-- Dominant Category Affinity Tags -->
+<div class="pt-2">
+<span class="font-label-sm text-label-sm text-outline block mb-2 uppercase">Dominant Categories</span>
+<div class="flex flex-wrap gap-2">
+<span class="px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface font-body-sm text-body-sm">
+                  Premium Apparel
+                </span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface font-body-sm text-body-sm">
+                  Smart Audio
+                </span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface font-body-sm text-body-sm">
+                  Limited Editions
+                </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action CTA -->
+<div class="mt-6 pt-4">
+<button class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-primary text-on-primary font-body-md text-body-md font-semibold hover:bg-primary-container hover:text-on-primary-container transition-all shadow-[0_4px_16px_rgba(224,122,56,0.25)] active:scale-[0.98]" id="btn-deploy-cohort-offer">
+<span class="material-symbols-outlined text-[20px]">campaign</span>
+<span class="">Deploy Targeted Offer to Cohort</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Cohort Retention Heatmap Section -->
+<section class="bg-surface-container rounded-xl p-6 shadow-sm mb-8">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+<div>
+<div class="flex items-center gap-2.5">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Monthly Acquisition Retention Heatmap (%)</h2>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-secondary font-label-sm text-label-sm font-medium">
+              +12.4% Lift at M+3 Cliff
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+            Tracking multi-purchase elasticity after onboarding. Cohort color saturation reflects retention strength.
+          </p>
+</div>
+<div class="flex items-center gap-3 text-label-sm font-label-sm">
+<span class="text-outline">RETENTION SPECTRUM:</span>
+<div class="flex items-center gap-1">
+<span class="w-4 h-3 rounded-sm bg-surface-container-highest"></span>
+<span class="text-outline">&lt;35%</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-4 h-3 rounded-sm bg-tertiary-container/60"></span>
+<span class="text-outline">50%</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-4 h-3 rounded-sm bg-primary-container"></span>
+<span class="text-primary font-semibold">100%</span>
+</div>
+</div>
+</div>
+<!-- Matrix Heatmap Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="font-label-sm text-label-sm text-outline border-b border-surface-container-highest pb-3">
+<th class="py-3 px-4 uppercase tracking-wider font-semibold">Cohort</th>
+<th class="py-3 px-4 text-right uppercase tracking-wider font-semibold">Acquired</th>
+<th class="py-3 px-3 text-center uppercase">M+0</th>
+<th class="py-3 px-3 text-center uppercase">M+1</th>
+<th class="py-3 px-3 text-center uppercase">M+2</th>
+<th class="py-3 px-3 text-center uppercase">M+3</th>
+<th class="py-3 px-3 text-center uppercase">M+4</th>
+<th class="py-3 px-3 text-center uppercase">M+5</th>
+<th class="py-3 px-3 text-center uppercase">M+6</th>
+<th class="py-3 px-3 text-center uppercase">M+7</th>
+</tr>
+</thead>
+<tbody class="font-label-md text-label-md divide-y divide-surface-container-high/40">
+<!-- Jan 2024 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-4 font-body-sm text-body-sm font-semibold text-on-surface">Jan 2024</td>
+<td class="py-3 px-4 text-right font-label-md text-on-surface-variant">24,180</td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-primary-container text-on-primary-container font-semibold">100%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-primary-container/85 text-on-primary-container font-semibold">74.2%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-primary-container/70 text-on-primary-container font-medium">62.8%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-primary-container/60 text-on-surface font-medium">58.4%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-secondary-container/60 text-on-surface font-medium">51.2%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-secondary-container/45 text-on-surface font-normal">47.8%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-surface-container-highest text-on-surface-variant font-normal">42.1%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-surface-container-highest text-on-surface-variant font-normal">38.6%</div></td>
+</tr>
+<!-- Feb 2024 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-4 font-body-sm text-body-sm font-semibold text-on-surface">Feb 2024</td>
+<td class="py-3 px-4 text-right font-label-md text-on-surface-variant">26,450</td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-primary-container text-on-primary-container font-semibold">100%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-primary-container/90 text-on-primary-container font-semibold">76.8%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-primary-container/75 text-on-primary-container font-medium">64.5%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-primary-container/65 text-on-surface font-medium">60.1%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-secondary-container/65 text-on-surface font-medium">54.0%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-secondary-container/50 text-on-surface font-normal">49.2%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-surface-container-highest text-on-surface-variant font-normal">44.0%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center text-outline/50">—</div></td>
+</tr>
+<!-- Mar 2024 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-4 font-body-sm text-body-sm font-semibold text-on-surface">Mar 2024</td>
+<td class="py-3 px-4 text-right font-label-md text-on-surface-variant">29,120</td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-primary-container text-on-primary-container font-semibold">100%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-primary-container/90 text-on-primary-container font-semibold">79.1%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-primary-container/80 text-on-primary-container font-medium">68.2%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-primary-container/70 text-on-primary-container font-medium">63.7%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-secondary-container/65 text-on-surface font-medium">56.5%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-secondary-container/50 text-on-surface font-normal">50.8%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center text-outline/50">—</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center text-outline/50">—</div></td>
+</tr>
+<!-- Apr 2024 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-4 font-body-sm text-body-sm font-semibold text-on-surface">Apr 2024</td>
+<td class="py-3 px-4 text-right font-label-md text-on-surface-variant">31,040</td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-primary-container text-on-primary-container font-semibold">100%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-primary-container/95 text-on-primary-container font-semibold">81.4%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-primary-container/85 text-on-primary-container font-medium">71.0%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-primary-container/75 text-on-primary-container font-medium">67.2%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-secondary-container/70 text-on-surface font-medium">59.9%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center text-outline/50">—</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center text-outline/50">—</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center text-outline/50">—</div></td>
+</tr>
+<!-- May 2024 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-4 font-body-sm text-body-sm font-semibold text-on-surface">May 2024</td>
+<td class="py-3 px-4 text-right font-label-md text-on-surface-variant">33,890</td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-primary-container text-on-primary-container font-semibold">100%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-primary-container/95 text-on-primary-container font-semibold">83.0%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-primary-container/85 text-on-primary-container font-medium">73.6%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center bg-primary-container/75 text-on-primary-container font-medium">69.1%</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center text-outline/50">—</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center text-outline/50">—</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center text-outline/50">—</div></td>
+<td class="p-1.5"><div class="h-9 rounded flex items-center justify-center text-outline/50">—</div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Live Customer Profile Stream & Granular RFM Registry -->
+<section class="bg-surface-container rounded-xl p-6 shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Recent High-Value Transacting Profiles</h2>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-label-sm bg-surface-container-high text-primary font-medium">
+              LIVE STREAM
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+            Individual profile vectors updated in real-time through checkout hooks and CDP event pipes.
+          </p>
+</div>
+<!-- In-Table Search Filter -->
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[16px]">filter_list</span>
+<input class="bg-surface-container-lowest text-on-surface placeholder:text-outline font-body-sm text-body-sm pl-9 pr-4 py-1.5 rounded-lg w-64 outline-none focus:ring-1 focus:ring-primary transition-all" id="profile-search-input" placeholder="Filter profiles or tags..." type="text">
+</div>
+</div>
+<!-- Profiles Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="font-label-sm text-label-sm text-outline border-b border-surface-container-highest pb-3">
+<th class="py-3 px-4 uppercase tracking-wider font-semibold">Customer / ID</th>
+<th class="py-3 px-4 uppercase tracking-wider font-semibold">Segment</th>
+<th class="py-3 px-4 text-right uppercase tracking-wider font-semibold">Recency</th>
+<th class="py-3 px-4 text-right uppercase tracking-wider font-semibold">Frequency</th>
+<th class="py-3 px-4 text-right uppercase tracking-wider font-semibold">Monetary (GMV)</th>
+<th class="py-3 px-4 text-right uppercase tracking-wider font-semibold">Next Expected</th>
+<th class="py-3 px-4 text-center uppercase tracking-wider font-semibold">Churn Propensity</th>
+<th class="py-3 px-4 text-center uppercase tracking-wider font-semibold">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high/40 font-body-sm text-body-sm" id="profiles-tbody">
+<!-- Row 1: Helena Lindqvist -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full overflow-hidden bg-surface-container-highest flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Close-up editorial portrait of Helena, a high-fashion Scandinavian woman with natural light, neutral terracotta and espresso ambient tone, minimalist aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdaERXzuWvqGgFCDmzb0yT7Y797s_QAIPVnqInGJkPEdx7Xl6-xQ7qXY9pOIzBOUOR9haDPPhfNFWXP1ybxQDcu6Q6K_HCAYf0xXVT6SFM-SMtw3b-iyexPSxwXv6i0tbx4vEk01ttUm1Gs9urNVyEA0_I8uukIDroZ2fFsjAKLW0x9xt4a7ZvI9hwY2Qp_7TVF9WBG_DzPQMzjJVv4fo_Ztkfm2HUB3HvrIHoDEg">
+</div>
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface group-hover:text-primary transition-colors">Helena Lindqvist</span>
+<span class="font-label-sm text-label-sm text-outline">NX-8849-SE</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-primary-container/20 text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                  Champion
+                </span>
+</td>
+<td class="py-3.5 px-4 text-right font-label-md text-label-md text-on-surface">2 Days ago</td>
+<td class="py-3.5 px-4 text-right font-label-md text-label-md text-on-surface">18 Orders</td>
+<td class="py-3.5 px-4 text-right font-label-md text-label-md text-primary font-semibold">$5,420.00</td>
+<td class="py-3.5 px-4 text-right font-label-sm text-label-sm text-on-surface-variant">In 12 Days</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-label-sm bg-surface-container-highest text-secondary font-medium">
+                  2.1% Minimal
+                </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all" onclick="alert('Navigating to Customer 360 Dossier: NX-8849-SE')">
+                  View 360
+                </button>
+</td>
+</tr>
+<!-- Row 2: Marcus Davies -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full overflow-hidden bg-surface-container-highest flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Moody architectural portrait of Marcus, a British designer in dark wool turtleneck with subtle warm rim lighting, rich dark espresso atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcKHqCnJ-T5ps_-AdrUjtRSID9k00HqahmoA_dj1CkzDX2r8U024WBbIZ-35XETnbbQHmIIFsQU8HCPrIx1I1RGsqczkofrXL9vQPrXSpYGmOX4o3iOnlbEuBIK1RpIxOn_MGF1Ji48ku-QRP8RlYASBwALqPcUDl72S6crCHE3O33ZMi6AQMEz6ZPgm8bKZpRxrtRZO5w4Bomp0eULR40fXHriOJdFn_v0cA4nVk">
+</div>
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface group-hover:text-primary transition-colors">Marcus Davies</span>
+<span class="font-label-sm text-label-sm text-outline">NX-4029-UK</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-secondary-container/20 text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Loyalist
+                </span>
+</td>
+<td class="py-3.5 px-4 text-right font-label-md text-label-md text-on-surface">8 Days ago</td>
+<td class="py-3.5 px-4 text-right font-label-md text-label-md text-on-surface">11 Orders</td>
+<td class="py-3.5 px-4 text-right font-label-md text-label-md text-on-surface font-semibold">$3,180.00</td>
+<td class="py-3.5 px-4 text-right font-label-sm text-label-sm text-on-surface-variant">In 24 Days</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-label-sm bg-surface-container-highest text-secondary font-medium">
+                  5.4% Low
+                </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all" onclick="alert('Navigating to Customer 360 Dossier: NX-4029-UK')">
+                  View 360
+                </button>
+</td>
+</tr>
+<!-- Row 3: Soren Kjeldsen -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full overflow-hidden bg-surface-container-highest flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Refined candid portrait of Soren, an architect in mid-40s with sharp features, warm lighting against dark textured clay wall, luxury editorial profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPtfSI0w21dXPmTCdJcHzKMZpFBiBrllBPpO8bwbXFLqVmdvqhqoULHFE0URd-1ymcpaU--2D97gK4jSM_VNZGF0n2kIw-6Gkb44l8zdO3vBH6IgT07xOD239FyQobSUAPcmjbSisA4XONW84wb1LI5DGi0qkmNxWzzQGFy12jN3FJSj2NpEGbIPUx8OzH-g788ccCEVQnMtUTgF5IwuABx8UCYpJGL8Fpa5vA9qw">
+</div>
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface group-hover:text-primary transition-colors">Soren Kjeldsen</span>
+<span class="font-label-sm text-label-sm text-outline">NX-1934-DK</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-outline/20 text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                  At-Risk VIP
+                </span>
+</td>
+<td class="py-3.5 px-4 text-right font-label-md text-label-md text-on-surface">54 Days ago</td>
+<td class="py-3.5 px-4 text-right font-label-md text-label-md text-on-surface">9 Orders</td>
+<td class="py-3.5 px-4 text-right font-label-md text-label-md text-on-surface font-semibold">$4,890.00</td>
+<td class="py-3.5 px-4 text-right font-label-sm text-label-sm text-error font-medium">Overdue (14d)</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-label-sm bg-error-container text-error font-medium">
+                  34.2% Elevated
+                </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all" onclick="alert('Navigating to Customer 360 Dossier: NX-1934-DK')">
+                  View 360
+                </button>
+</td>
+</tr>
+<!-- Row 4: Amara Chen -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full overflow-hidden bg-surface-container-highest flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Cinematic profile portrait of Amara, an executive in dark linen attire, soft warm terracotta ambient highlights, deep dark shadows and luxury tone" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeU_wZ-vskTbhkwdp_MDgusV1_DMghv38Q_voXKU_3BtUuImNC2iaGM_Lh9aTjSCiCae2HpEVOhxZgaHmoT_L0766USfe2-yWwemMkwo-2Oxc6uAkWbZU8C_7H9qbhTm3oZLPyiJ3Y3EDpBDVS_--S3nHSde-qkzxSvM_F1_IutwRHvzlpydBncymu9DQIxjaO9f4LwjwNFsQlqqZ_GVdgoNrTF9DQtAPjxpKCViM">
+</div>
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface group-hover:text-primary transition-colors">Amara Chen</span>
+<span class="font-label-sm text-label-sm text-outline">NX-7120-SG</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-primary-container/20 text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                  Champion
+                </span>
+</td>
+<td class="py-3.5 px-4 text-right font-label-md text-label-md text-on-surface">3 Days ago</td>
+<td class="py-3.5 px-4 text-right font-label-md text-label-md text-on-surface">14 Orders</td>
+<td class="py-3.5 px-4 text-right font-label-md text-label-md text-primary font-semibold">$6,210.00</td>
+<td class="py-3.5 px-4 text-right font-label-sm text-label-sm text-on-surface-variant">In 18 Days</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-label-sm bg-surface-container-highest text-secondary font-medium">
+                  1.8% Minimal
+                </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all" onclick="alert('Navigating to Customer 360 Dossier: NX-7120-SG')">
+                  View 360
+                </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination / Footer meta for profiles -->
+<div class="mt-4 pt-4 border-t border-surface-container-high/40 flex flex-col sm:flex-row items-center justify-between text-body-sm text-body-sm text-on-surface-variant gap-3">
+<span class="">Showing 4 of 18,420 High-Value Profiles (Filtered)</span>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm hover:bg-surface-container-highest transition-colors">Previous</button>
+<span class="font-label-sm text-label-sm text-on-surface px-2">Page 1 of 461</span>
+<button class="px-3 py-1 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm hover:bg-surface-container-highest transition-colors">Next</button>
+</div>
+</div>
+</section>
+</div>
+</div>
+<script>
+  // Interactive micro-interactions & feedback toast
+  document.getElementById('btn-sync-cdp')?.addEventListener('click', function() {
+    const btn = this;
+    const originalText = btn.innerHTML;
+    btn.innerHTML = `<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span><span>Syncing with Segment/Klaviyo...</span>`;
+    btn.classList.add('opacity-80', 'pointer-events-none');
+    
+    setTimeout(() => {
+      btn.innerHTML = `<span class="material-symbols-outlined text-[18px]">check_circle</span><span>18,420 Cohort Vectors Synced</span>`;
+      btn.classList.remove('opacity-80');
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.classList.remove('pointer-events-none');
+      }, 2500);
+    }, 1200);
+  });
+
+  document.getElementById('btn-export-csv')?.addEventListener('click', function() {
+    const original = this.innerHTML;
+    this.innerHTML = `<span class="material-symbols-outlined text-[18px] animate-bounce">download</span><span>Generating CSV bundle...</span>`;
+    setTimeout(() => {
+      this.innerHTML = original;
+      alert('Cohort list downloaded: customer_360_rfm_champions_v3.csv');
+    }, 900);
+  });
+
+  document.getElementById('btn-deploy-cohort-offer')?.addEventListener('click', function() {
+    alert('Campaign Configurator Launched: Targeting 18,420 Champions with dynamic VIP early-access token.');
+  });
+
+  // Simple profile table live search filter
+  const searchInput = document.getElementById('profile-search-input');
+  const tbody = document.getElementById('profiles-tbody');
+  if (searchInput && tbody) {
+    searchInput.addEventListener('input', function(e) {
+      const term = e.target.value.toLowerCase();
+      const rows = tbody.querySelectorAll('tr');
+      rows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        row.style.display = text.includes(term) ? '' : 'none';
+      });
+    });
+  }
+
+  // Interactive centroid click
+  const centroid = document.getElementById('centroid-1-target');
+  if (centroid) {
+    centroid.addEventListener('click', () => {
+      alert('Centroid #1 Details: Mean Vector = [Recency: 3.1d, Frequency: 16.2 orders/yr, Spend: $3,842.10]. Distance tolerance: 0.18 sigma.');
+    });
+  }
+</script></main></div>
+
+</body></html>
